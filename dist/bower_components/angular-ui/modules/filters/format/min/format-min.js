@@ -1,0 +1,1 @@
+angular.module("ui.filters").filter("format",function(){return function(r,n){if(!r)return r;var i=r.toString(),a;return void 0===n?i:angular.isArray(n)||angular.isObject(n)?(a=angular.isArray(n)&&"$"||":",angular.forEach(n,function(r,n){i=i.split(a+n).join(r)}),i):i.split("$0").join(n)}});

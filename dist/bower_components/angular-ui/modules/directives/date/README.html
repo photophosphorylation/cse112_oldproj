@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8"/>
+</head>
+<body>
+<h1 id="ui-datedirective">ui-date directive</h1>
+
+<p>This directive allows you to add a date-picker to your form elements.</p>
+
+<h1 id="requirements">Requirements</h1>
+
+<ul>
+<li>JQuery</li>
+<li>JQueryUI</li>
+<li><a href="https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/Date/toISOString">Date.toISOString()</a> (requires <a href="https://github.com/kriskowal/es5-shim/">polyfill</a> for &le;IE8)</li>
+</ul>
+
+<h1 id="usage">Usage</h1>
+
+<p>Load the script file in your application:</p>
+
+<pre><code>&lt;script type=&quot;text/javascript&quot; src=&quot;angular-ui.js&quot;&gt;&lt;/script&gt;
+</code></pre>
+
+<p>Add the date module as a dependency to your application module:</p>
+
+<pre><code>var myAppModule = angular.module('MyApp', ['ui.directives'])
+</code></pre>
+
+<p>Apply the directive to your form elements:</p>
+
+<pre><code>&lt;input ui-date name=&quot;DateOfBirth&quot;&gt;&lt;/input&gt;
+</code></pre>
+
+<h2 id="options">Options</h2>
+
+<p>All the jQueryUI DatePicker options can be passed through the directive.</p>
+
+<pre><code>myAppModule.controller('MyController', function($scope) {
+    $scope.dateOptions = {
+        changeYear: true,
+        changeMonth: true,
+        yearRange: '1900:-0'
+    };
+});
+
+&lt;input ui-date=&quot;dateOptions&quot; name=&quot;DateOfBirth&quot;&gt;&lt;/input&gt;
+</code></pre>
+
+<h2 id="staticinlinepicker">Static Inline Picker</h2>
+
+<p>If you want a static picker then simply apply the directive to a div rather than an input element.</p>
+
+<pre><code>&lt;div ui-date=&quot;dateOptions&quot; name=&quot;DateOfBirth&quot;&gt;&lt;/div&gt;
+</code></pre>
+
+<h1 id="workingwithng-model">Working with ng-model</h1>
+
+<p>The ui-date directive plays nicely with ng-model and validation directives such as ng-required.</p>
+
+<p>If you add the ng-model directive to same the element as ui-date then the picked date is automatically synchronized with the model value.</p>
+
+<p><em>The ui-date directive stores and expects the model value to be a standard javascript Date object.</em></p>
+
+<h2 id="ui-date-formatdirective">ui-date-format directive</h2>
+
+<p>The ui-date directive only works with Date objects.
+If you want to pass date strings to and from the date directive via ng-model then you must use the ui-date-format directive.
+This directive specifies the format of the date string that will be expected in the ng-model.
+The format string syntax is that defined by the JQueryUI Date picker. For example</p>
+
+<pre><code>&lt;input ui-date ui-date-format=&quot;DD, d MM, yy&quot; ng-model=&quot;myDate&quot;&gt;&lt;/input&gt;
+</code></pre>
+
+<p>Now you can set myDate in the controller.</p>
+
+<pre><code>$scope.myDate = &quot;Thursday, 11 October, 2012&quot;;
+</code></pre>
+
+<h2 id="ng-requireddirective">ng-required directive</h2>
+
+<p>If you apply the required directive to element then the form element is invalid until a date is picked.</p>
+
+<p>Note: Remember that the ng-required directive must be explictly set, i.e. to &#8220;true&#8221;. This is especially true on divs:</p>
+
+<pre><code>&lt;div ui-date=&quot;dateOptions&quot; name=&quot;DateOfBirth&quot; ng-required=&quot;true&quot;&gt;&lt;/div&gt;
+</code></pre>
+
+</body>
+</html>

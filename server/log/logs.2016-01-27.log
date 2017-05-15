@@ -1,0 +1,178 @@
+2016-01-27T21:45:36.412Z - error: uncaughtException: Cannot read property 'length' of undefined date=Wed Jan 27 2016 13:45:36 GMT-0800 (PST), pid=10466, uid=501, gid=20, cwd=/Users/atang020/team2, execPath=/usr/local/bin/node, version=v0.12.7, argv=[node, /Users/atang020/team2/server/adminLTEapp.js], rss=66088960, heapTotal=58682624, heapUsed=33021512, loadavg=[2.28125, 2.09765625, 2.19677734375], uptime=1129292, trace=[column=31, file=/Users/atang020/team2/node_modules/mongoose/node_modules/mongodb/lib/mongodb/db.js, function=processResults, line=1581, method=null, native=false, column=20, file=/Users/atang020/team2/node_modules/mongoose/node_modules/mongodb/lib/mongodb/db.js, function=null, line=1619, method=null, native=false, column=7, file=/Users/atang020/team2/node_modules/mongoose/node_modules/mongodb/lib/mongodb/db.js, function=null, line=1157, method=null, native=false, column=9, file=/Users/atang020/team2/node_modules/mongoose/node_modules/mongodb/lib/mongodb/db.js, function=null, line=1890, method=null, native=false, column=41, file=/Users/atang020/team2/node_modules/mongoose/node_modules/mongodb/lib/mongodb/connection/base.js, function=Server.Base._callHandler, line=448, method=Base._callHandler, native=false, column=18, file=/Users/atang020/team2/node_modules/mongoose/node_modules/mongodb/lib/mongodb/connection/server.js, function=null, line=481, method=null, native=false, column=5, file=/Users/atang020/team2/node_modules/mongoose/node_modules/mongodb/lib/mongodb/responses/mongo_reply.js, function=MongoReply.parseBody, line=68, method=parseBody, native=false, column=20, file=/Users/atang020/team2/node_modules/mongoose/node_modules/mongodb/lib/mongodb/connection/server.js, function=, line=439, method=null, native=false, column=17, file=events.js, function=emit, line=107, method=null, native=false, column=13, file=/Users/atang020/team2/node_modules/mongoose/node_modules/mongodb/lib/mongodb/connection/connection_pool.js, function=, line=201, method=null, native=false], stack=[TypeError: Cannot read property 'length' of undefined,     at processResults (/Users/atang020/team2/node_modules/mongoose/node_modules/mongodb/lib/mongodb/db.js:1581:31),     at /Users/atang020/team2/node_modules/mongoose/node_modules/mongodb/lib/mongodb/db.js:1619:20,     at /Users/atang020/team2/node_modules/mongoose/node_modules/mongodb/lib/mongodb/db.js:1157:7,     at /Users/atang020/team2/node_modules/mongoose/node_modules/mongodb/lib/mongodb/db.js:1890:9,     at Server.Base._callHandler (/Users/atang020/team2/node_modules/mongoose/node_modules/mongodb/lib/mongodb/connection/base.js:448:41),     at /Users/atang020/team2/node_modules/mongoose/node_modules/mongodb/lib/mongodb/connection/server.js:481:18,     at MongoReply.parseBody (/Users/atang020/team2/node_modules/mongoose/node_modules/mongodb/lib/mongodb/responses/mongo_reply.js:68:5),     at null.<anonymous> (/Users/atang020/team2/node_modules/mongoose/node_modules/mongodb/lib/mongodb/connection/server.js:439:20),     at emit (events.js:107:17),     at null.<anonymous> (/Users/atang020/team2/node_modules/mongoose/node_modules/mongodb/lib/mongodb/connection/connection_pool.js:201:13)]
+2016-01-27T21:45:36.417Z - error: uncaughtException: Cannot read property 'length' of undefined date=Wed Jan 27 2016 13:45:36 GMT-0800 (PST), pid=10466, uid=501, gid=20, cwd=/Users/atang020/team2, execPath=/usr/local/bin/node, version=v0.12.7, argv=[node, /Users/atang020/team2/server/adminLTEapp.js], rss=66584576, heapTotal=58682624, heapUsed=33573640, loadavg=[2.28125, 2.09765625, 2.19677734375], uptime=1129292, trace=[column=31, file=/Users/atang020/team2/node_modules/mongoose/node_modules/mongodb/lib/mongodb/db.js, function=processResults, line=1581, method=null, native=false, column=20, file=/Users/atang020/team2/node_modules/mongoose/node_modules/mongodb/lib/mongodb/db.js, function=null, line=1619, method=null, native=false, column=7, file=/Users/atang020/team2/node_modules/mongoose/node_modules/mongodb/lib/mongodb/db.js, function=null, line=1157, method=null, native=false, column=9, file=/Users/atang020/team2/node_modules/mongoose/node_modules/mongodb/lib/mongodb/db.js, function=null, line=1890, method=null, native=false, column=41, file=/Users/atang020/team2/node_modules/mongoose/node_modules/mongodb/lib/mongodb/connection/base.js, function=Server.Base._callHandler, line=448, method=Base._callHandler, native=false, column=18, file=/Users/atang020/team2/node_modules/mongoose/node_modules/mongodb/lib/mongodb/connection/server.js, function=null, line=481, method=null, native=false, column=5, file=/Users/atang020/team2/node_modules/mongoose/node_modules/mongodb/lib/mongodb/responses/mongo_reply.js, function=MongoReply.parseBody, line=68, method=parseBody, native=false, column=20, file=/Users/atang020/team2/node_modules/mongoose/node_modules/mongodb/lib/mongodb/connection/server.js, function=, line=439, method=null, native=false, column=17, file=events.js, function=emit, line=107, method=null, native=false, column=13, file=/Users/atang020/team2/node_modules/mongoose/node_modules/mongodb/lib/mongodb/connection/connection_pool.js, function=, line=201, method=null, native=false], stack=[TypeError: Cannot read property 'length' of undefined,     at processResults (/Users/atang020/team2/node_modules/mongoose/node_modules/mongodb/lib/mongodb/db.js:1581:31),     at /Users/atang020/team2/node_modules/mongoose/node_modules/mongodb/lib/mongodb/db.js:1619:20,     at /Users/atang020/team2/node_modules/mongoose/node_modules/mongodb/lib/mongodb/db.js:1157:7,     at /Users/atang020/team2/node_modules/mongoose/node_modules/mongodb/lib/mongodb/db.js:1890:9,     at Server.Base._callHandler (/Users/atang020/team2/node_modules/mongoose/node_modules/mongodb/lib/mongodb/connection/base.js:448:41),     at /Users/atang020/team2/node_modules/mongoose/node_modules/mongodb/lib/mongodb/connection/server.js:481:18,     at MongoReply.parseBody (/Users/atang020/team2/node_modules/mongoose/node_modules/mongodb/lib/mongodb/responses/mongo_reply.js:68:5),     at null.<anonymous> (/Users/atang020/team2/node_modules/mongoose/node_modules/mongodb/lib/mongodb/connection/server.js:439:20),     at emit (events.js:107:17),     at null.<anonymous> (/Users/atang020/team2/node_modules/mongoose/node_modules/mongodb/lib/mongodb/connection/connection_pool.js:201:13)]
+2016-01-27T21:45:55.024Z - info: [0mGET / [32m200 [0m13.009 ms - 1311[0m
+
+2016-01-27T21:45:55.177Z - info: [0mGET /css/vendor.css [32m200 [0m33.222 ms - 156494[0m
+
+2016-01-27T21:45:55.187Z - info: [0mGET /css/header-bar.css [32m200 [0m17.779 ms - 2236[0m
+
+2016-01-27T21:45:55.195Z - info: [0mGET /css/sidebar.css [32m200 [0m10.358 ms - 1905[0m
+
+2016-01-27T21:45:55.201Z - info: [0mGET /vendor.js [32m200 [0m44.709 ms - 394177[0m
+
+2016-01-27T21:45:55.204Z - info: [0mGET /css/employees.css [32m200 [0m5.636 ms - 1134[0m
+
+2016-01-27T21:45:55.237Z - info: [0mGET /css/patients.css [32m200 [0m15.516 ms - 709[0m
+
+2016-01-27T21:45:55.259Z - info: [0mGET /css/fonts.css [32m200 [0m18.537 ms - 1719[0m
+
+2016-01-27T21:45:55.267Z - info: [0mGET /css/form.css [32m200 [0m24.293 ms - 799[0m
+
+2016-01-27T21:45:55.325Z - info: [0mGET /css/style.css [32m200 [0m7.677 ms - 2074[0m
+
+2016-01-27T21:45:55.378Z - info: [0mGET /bundle.js [32m200 [0m60.807 ms - 78226[0m
+
+2016-01-27T21:45:55.391Z - info: [0mGET /js/jquery.js [32m200 [0m68.691 ms - 95785[0m
+
+2016-01-27T21:45:55.579Z - info: [0mGET /js/jquery.js [36m304 [0m2.357 ms - -[0m
+
+2016-01-27T21:45:55.629Z - info: [0mGET /bundle.js [36m304 [0m1.240 ms - -[0m
+
+2016-01-27T21:45:55.836Z - info: [0mGET /views/components/dashboard/main/views/dashboard.html [32m200 [0m3.170 ms - 509[0m
+
+2016-01-27T21:45:55.856Z - info: [0mGET /views/components/dashboard/patientQueue/views/patients.html [32m200 [0m4.593 ms - 2857[0m
+
+2016-01-27T21:45:55.872Z - info: [0mGET /favicon.ico [33m404 [0m4.561 ms - 24[0m
+
+2016-01-27T21:45:55.929Z - info: [0mGET /views/components/receptionistPortal/signin/views/login.html [32m200 [0m3.965 ms - 1128[0m
+
+2016-01-27T21:45:55.941Z - info: [0mGET /views/shared/widget/views/header-bar.html [32m200 [0m4.019 ms - 1677[0m
+
+2016-01-27T21:45:55.952Z - info: [0mGET /views/components/dashboard/sidebar/views/side-bar.html [32m200 [0m3.601 ms - 2860[0m
+
+2016-01-27T21:45:55.981Z - info: [0mGET /fonts/MYRIADPRO-SEMIBOLD.woff [32m200 [0m20.837 ms - 62448[0m
+
+2016-01-27T21:45:56.032Z - info: [0mGET /fonts/MYRIADPRO-REGULAR.woff [32m200 [0m59.686 ms - 61848[0m
+
+2016-01-27T21:45:56.037Z - info: [0mGET /fonts/fontawesome-webfont.woff?v=4.1.0 [32m200 [0m48.608 ms - 83760[0m
+
+2016-01-27T21:45:56.083Z - info: [0mGET /css/login_styles.css [32m200 [0m20.650 ms - 3835[0m
+
+2016-01-27T21:45:56.089Z - info: [0mGET /images/logo.png [32m200 [0m21.483 ms - 11911[0m
+
+2016-01-27T21:45:56.168Z - info: [0mGET /css/login_animate.css [32m200 [0m20.818 ms - 68522[0m
+
+2016-01-27T21:46:03.445Z - info: [0mPOST /auth/login [32m200 [0m137.954 ms - 213[0m
+
+2016-01-27T21:46:03.536Z - info: [0mGET /fonts/glyphicons-halflings-regular.woff2 [32m200 [0m6.338 ms - 18028[0m
+
+2016-01-27T21:46:05.281Z - info: [0mGET /views/components/patientCheckin/checkin/views/checkin.html [32m200 [0m11.489 ms - 2027[0m
+
+2016-01-27T21:46:05.319Z - info: [0mGET /css/patient_mode.css [32m200 [0m7.266 ms - 3050[0m
+
+2016-01-27T21:46:05.326Z - info: [0mGET /css/form.css [36m304 [0m0.808 ms - -[0m
+
+2016-01-27T21:46:05.343Z - info: [0mGET /css/checkin.css [32m200 [0m2.923 ms - 165[0m
+
+2016-01-27T21:46:05.351Z - info: [0mGET /views/components/patientCheckin/checkin/views/directive-templates/form/form.html [32m200 [0m4.555 ms - 778[0m
+
+2016-01-27T21:46:05.372Z - info: [0mGET /api/56a571ec782f9dea81bd3881/theme [32m200 [0m9.449 ms - 4[0m
+
+2016-01-27T21:46:05.380Z - info: [0mGET /api/form/template/company/56a571ec782f9dea81bd3881 [32m200 [0m3.122 ms - 4[0m
+
+2016-01-27T21:46:05.392Z - info: [0mGET / [36m304 [0m0.696 ms - -[0m
+
+2016-01-27T21:46:05.427Z - info: [0mGET /images/themes/city1.jpg [32m200 [0m12.668 ms - 304704[0m
+
+2016-01-27T21:46:10.712Z - info: [0mPOST /auth/login [32m200 [0m57.485 ms - 213[0m
+
+2016-01-27T21:46:14.675Z - info: [0mGET /views/components/dashboard/settings/views/settings.html [32m200 [0m3.781 ms - 1653[0m
+
+2016-01-27T21:46:14.696Z - info: [0mGET /css/settings.css [32m200 [0m2.530 ms - 3743[0m
+
+2016-01-27T21:46:15.993Z - info: [0mGET /views/components/dashboard/themes/views/dashboardIndex.html [32m200 [0m6.056 ms - 1757[0m
+
+2016-01-27T21:46:16.023Z - info: [0mGET /css/themes.css [32m200 [0m1.889 ms - 408[0m
+
+2016-01-27T21:46:16.196Z - info: [0mGET /images/themes/pink_trees.jpg [32m200 [0m97.232 ms - 2534616[0m
+
+2016-01-27T21:46:16.226Z - info: [0mGET /images/themes/city3.jpg [32m200 [0m97.016 ms - 166259[0m
+
+2016-01-27T21:46:16.232Z - info: [0mGET /images/themes/colors.jpg [32m200 [0m87.938 ms - 285640[0m
+
+2016-01-27T21:46:16.256Z - info: [0mGET /images/themes/flamingo1.jpg [32m200 [0m95.282 ms - 197695[0m
+
+2016-01-27T21:46:16.262Z - info: [0mGET /images/themes/city0.jpg [32m200 [0m153.901 ms - 1004724[0m
+
+2016-01-27T21:46:16.280Z - info: [0mGET /images/themes/flamingo2.jpg [32m200 [0m55.998 ms - 674759[0m
+
+2016-01-27T21:46:16.292Z - info: [0mGET /images/themes/city2.png [32m200 [0m170.707 ms - 1514903[0m
+
+2016-01-27T21:46:16.323Z - info: [0mGET /images/themes/lake.jpg [32m200 [0m54.200 ms - 542581[0m
+
+2016-01-27T21:46:16.387Z - info: [0mGET /images/themes/old-fashioned.jpg [32m200 [0m58.331 ms - 293782[0m
+
+2016-01-27T21:46:16.408Z - info: [0mGET /images/themes/tron.jpg [32m200 [0m21.690 ms - 145396[0m
+
+2016-01-27T21:46:16.579Z - info: [0mGET /views/components/dashboard/formBuilder/views/create.html [32m200 [0m10.215 ms - 6234[0m
+
+2016-01-27T21:46:16.580Z - info: [0mGET /images/themes/walkway.jpg [32m200 [0m130.791 ms - 1146401[0m
+
+2016-01-27T21:46:16.673Z - info: [0mGET /views/components/dashboard/formBuilder/views/directive-templates/form/form.html [32m200 [0m8.569 ms - 775[0m
+
+2016-01-27T21:46:16.685Z - info: [0mGET /api/form/template/company/56a571ec782f9dea81bd3881 [36m304 [0m2.209 ms - -[0m
+
+2016-01-27T21:46:16.714Z - info: [0mGET /images/themes/maverick.png [32m200 [0m419.560 ms - 2864129[0m
+
+2016-01-27T21:46:16.786Z - info: [0mGET /views/components/dashboard/formBuilder/views/directive-templates/field/textfield.html [32m200 [0m7.881 ms - 442[0m
+
+2016-01-27T21:46:18.407Z - info: [0mPOST /api/form/template/56a571ec782f9dea81bd3881 [32m200 [0m79.705 ms - 305[0m
+
+2016-01-27T21:46:19.613Z - info: [0mGET /css/patient_mode.css [36m304 [0m0.760 ms - -[0m
+
+2016-01-27T21:46:19.623Z - info: [0mGET /css/form.css [36m304 [0m6.278 ms - -[0m
+
+2016-01-27T21:46:19.624Z - info: [0mGET /css/checkin.css [36m304 [0m5.353 ms - -[0m
+
+2016-01-27T21:46:19.639Z - info: [0mGET / [36m304 [0m2.557 ms - -[0m
+
+2016-01-27T21:46:19.640Z - info: [0mGET /api/56a571ec782f9dea81bd3881/theme [36m304 [0m5.561 ms - -[0m
+
+2016-01-27T21:46:19.644Z - info: [0mGET /api/form/template/company/56a571ec782f9dea81bd3881 [32m200 [0m8.377 ms - 305[0m
+
+2016-01-27T21:46:19.654Z - info: [0mGET /views/components/dashboard/formBuilder/views/directive-templates/field/textfield.html [36m304 [0m1.064 ms - -[0m
+
+2016-01-27T21:46:22.100Z - info: [0mPOST /api/form/patient/ [32m200 [0m59.503 ms - 328[0m
+
+2016-01-27T21:46:22.130Z - info: [0mPOST /api/patient/checkin [32m200 [0m76.914 ms - 235[0m
+
+2016-01-27T21:46:26.259Z - info: [0mPOST /auth/login [32m200 [0m59.869 ms - 213[0m
+
+2016-01-27T21:46:32.627Z - info: [0mGET /css/patient_mode.css [36m304 [0m6.220 ms - -[0m
+
+2016-01-27T21:46:32.631Z - info: [0mGET /css/form.css [36m304 [0m8.836 ms - -[0m
+
+2016-01-27T21:46:32.633Z - info: [0mGET /css/checkin.css [36m304 [0m6.682 ms - -[0m
+
+2016-01-27T21:46:32.641Z - info: [0mGET /api/56a571ec782f9dea81bd3881/theme [36m304 [0m9.650 ms - -[0m
+
+2016-01-27T21:46:32.646Z - info: [0mGET / [36m304 [0m6.408 ms - -[0m
+
+2016-01-27T21:46:32.648Z - info: [0mGET /api/form/template/company/56a571ec782f9dea81bd3881 [36m304 [0m9.778 ms - -[0m
+
+2016-01-27T21:46:32.662Z - info: [0mGET /views/components/dashboard/formBuilder/views/directive-templates/field/textfield.html [36m304 [0m0.610 ms - -[0m
+
+2016-01-27T21:46:37.176Z - info: [0mGET /css/vendor.css [36m304 [0m2.613 ms - -[0m
+
+2016-01-27T21:46:37.177Z - info: [0mGET /css/header-bar.css [36m304 [0m2.889 ms - -[0m
+
+2016-01-27T21:46:37.177Z - info: [0mGET /css/sidebar.css [36m304 [0m3.198 ms - -[0m
+
+2016-01-27T21:46:37.178Z - info: [0mGET /css/employees.css [36m304 [0m3.485 ms - -[0m
+
+2016-01-27T21:46:37.178Z - info: [0mGET /css/patients.css [36m304 [0m3.515 ms - -[0m
+
+2016-01-27T21:46:37.179Z - info: [0mGET /css/fonts.css [36m304 [0m3.487 ms - -[0m
+
+2016-01-27T21:46:37.197Z - info: [0mGET /css/form.css [36m304 [0m1.778 ms - -[0m
+
+2016-01-27T21:46:37.202Z - info: [0mGET /css/style.css [36m304 [0m5.220 ms - -[0m
+
+2016-01-27T21:46:37.204Z - info: [0mGET /css/patient_mode.css [36m304 [0m8.606 ms - -[0m
+
+2016-01-27T21:46:37.205Z - info: [0mGET /css/checkin.css [36m304 [0m9.030 ms - -[0m
+
+2016-01-27T21:50:32.323Z - info: [0mPOST /api/form/patient/ [32m200 [0m5.741 ms - 325[0m
+
+2016-01-27T21:50:32.334Z - info: [0mPOST /api/patient/checkin [32m200 [0m9.849 ms - 363[0m
+

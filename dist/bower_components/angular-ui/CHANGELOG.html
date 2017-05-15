@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8"/>
+</head>
+<body>
+<h1 id="chachachachanges"><a href="http://www.youtube.com/watch?v=pl3vxEudif8&amp;t=0m53s">Cha Cha Cha Changes</a></h1>
+
+<h2 id="master">Master</h2>
+
+<h2 id="v0.4.0">v0.4.0</h2>
+
+<ul>
+<li><strong>Validate directive</strong> has been upgraded</li>
+<li><strong>API BREAKING CHANGE!</strong> now takes expressions instead of function references</li>
+<li>You must explicitly specify the $value variable, but you no longer need to create a function</li>
+<li><strong>NEW FEATURE</strong> uiValidateWatch allows you to re-fire a validation rule (or all rules) when a related model changes (confirm_password)</li>
+<li><strong>CodeMirror directive</strong> has been updated</li>
+<li>Now works with v3.02</li>
+<li><strong>NEW FEATURE</strong> uiRefresh lets you specify an expression to watch for changes to refresh codemirror (useful for modals)</li>
+<li><strong>Mask directive</strong> has many new fixes</li>
+<li>Fixes for <strong>uiDate</strong></li>
+<li><strong>DateFormat directive</strong> can now be declared in <strong>uiConfig</strong></li>
+<li><strong>uiJq Passthru directive</strong> has upgrades to support a wider variety of directives</li>
+<li>Now fires asyncronously post-angular-rendering of the view (<strong>uiDefer</strong> option is now always true)</li>
+<li>New <strong>uiRefresh</strong> lets you specify an expression to watch to re-fire the plugin (call $(elm).focus() when a modal opens)</li>
+<li><strong>Select2 directive</strong> now adds support for setting the selected item by specifying a simple ID</li>
+<li>FINALLY have unit-tests for Select2!</li>
+<li><strong>IEShiv</strong> has been simplified and stripped of browser-sniffing code (just use conditional comments)</li>
+<li><strong>Calendar directive</strong> now performs better watching of events data</li>
+<li>Added optional equalsTracker attr (increment to force update from scope)</li>
+<li><strong>Sortable directive</strong> now properly supports connectWith option</li>
+<li>New <strong>route directive</strong> that sets a boolean based on a pattern match of the current route (useful for tabs/navigation)</li>
+<li>Refactored <strong>If directive</strong> to be tidier</li>
+<li><strong>API BREAKING CHANGE!</strong> <strong>Modal directive</strong> has been completely removed (if you still need it, grab the files from v0.3.x)</li>
+</ul>
+
+<h2 id="v0.3.0">v0.3.0</h2>
+
+<ul>
+<li>New <strong>format</strong> filter</li>
+<li>Lots of cleanup! Consistent indentation, linting</li>
+<li>Custom builds via grunt (soon to be leveraged via builder)</li>
+<li>uiDate now watches options</li>
+<li>Rewrote ui-keypress (API is not backwards-compatible)</li>
+<li><strong>ui-</strong>keypress has been expanded into <strong>ui-keyup</strong>, <strong>ui-keydown</strong> and <strong>ui-keypress</strong></li>
+<li>The <strong>ui-keypress</strong> can now be used to <code>$event.preventDefault()</code> as expected</li>
+<li>Multiple combinations are separated by spaces, while multi-key combos are separated by dashes: <code>'enter alt-space 13-shift':'whatever()'</code></li>
+<li>The string-notation (<strong>a and be or c and d</strong>) has been dropped completely</li>
+<li>Can now pass (or globally define) the value uiReset resets to</li>
+</ul>
+
+<h2 id="v0.2.0">v0.2.0</h2>
+
+<ul>
+<li>Unit tests. Unit tests. Unit tests.</li>
+<li>New <strong>inflector</strong> filter (previously named <strong>prettifier</strong>)</li>
+<li>Added 2 alternative modes, now contains: humanize, underscore and variable</li>
+<li><strong>Passthrough directive</strong> (uiJq) now fixes common ngModel problems due to trigger(change). Can optionally be disabled</li>
+<li>Removed <strong>Length Filter</strong> (you can instead do {{ ( myArray | filter: { gender:&#8217;m&#8217; } ).length }})</li>
+<li>Added <strong>validate directive</strong>, allows you to pass validation functions</li>
+<li><strong>Sortable directive</strong></li>
+<li>Fixed <strong>unique filter</strong></li>
+<li><strong>Highlight filter</strong> has had bug fixes</li>
+<li><strong>Event directive</strong> has been refactored / improved</li>
+<li><strong>Keypress directive</strong> has been refactored / improved</li>
+<li>New <strong>if-directive</strong> instead of <strong>remove directive</strong> (removed)</li>
+<li>New <strong>google maps directive</strong></li>
+<li>New <strong>animate directive</strong> that transitions the injection of new DOM elements (transitioning the removal of DOM is still not supported yet)</li>
+<li>Improvements to <strong>scrollfix directive</strong></li>
+</ul>
+
+<h2 id="v0.1.0">v0.1.0</h2>
+
+<ul>
+<li>New folder structure</li>
+<li>Too many to list</li>
+</ul>
+
+</body>
+</html>

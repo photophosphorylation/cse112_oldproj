@@ -1,0 +1,53 @@
+<aside class="main-sidebar">
+    <!-- sidebar: style can be found in sidebar.less -->
+    <section class="sidebar" style="height: auto;">
+        <!-- sidebar menu: : style can be found in sidebar.less -->
+        <ul class="sidebar-menu">
+            <li class="header">MAIN NAVIGATION</li>
+            {{#if isOwner}}
+            <li class="{{dashboard}} treeview">
+                <a href="/dashboard">
+                    <i class="fa fa-dashboard"></i> <span>Dashboard</span>
+                </a>
+            </li>
+            {{else}}
+            <li class="{{patients}} treeview">
+                <a href="/dashboard">
+                    <i class="fa fa-navicon"></i> <span>Visitor Queue</span>
+                </a>
+            </li>
+            {{/if}}
+            {{#if isOwner}}
+             <li class="treeview">
+                <a href="/office/{{businessId}}/checkin">
+                    <i class="fa fa-navicon"></i> <span>Sign In Screen</span>
+                </a>
+            </li>
+            {{/if}}
+            {{#if isOwner}}
+            <li class="{{employees}} treeview">
+                <a href="/addemployees">
+                    <i class="fa fa-group"></i>
+                    <span>Employees</span>
+                </a>
+            </li>
+            {{/if}}
+            {{#if isOwner}}
+            <li class="{{forms}} treeview">
+                <a href="/forms">
+                    <i class="fa fa-group"></i>
+                    <span>Form Editor</span>
+                </a>
+            </li>
+            {{/if}}
+
+            <li class="{{settings}} treeview">
+                <a href="/accountSettings">
+                    <i class="fa fa-cog"></i>
+                    <span>Settings</span>
+                </a>
+            </li>
+        </ul>
+    </section>
+    <!-- /.sidebar -->
+</aside>

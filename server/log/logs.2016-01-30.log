@@ -1,0 +1,130 @@
+2016-01-30T20:24:33.852Z - info: [0mGET /css/form.css [32m200 [0m47.212 ms - 799[0m
+
+2016-01-30T20:24:33.853Z - info: [0mGET /css/patient_mode.css [32m200 [0m61.241 ms - 3050[0m
+
+2016-01-30T20:24:33.854Z - info: [0mGET /css/checkin.css [32m200 [0m49.735 ms - 165[0m
+
+2016-01-30T20:24:33.857Z - info: [0mGET /images/logo.png [32m200 [0m48.927 ms - 11911[0m
+
+2016-01-30T20:24:33.891Z - info: [0mGET /api/56a571ec782f9dea81bd3881/theme [32m200 [0m84.634 ms - 4[0m
+
+2016-01-30T20:24:33.902Z - info: [0mGET /api/form/template/company/56a571ec782f9dea81bd3881 [32m200 [0m94.450 ms - 305[0m
+
+2016-01-30T20:24:33.941Z - info: [0mGET / [32m200 [0m23.633 ms - 1311[0m
+
+2016-01-30T20:24:33.984Z - info: [0mGET /views/components/dashboard/formBuilder/views/directive-templates/field/textfield.html [32m200 [0m24.277 ms - 442[0m
+
+2016-01-30T20:24:34.042Z - info: [0mGET /images/themes/city1.jpg [32m200 [0m110.966 ms - 304704[0m
+
+2016-01-30T20:24:41.139Z - info: [0mGET /css/patient_mode.css [36m304 [0m2.168 ms - -[0m
+
+2016-01-30T20:24:41.143Z - info: [0mGET /css/form.css [36m304 [0m5.706 ms - -[0m
+
+2016-01-30T20:24:41.145Z - info: [0mGET /css/checkin.css [36m304 [0m7.348 ms - -[0m
+
+2016-01-30T20:24:41.176Z - info: [0mGET /api/56a571ec782f9dea81bd3881/theme [36m304 [0m38.557 ms - -[0m
+
+2016-01-30T20:24:41.212Z - info: [0mGET / [36m304 [0m18.817 ms - -[0m
+
+2016-01-30T20:24:41.217Z - info: [0mGET /api/form/template/company/56a571ec782f9dea81bd3881 [36m304 [0m53.636 ms - -[0m
+
+2016-01-30T20:24:41.234Z - info: [0mGET /views/components/dashboard/formBuilder/views/directive-templates/field/textfield.html [36m304 [0m3.121 ms - -[0m
+
+2016-01-30T20:24:41.670Z - info: [0mGET / [36m304 [0m1.830 ms - -[0m
+
+2016-01-30T20:24:41.855Z - info: [0mGET /css/vendor.css [32m200 [0m14.620 ms - 156494[0m
+
+2016-01-30T20:24:41.871Z - info: [0mGET /css/header-bar.css [32m200 [0m6.941 ms - 2236[0m
+
+2016-01-30T20:24:41.888Z - info: [0mGET /css/sidebar.css [32m200 [0m10.015 ms - 1905[0m
+
+2016-01-30T20:24:41.909Z - info: [0mGET /css/employees.css [32m200 [0m14.795 ms - 1134[0m
+
+2016-01-30T20:24:41.915Z - info: [0mGET /vendor.js [32m200 [0m59.524 ms - 394177[0m
+
+2016-01-30T20:24:41.924Z - info: [0mGET /css/form.css [36m304 [0m4.707 ms - -[0m
+
+2016-01-30T20:24:41.926Z - info: [0mGET /css/patients.css [32m200 [0m21.695 ms - 709[0m
+
+2016-01-30T20:24:41.928Z - info: [0mGET /css/fonts.css [32m200 [0m11.746 ms - 1719[0m
+
+2016-01-30T20:24:41.964Z - info: [0mGET /css/style.css [32m200 [0m13.687 ms - 2074[0m
+
+2016-01-30T20:24:41.981Z - info: [0mGET /js/jquery.js [32m200 [0m38.099 ms - 95785[0m
+
+2016-01-30T20:24:41.996Z - info: [0mGET /bundle.js [32m200 [0m35.008 ms - 78226[0m
+
+2016-01-30T20:24:42.123Z - info: [0mGET /js/jquery.js [36m304 [0m0.469 ms - -[0m
+
+2016-01-30T20:24:42.170Z - info: [0mGET /bundle.js [36m304 [0m0.453 ms - -[0m
+
+2016-01-30T20:24:42.337Z - info: [0mGET /views/components/patientCheckin/checkin/views/checkin.html [32m200 [0m5.557 ms - 2027[0m
+
+2016-01-30T20:24:42.356Z - info: [0mGET /css/patient_mode.css [36m304 [0m1.594 ms - -[0m
+
+2016-01-30T20:24:42.356Z - info: [0mGET /css/form.css [36m304 [0m1.839 ms - -[0m
+
+2016-01-30T20:24:42.357Z - info: [0mGET /css/checkin.css [36m304 [0m1.899 ms - -[0m
+
+2016-01-30T20:24:42.416Z - info: [0mGET /views/components/receptionistPortal/signin/views/login.html [32m200 [0m5.719 ms - 1128[0m
+
+2016-01-30T20:24:42.430Z - info: [0mGET /views/components/patientCheckin/checkin/views/directive-templates/form/form.html [32m200 [0m4.865 ms - 778[0m
+
+2016-01-30T20:24:42.485Z - info: [0mGET /api/undefined/theme [32m200 [0m4.537 ms - 4[0m
+
+2016-01-30T20:24:42.497Z - info: [0mGET /api/form/template/company/undefined [33m400 [0m6.828 ms - 57[0m
+
+2016-01-30T20:24:42.502Z - info: [0mGET / [36m304 [0m3.206 ms - -[0m
+
+2016-01-30T20:24:42.503Z - info: [0mGET /images/logo.png [36m304 [0m3.142 ms - -[0m
+
+2016-01-30T20:24:42.506Z - info: [0mGET /css/login_styles.css [32m200 [0m5.762 ms - 3835[0m
+
+2016-01-30T20:24:42.578Z - info: [0mGET /css/login_animate.css [32m200 [0m25.011 ms - 68522[0m
+
+2016-01-30T20:24:43.747Z - info: [0mGET /css/patient_mode.css [36m304 [0m19.694 ms - -[0m
+
+2016-01-30T20:24:43.748Z - info: [0mGET /css/form.css [36m304 [0m7.310 ms - -[0m
+
+2016-01-30T20:24:43.749Z - info: [0mGET /css/checkin.css [36m304 [0m2.593 ms - -[0m
+
+2016-01-30T20:24:43.777Z - info: [0mGET /api/form/template/company/undefined [33m400 [0m12.459 ms - 57[0m
+
+2016-01-30T20:24:43.778Z - info: [0mGET /css/login_styles.css [36m304 [0m12.717 ms - -[0m
+
+2016-01-30T20:24:43.778Z - info: [0mGET /api/undefined/theme [36m304 [0m14.242 ms - -[0m
+
+2016-01-30T20:24:43.797Z - info: [0mGET /css/login_animate.css [36m304 [0m0.920 ms - -[0m
+
+2016-01-30T20:24:44.557Z - info: [0mGET /css/patient_mode.css [36m304 [0m5.518 ms - -[0m
+
+2016-01-30T20:24:44.566Z - info: [0mGET /css/form.css [36m304 [0m14.162 ms - -[0m
+
+2016-01-30T20:24:44.575Z - info: [0mGET /css/checkin.css [36m304 [0m22.079 ms - -[0m
+
+2016-01-30T20:24:44.590Z - info: [0mGET /api/form/template/company/undefined [33m400 [0m10.717 ms - 57[0m
+
+2016-01-30T20:24:44.592Z - info: [0mGET /api/undefined/theme [36m304 [0m20.097 ms - -[0m
+
+2016-01-30T20:24:44.594Z - info: [0mGET /css/login_styles.css [36m304 [0m14.748 ms - -[0m
+
+2016-01-30T20:24:44.600Z - info: [0mGET /css/login_animate.css [36m304 [0m0.617 ms - -[0m
+
+2016-01-30T20:24:49.704Z - info: [0mPOST /auth/login [32m200 [0m69.685 ms - 213[0m
+
+2016-01-30T20:24:49.753Z - info: [0mGET /views/components/dashboard/main/views/dashboard.html [32m200 [0m26.230 ms - 509[0m
+
+2016-01-30T20:24:49.784Z - info: [0mGET /views/components/dashboard/patientQueue/views/patients.html [32m200 [0m9.662 ms - 2857[0m
+
+2016-01-30T20:24:49.863Z - info: [0mGET /views/shared/widget/views/header-bar.html [32m200 [0m5.074 ms - 1677[0m
+
+2016-01-30T20:24:49.869Z - info: [0mGET /views/components/dashboard/sidebar/views/side-bar.html [32m200 [0m11.074 ms - 2860[0m
+
+2016-01-30T20:24:49.891Z - info: [0mGET /fonts/MYRIADPRO-SEMIBOLD.woff [32m200 [0m22.631 ms - 62448[0m
+
+2016-01-30T20:24:49.922Z - info: [0mGET /fonts/MYRIADPRO-REGULAR.woff [32m200 [0m24.137 ms - 61848[0m
+
+2016-01-30T20:24:49.944Z - info: [0mGET /fonts/glyphicons-halflings-regular.woff2 [32m200 [0m13.158 ms - 18028[0m
+
+2016-01-30T20:24:49.947Z - info: [0mGET /fonts/fontawesome-webfont.woff?v=4.1.0 [32m200 [0m31.411 ms - 83760[0m
+

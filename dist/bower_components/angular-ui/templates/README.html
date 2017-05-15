@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8"/>
+</head>
+<body>
+<h1 id="ui-templatedirectives">ui-template directives</h1>
+
+<h4 id="note:thistemplateisgoingtobereplacedinverynearfuture">NOTE: This template is going to be replaced in very near future</h4>
+
+<p>These directives are boilerplates for creating your own directives. </p>
+
+<h2 id="usage">Usage</h2>
+
+<p>Add the template module as a dependency to your application module:</p>
+
+<pre><code>var myAppModule = angular.module('MyApp', ['ui.directives.template'])
+</code></pre>
+
+<p>Apply the directive to your html elements:</p>
+
+<pre><code>&lt;span ui-template num=&quot;SomeNumber&quot;&gt;&lt;/span&gt;
+</code></pre>
+
+<p>Default styles are in angular-ui.css and are pretty boring, you could just override these in your
+stylesheet and make things more interesting</p>
+
+<h3 id="options">Options</h3>
+
+<p>All the options can be passed through the directive or set on the html element.
+NOTE: attributes override controller options</p>
+
+<pre><code>myAppModule.controller('MyController', function($scope) {
+    $scope.SomeNumber = 123;
+    $scope.uiTemplateOptions = {
+
+    };
+});
+
+// two-way binding with default for scoped.options uiTemplateOptions
+&lt;span ui-template ng-model=&quot;SomeNumber&quot;&gt;&lt;/span&gt; 
+
+// one way binding with your own name for scoped options
+&lt;span ui-template options=&quot;myOptions&quot; num=&quot;SomeNumber&quot;&gt;&lt;/span&gt;
+</code></pre>
+
+<h3 id="notes">Notes</h3>
+
+<p>ui-template
+ - one-way binding unless you have in an ng-repeat
+ - does not currently work with ng-model.
+ - is supported only for attribute style elements</p>
+
+<h3 id="todo">Todo</h3>
+
+<pre><code>- support ng-model
+</code></pre>
+
+</body>
+</html>

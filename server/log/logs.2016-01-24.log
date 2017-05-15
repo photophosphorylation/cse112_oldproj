@@ -1,0 +1,258 @@
+2016-01-25T00:52:33.176Z - info: [0mGET / [32m200 [0m11.509 ms - 1311[0m
+
+2016-01-25T00:52:33.283Z - info: [0mGET /css/vendor.css [32m200 [0m7.861 ms - 156494[0m
+
+2016-01-25T00:52:33.305Z - info: [0mGET /css/header-bar.css [32m200 [0m4.762 ms - 2236[0m
+
+2016-01-25T00:52:33.315Z - info: [0mGET /css/sidebar.css [32m200 [0m1.800 ms - 1905[0m
+
+2016-01-25T00:52:33.323Z - info: [0mGET /vendor.js [32m200 [0m33.320 ms - 394177[0m
+
+2016-01-25T00:52:33.331Z - info: [0mGET /css/employees.css [32m200 [0m2.060 ms - 1134[0m
+
+2016-01-25T00:52:33.343Z - info: [0mGET /css/patients.css [32m200 [0m2.081 ms - 709[0m
+
+2016-01-25T00:52:33.354Z - info: [0mGET /css/fonts.css [32m200 [0m1.274 ms - 1719[0m
+
+2016-01-25T00:52:33.366Z - info: [0mGET /css/form.css [32m200 [0m1.768 ms - 799[0m
+
+2016-01-25T00:52:33.405Z - info: [0mGET /css/style.css [32m200 [0m3.437 ms - 2074[0m
+
+2016-01-25T00:52:33.413Z - info: [0mGET /js/jquery.js [32m200 [0m21.974 ms - 95785[0m
+
+2016-01-25T00:52:33.425Z - info: [0mGET /bundle.js [32m200 [0m9.444 ms - 78226[0m
+
+2016-01-25T00:52:33.779Z - info: [0mGET /views/components/dashboard/main/views/dashboard.html [32m200 [0m1.973 ms - 509[0m
+
+2016-01-25T00:52:33.781Z - info: [0mGET /views/components/dashboard/patientQueue/views/patients.html [32m200 [0m2.303 ms - 2857[0m
+
+2016-01-25T00:52:33.861Z - info: [0mGET /views/components/receptionistPortal/signin/views/login.html [32m200 [0m3.319 ms - 1128[0m
+
+2016-01-25T00:52:33.876Z - info: [0mGET /views/shared/widget/views/header-bar.html [32m200 [0m3.733 ms - 1677[0m
+
+2016-01-25T00:52:33.890Z - info: [0mGET /views/components/dashboard/sidebar/views/side-bar.html [32m200 [0m3.676 ms - 2860[0m
+
+2016-01-25T00:52:33.909Z - info: [0mGET /favicon.ico [33m404 [0m7.882 ms - 24[0m
+
+2016-01-25T00:52:33.917Z - info: [0mGET /fonts/MYRIADPRO-SEMIBOLD.woff [32m200 [0m2.065 ms - 62448[0m
+
+2016-01-25T00:52:33.936Z - info: [0mGET /fonts/MYRIADPRO-REGULAR.woff [32m200 [0m2.514 ms - 61848[0m
+
+2016-01-25T00:52:33.957Z - info: [0mGET /fonts/fontawesome-webfont.woff?v=4.1.0 [32m200 [0m9.012 ms - 83760[0m
+
+2016-01-25T00:52:34.053Z - info: [0mGET /css/login_styles.css [32m200 [0m3.794 ms - 3835[0m
+
+2016-01-25T00:52:34.064Z - info: [0mGET /images/logo.png [32m200 [0m8.514 ms - 11911[0m
+
+2016-01-25T00:52:34.084Z - info: [0mGET /favicon.ico [33m404 [0m2.621 ms - 24[0m
+
+2016-01-25T00:52:34.135Z - info: [0mGET /css/login_animate.css [32m200 [0m3.690 ms - 68522[0m
+
+2016-01-25T00:52:36.332Z - info: [0mGET /views/components/receptionistPortal/register/views/register.html [32m200 [0m2.056 ms - 2689[0m
+
+2016-01-25T00:52:36.362Z - info: [0mGET /css/register.css [32m200 [0m2.842 ms - 5467[0m
+
+2016-01-25T00:52:36.396Z - info: [0mGET /images/company_sign_in.png [32m200 [0m14.412 ms - 132311[0m
+
+2016-01-25T00:53:00.956Z - info: [0mPOST /auth/signup [32m200 [0m124.065 ms - 213[0m
+
+2016-01-25T00:53:00.996Z - info: [0mGET /views/components/receptionistPortal/register/views/thankyou.html [32m200 [0m7.257 ms - 1042[0m
+
+2016-01-25T00:53:04.087Z - info: [0mGET /fonts/glyphicons-halflings-regular.woff2 [32m200 [0m1.284 ms - 18028[0m
+
+2016-01-25T00:53:08.089Z - info: [0mGET /views/components/patientCheckin/checkin/views/checkin.html [32m200 [0m6.331 ms - 2027[0m
+
+2016-01-25T00:53:08.127Z - info: [0mGET /css/patient_mode.css [32m200 [0m3.784 ms - 3050[0m
+
+2016-01-25T00:53:08.130Z - info: [0mGET /css/form.css [36m304 [0m3.847 ms - -[0m
+
+2016-01-25T00:53:08.151Z - info: [0mGET /css/checkin.css [32m200 [0m1.027 ms - 165[0m
+
+2016-01-25T00:53:08.169Z - info: [0mGET /views/components/patientCheckin/checkin/views/directive-templates/form/form.html [32m200 [0m2.734 ms - 778[0m
+
+2016-01-25T00:53:08.201Z - info: [0mGET /api/56a571ec782f9dea81bd3881/theme [32m200 [0m16.371 ms - 4[0m
+
+2016-01-25T00:53:08.215Z - info: [0mGET /api/form/template/company/56a571ec782f9dea81bd3881 [32m200 [0m4.854 ms - 4[0m
+
+2016-01-25T00:53:08.223Z - info: [0mGET / [36m304 [0m1.268 ms - -[0m
+
+2016-01-25T00:53:08.247Z - info: [0mGET /images/themes/city0.jpg [32m200 [0m14.168 ms - 1004724[0m
+
+2016-01-25T00:53:33.525Z - info: [0mGET /css/vendor.css [36m304 [0m1.115 ms - -[0m
+
+2016-01-25T00:53:33.525Z - info: [0mGET /css/header-bar.css [36m304 [0m1.192 ms - -[0m
+
+2016-01-25T00:53:33.528Z - info: [0mGET /css/sidebar.css [36m304 [0m1.620 ms - -[0m
+
+2016-01-25T00:53:33.528Z - info: [0mGET /css/employees.css [36m304 [0m1.562 ms - -[0m
+
+2016-01-25T00:53:33.528Z - info: [0mGET /css/patients.css [36m304 [0m1.556 ms - -[0m
+
+2016-01-25T00:53:33.530Z - info: [0mGET /css/fonts.css [36m304 [0m0.522 ms - -[0m
+
+2016-01-25T00:53:33.539Z - info: [0mGET /css/form.css [36m304 [0m0.873 ms - -[0m
+
+2016-01-25T00:53:33.542Z - info: [0mGET /css/style.css [36m304 [0m0.618 ms - -[0m
+
+2016-01-25T00:53:33.544Z - info: [0mGET /css/patient_mode.css [36m304 [0m1.005 ms - -[0m
+
+2016-01-25T00:53:33.550Z - info: [0mGET /css/checkin.css [36m304 [0m0.593 ms - -[0m
+
+2016-01-25T00:56:47.559Z - info: [0mGET / [36m304 [0m2.312 ms - -[0m
+
+2016-01-25T00:56:47.691Z - info: [0mGET /css/vendor.css [36m304 [0m0.811 ms - -[0m
+
+2016-01-25T00:56:47.696Z - info: [0mGET /css/header-bar.css [36m304 [0m0.744 ms - -[0m
+
+2016-01-25T00:56:47.698Z - info: [0mGET /css/employees.css [36m304 [0m1.640 ms - -[0m
+
+2016-01-25T00:56:47.702Z - info: [0mGET /vendor.js [36m304 [0m4.762 ms - -[0m
+
+2016-01-25T00:56:47.703Z - info: [0mGET /css/patients.css [36m304 [0m4.061 ms - -[0m
+
+2016-01-25T00:56:47.705Z - info: [0mGET /css/fonts.css [36m304 [0m4.356 ms - -[0m
+
+2016-01-25T00:56:47.716Z - info: [0mGET /css/form.css [36m304 [0m1.347 ms - -[0m
+
+2016-01-25T00:56:47.724Z - info: [0mGET /css/sidebar.css [36m304 [0m0.732 ms - -[0m
+
+2016-01-25T00:56:47.727Z - info: [0mGET /css/style.css [36m304 [0m1.969 ms - -[0m
+
+2016-01-25T00:56:47.728Z - info: [0mGET /js/jquery.js [36m304 [0m1.320 ms - -[0m
+
+2016-01-25T00:56:47.741Z - info: [0mGET /bundle.js [36m304 [0m11.806 ms - -[0m
+
+2016-01-25T00:56:48.072Z - info: [0mGET /views/components/patientCheckin/checkin/views/checkin.html [36m304 [0m1.444 ms - -[0m
+
+2016-01-25T00:56:48.214Z - info: [0mGET /css/patient_mode.css [36m304 [0m1.563 ms - -[0m
+
+2016-01-25T00:56:48.215Z - info: [0mGET /css/form.css [36m304 [0m1.923 ms - -[0m
+
+2016-01-25T00:56:48.216Z - info: [0mGET /css/checkin.css [36m304 [0m2.370 ms - -[0m
+
+2016-01-25T00:56:48.266Z - info: [0mGET /views/components/receptionistPortal/signin/views/login.html [36m304 [0m4.394 ms - -[0m
+
+2016-01-25T00:56:48.269Z - info: [0mGET /views/components/patientCheckin/checkin/views/directive-templates/form/form.html [36m304 [0m3.870 ms - -[0m
+
+2016-01-25T00:56:48.313Z - info: [0mGET /api/form/template/company/undefined [33m400 [0m3.947 ms - 57[0m
+
+2016-01-25T00:56:48.320Z - info: [0mGET / [36m304 [0m9.896 ms - -[0m
+
+2016-01-25T00:56:48.325Z - info: [0mGET /api/undefined/theme [32m200 [0m37.378 ms - 4[0m
+
+2016-01-25T00:56:48.353Z - info: [0mGET /images/logo.png [36m304 [0m1.870 ms - -[0m
+
+2016-01-25T00:56:48.359Z - info: [0mGET /css/login_styles.css [36m304 [0m5.316 ms - -[0m
+
+2016-01-25T00:56:48.409Z - info: [0mGET /css/login_animate.css [36m304 [0m0.781 ms - -[0m
+
+2016-01-25T00:56:54.142Z - info: [0mPOST /auth/login [32m200 [0m74.092 ms - 213[0m
+
+2016-01-25T00:56:54.151Z - info: [0mGET /views/components/dashboard/main/views/dashboard.html [36m304 [0m0.681 ms - -[0m
+
+2016-01-25T00:56:54.154Z - info: [0mGET /views/components/dashboard/patientQueue/views/patients.html [36m304 [0m2.046 ms - -[0m
+
+2016-01-25T00:56:54.213Z - info: [0mGET /views/shared/widget/views/header-bar.html [36m304 [0m3.904 ms - -[0m
+
+2016-01-25T00:56:54.214Z - info: [0mGET /views/components/dashboard/sidebar/views/side-bar.html [36m304 [0m4.273 ms - -[0m
+
+2016-01-25T00:56:54.228Z - info: [0mGET /fonts/fontawesome-webfont.woff?v=4.1.0 [36m304 [0m0.941 ms - -[0m
+
+2016-01-25T00:56:54.274Z - info: [0mGET /fonts/glyphicons-halflings-regular.woff2 [36m304 [0m0.849 ms - -[0m
+
+2016-01-25T00:56:56.069Z - info: [0mGET /css/patient_mode.css [36m304 [0m0.970 ms - -[0m
+
+2016-01-25T00:56:56.075Z - info: [0mGET /css/form.css [36m304 [0m1.565 ms - -[0m
+
+2016-01-25T00:56:56.077Z - info: [0mGET /css/checkin.css [36m304 [0m2.708 ms - -[0m
+
+2016-01-25T00:56:56.089Z - info: [0mGET /api/56a571ec782f9dea81bd3881/theme [36m304 [0m3.185 ms - -[0m
+
+2016-01-25T00:56:56.115Z - info: [0mGET /api/form/template/company/56a571ec782f9dea81bd3881 [36m304 [0m20.065 ms - -[0m
+
+2016-01-25T00:56:56.146Z - info: [0mGET /images/themes/city0.jpg [36m304 [0m1.957 ms - -[0m
+
+2016-01-25T00:57:08.006Z - info: [0mGET /images/themes/city1.jpg [32m200 [0m20.890 ms - 304704[0m
+
+2016-01-25T00:59:06.281Z - error: uncaughtException: Cannot read property 'length' of undefined date=Sun Jan 24 2016 16:59:06 GMT-0800 (PST), pid=98819, uid=501, gid=20, cwd=/Users/atang020/team2, execPath=/usr/local/bin/node, version=v0.12.7, argv=[node, /Users/atang020/team2/server/adminLTEapp.js], rss=65937408, heapTotal=58682624, heapUsed=32750960, loadavg=[3.21435546875, 2.958984375, 2.86767578125], uptime=881705, trace=[column=31, file=/Users/atang020/team2/node_modules/mongoose/node_modules/mongodb/lib/mongodb/db.js, function=processResults, line=1581, method=null, native=false, column=20, file=/Users/atang020/team2/node_modules/mongoose/node_modules/mongodb/lib/mongodb/db.js, function=null, line=1619, method=null, native=false, column=7, file=/Users/atang020/team2/node_modules/mongoose/node_modules/mongodb/lib/mongodb/db.js, function=null, line=1157, method=null, native=false, column=9, file=/Users/atang020/team2/node_modules/mongoose/node_modules/mongodb/lib/mongodb/db.js, function=null, line=1890, method=null, native=false, column=41, file=/Users/atang020/team2/node_modules/mongoose/node_modules/mongodb/lib/mongodb/connection/base.js, function=Server.Base._callHandler, line=448, method=Base._callHandler, native=false, column=18, file=/Users/atang020/team2/node_modules/mongoose/node_modules/mongodb/lib/mongodb/connection/server.js, function=null, line=481, method=null, native=false, column=5, file=/Users/atang020/team2/node_modules/mongoose/node_modules/mongodb/lib/mongodb/responses/mongo_reply.js, function=MongoReply.parseBody, line=68, method=parseBody, native=false, column=20, file=/Users/atang020/team2/node_modules/mongoose/node_modules/mongodb/lib/mongodb/connection/server.js, function=, line=439, method=null, native=false, column=17, file=events.js, function=emit, line=107, method=null, native=false, column=13, file=/Users/atang020/team2/node_modules/mongoose/node_modules/mongodb/lib/mongodb/connection/connection_pool.js, function=, line=201, method=null, native=false], stack=[TypeError: Cannot read property 'length' of undefined,     at processResults (/Users/atang020/team2/node_modules/mongoose/node_modules/mongodb/lib/mongodb/db.js:1581:31),     at /Users/atang020/team2/node_modules/mongoose/node_modules/mongodb/lib/mongodb/db.js:1619:20,     at /Users/atang020/team2/node_modules/mongoose/node_modules/mongodb/lib/mongodb/db.js:1157:7,     at /Users/atang020/team2/node_modules/mongoose/node_modules/mongodb/lib/mongodb/db.js:1890:9,     at Server.Base._callHandler (/Users/atang020/team2/node_modules/mongoose/node_modules/mongodb/lib/mongodb/connection/base.js:448:41),     at /Users/atang020/team2/node_modules/mongoose/node_modules/mongodb/lib/mongodb/connection/server.js:481:18,     at MongoReply.parseBody (/Users/atang020/team2/node_modules/mongoose/node_modules/mongodb/lib/mongodb/responses/mongo_reply.js:68:5),     at null.<anonymous> (/Users/atang020/team2/node_modules/mongoose/node_modules/mongodb/lib/mongodb/connection/server.js:439:20),     at emit (events.js:107:17),     at null.<anonymous> (/Users/atang020/team2/node_modules/mongoose/node_modules/mongodb/lib/mongodb/connection/connection_pool.js:201:13)]
+2016-01-25T00:59:06.287Z - error: uncaughtException: Cannot read property 'length' of undefined date=Sun Jan 24 2016 16:59:06 GMT-0800 (PST), pid=98819, uid=501, gid=20, cwd=/Users/atang020/team2, execPath=/usr/local/bin/node, version=v0.12.7, argv=[node, /Users/atang020/team2/server/adminLTEapp.js], rss=66691072, heapTotal=58682624, heapUsed=33563064, loadavg=[3.21435546875, 2.958984375, 2.86767578125], uptime=881705, trace=[column=31, file=/Users/atang020/team2/node_modules/mongoose/node_modules/mongodb/lib/mongodb/db.js, function=processResults, line=1581, method=null, native=false, column=20, file=/Users/atang020/team2/node_modules/mongoose/node_modules/mongodb/lib/mongodb/db.js, function=null, line=1619, method=null, native=false, column=7, file=/Users/atang020/team2/node_modules/mongoose/node_modules/mongodb/lib/mongodb/db.js, function=null, line=1157, method=null, native=false, column=9, file=/Users/atang020/team2/node_modules/mongoose/node_modules/mongodb/lib/mongodb/db.js, function=null, line=1890, method=null, native=false, column=41, file=/Users/atang020/team2/node_modules/mongoose/node_modules/mongodb/lib/mongodb/connection/base.js, function=Server.Base._callHandler, line=448, method=Base._callHandler, native=false, column=18, file=/Users/atang020/team2/node_modules/mongoose/node_modules/mongodb/lib/mongodb/connection/server.js, function=null, line=481, method=null, native=false, column=5, file=/Users/atang020/team2/node_modules/mongoose/node_modules/mongodb/lib/mongodb/responses/mongo_reply.js, function=MongoReply.parseBody, line=68, method=parseBody, native=false, column=20, file=/Users/atang020/team2/node_modules/mongoose/node_modules/mongodb/lib/mongodb/connection/server.js, function=, line=439, method=null, native=false, column=17, file=events.js, function=emit, line=107, method=null, native=false, column=13, file=/Users/atang020/team2/node_modules/mongoose/node_modules/mongodb/lib/mongodb/connection/connection_pool.js, function=, line=201, method=null, native=false], stack=[TypeError: Cannot read property 'length' of undefined,     at processResults (/Users/atang020/team2/node_modules/mongoose/node_modules/mongodb/lib/mongodb/db.js:1581:31),     at /Users/atang020/team2/node_modules/mongoose/node_modules/mongodb/lib/mongodb/db.js:1619:20,     at /Users/atang020/team2/node_modules/mongoose/node_modules/mongodb/lib/mongodb/db.js:1157:7,     at /Users/atang020/team2/node_modules/mongoose/node_modules/mongodb/lib/mongodb/db.js:1890:9,     at Server.Base._callHandler (/Users/atang020/team2/node_modules/mongoose/node_modules/mongodb/lib/mongodb/connection/base.js:448:41),     at /Users/atang020/team2/node_modules/mongoose/node_modules/mongodb/lib/mongodb/connection/server.js:481:18,     at MongoReply.parseBody (/Users/atang020/team2/node_modules/mongoose/node_modules/mongodb/lib/mongodb/responses/mongo_reply.js:68:5),     at null.<anonymous> (/Users/atang020/team2/node_modules/mongoose/node_modules/mongodb/lib/mongodb/connection/server.js:439:20),     at emit (events.js:107:17),     at null.<anonymous> (/Users/atang020/team2/node_modules/mongoose/node_modules/mongodb/lib/mongodb/connection/connection_pool.js:201:13)]
+2016-01-25T00:59:15.865Z - info: [0mGET / [32m200 [0m17.628 ms - 1311[0m
+
+2016-01-25T00:59:16.017Z - info: [0mGET /css/header-bar.css [32m200 [0m20.999 ms - 2236[0m
+
+2016-01-25T00:59:16.018Z - info: [0mGET /css/sidebar.css [32m200 [0m21.716 ms - 1905[0m
+
+2016-01-25T00:59:16.018Z - info: [0mGET /css/vendor.css [32m200 [0m30.946 ms - 156494[0m
+
+2016-01-25T00:59:16.031Z - info: [0mGET /css/employees.css [32m200 [0m34.654 ms - 1134[0m
+
+2016-01-25T00:59:16.035Z - info: [0mGET /css/patients.css [32m200 [0m38.746 ms - 709[0m
+
+2016-01-25T00:59:16.052Z - info: [0mGET /css/fonts.css [32m200 [0m31.764 ms - 1719[0m
+
+2016-01-25T00:59:16.057Z - info: [0mGET /css/form.css [32m200 [0m36.123 ms - 799[0m
+
+2016-01-25T00:59:16.057Z - info: [0mGET /css/style.css [32m200 [0m35.790 ms - 2074[0m
+
+2016-01-25T00:59:16.070Z - info: [0mGET /vendor.js [32m200 [0m75.437 ms - 394177[0m
+
+2016-01-25T00:59:16.098Z - info: [0mGET /bundle.js [32m200 [0m63.465 ms - 78226[0m
+
+2016-01-25T00:59:16.099Z - info: [0mGET /js/jquery.js [32m200 [0m65.788 ms - 95785[0m
+
+2016-01-25T00:59:16.343Z - info: [0mGET /views/components/patientCheckin/checkin/views/checkin.html [32m200 [0m2.491 ms - 2027[0m
+
+2016-01-25T00:59:16.368Z - info: [0mGET /css/form.css [36m304 [0m2.474 ms - -[0m
+
+2016-01-25T00:59:16.372Z - info: [0mGET /css/patient_mode.css [32m200 [0m6.732 ms - 3050[0m
+
+2016-01-25T00:59:16.375Z - info: [0mGET /css/checkin.css [32m200 [0m8.502 ms - 165[0m
+
+2016-01-25T00:59:16.424Z - info: [0mGET /api/form/template/company/undefined [33m400 [0m17.119 ms - 57[0m
+
+2016-01-25T00:59:16.427Z - info: [0mGET /api/undefined/theme [36m304 [0m20.781 ms - -[0m
+
+2016-01-25T00:59:16.428Z - info: [0mGET / [36m304 [0m3.235 ms - -[0m
+
+2016-01-25T00:59:16.428Z - info: [0mGET /views/components/patientCheckin/checkin/views/directive-templates/form/form.html [32m200 [0m22.346 ms - 778[0m
+
+2016-01-25T00:59:16.429Z - info: [0mGET /views/components/receptionistPortal/signin/views/login.html [32m200 [0m23.099 ms - 1128[0m
+
+2016-01-25T00:59:16.464Z - info: [0mGET /images/logo.png [32m200 [0m19.232 ms - 11911[0m
+
+2016-01-25T00:59:16.469Z - info: [0mGET /css/login_styles.css [32m200 [0m9.764 ms - 3835[0m
+
+2016-01-25T00:59:16.480Z - info: [0mGET /images/themes/city1.jpg [32m200 [0m44.230 ms - 304704[0m
+
+2016-01-25T00:59:16.509Z - info: [0mGET /css/login_animate.css [32m200 [0m22.594 ms - 68522[0m
+
+2016-01-25T00:59:21.989Z - info: [0mPOST /auth/login [32m200 [0m123.596 ms - 213[0m
+
+2016-01-25T00:59:22.000Z - info: [0mGET /views/components/dashboard/main/views/dashboard.html [32m200 [0m1.930 ms - 509[0m
+
+2016-01-25T00:59:22.004Z - info: [0mGET /views/components/dashboard/patientQueue/views/patients.html [32m200 [0m5.648 ms - 2857[0m
+
+2016-01-25T00:59:22.067Z - info: [0mGET /views/shared/widget/views/header-bar.html [32m200 [0m6.689 ms - 1677[0m
+
+2016-01-25T00:59:22.069Z - info: [0mGET /views/components/dashboard/sidebar/views/side-bar.html [32m200 [0m8.245 ms - 2860[0m
+
+2016-01-25T00:59:22.112Z - info: [0mGET /fonts/MYRIADPRO-SEMIBOLD.woff [32m200 [0m33.623 ms - 62448[0m
+
+2016-01-25T00:59:22.117Z - info: [0mGET /fonts/MYRIADPRO-REGULAR.woff [32m200 [0m35.843 ms - 61848[0m
+
+2016-01-25T00:59:22.118Z - info: [0mGET /fonts/fontawesome-webfont.woff?v=4.1.0 [32m200 [0m31.642 ms - 83760[0m
+
+2016-01-25T00:59:22.146Z - info: [0mGET /fonts/glyphicons-halflings-regular.woff2 [32m200 [0m14.212 ms - 18028[0m
+
+2016-01-25T00:59:23.843Z - info: [0mGET /css/patient_mode.css [36m304 [0m5.719 ms - -[0m
+
+2016-01-25T00:59:23.844Z - info: [0mGET /css/form.css [36m304 [0m5.931 ms - -[0m
+
+2016-01-25T00:59:23.848Z - info: [0mGET /css/checkin.css [36m304 [0m8.919 ms - -[0m
+
+2016-01-25T00:59:23.853Z - info: [0mGET /api/56a571ec782f9dea81bd3881/theme [36m304 [0m12.122 ms - -[0m
+
+2016-01-25T00:59:23.853Z - info: [0mGET /api/form/template/company/56a571ec782f9dea81bd3881 [36m304 [0m11.897 ms - -[0m
+
+2016-01-25T00:59:23.885Z - info: [0mGET / [36m304 [0m1.623 ms - -[0m
+

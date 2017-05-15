@@ -1,0 +1,1 @@
+ng.module("smart-table").directive("stSelectRow",function(){return{restrict:"A",require:"^stTable",scope:{row:"=stSelectRow"},link:function(e,t,c,s){var l=c.stSelectMode||"single";t.bind("click",function(){e.$apply(function(){s.select(e.row,l)})}),e.$watch("row.isSelected",function(e){e===!0?t.addClass("st-selected"):t.removeClass("st-selected")})}}});

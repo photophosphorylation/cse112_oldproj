@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>You're Done!</title>
+    {{>styles}}
+    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css"> -->
+    <!-- <link rel='stylesheet' href='/stylesheets/style.css'/> -->
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+    <!-- This handles the redirect (7 seconds) -->
+    <script type="text/javascript">  window.setTimeout("location=('checkin');",5000); </script>
+
+    <style>
+        body, h1, h2, h3, h4, h5, h6 {
+            /*color: {{containerText}} !important;*/
+        }
+
+        .customBG {
+            /*background-image: url(/images/bg/full/{{bg}});*/
+            /*background-image: url({{bg}});*/
+            background: linear-gradient(to bottom, rgba(242,97,0, 1), rgba(255,151,0, 0.2));
+        }
+
+        .btn {
+            /*background-color: {{buttonBg}};
+            border-color: {{buttonBg}};
+            color: {{buttonText}}*/
+        }
+
+        .container-checkin {
+            /*background-color: {{containerBg}};*/
+        }
+        footer {
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            height: 50px;
+            background-color: #071C33;
+        }
+        footer h4 {
+            color: #eeeeee;
+            text-align: center;
+            padding: 0;
+            margin: 0;
+            line-height: 50px;
+            font-weight: bold;
+            text-shadow: 0px 0px 8px #ffae00;
+        }
+    </style>
+</head>
+<body class="customBG">
+
+<!-- this nav bar is consistent with PK's navbar
+ <nav class="navbar navbar-default navbar-fixed-top">
+    <div class="navbar-header">
+        <a class="navbar-brand" href="/">
+            <div id="company-logo">Company Logo</div>
+        </a>
+    </div>
+</nav> -->
+
+<!-- Took out all unnecessary divs to make consistent with checkin page design -->
+<div class="container">
+    <h1 class="header text-center"> <strong>Thank you! <br />We will be with you shortly</strong></h1>
+    <!-- <h1 class="header">Someone will be with you shortly.</h1> -->
+    <img class="checkinphoto center-block" src="{{logo}}" alt="Logo">
+</div>
+<!-- <meta http-equiv="refresh" content="5;nocode" /> -->
+</body>
+
+<footer>
+    <h4>Powered by ENQUÉ</h4>
+</footer>
+</html>

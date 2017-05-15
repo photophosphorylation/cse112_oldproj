@@ -1,0 +1,140 @@
+2016-02-03T05:13:40.764Z - info: [0mGET /css/form.css [36m304 [0m0.437 ms - -[0m
+
+2016-02-04T01:18:22.768Z - info: [0mGET / [36m304 [0m3.021 ms - -[0m
+
+2016-02-04T01:18:22.870Z - info: [0mGET /vendor.js [36m304 [0m1.202 ms - -[0m
+
+2016-02-04T01:18:22.871Z - info: [0mGET /css/vendor.css [36m304 [0m2.579 ms - -[0m
+
+2016-02-04T01:18:22.873Z - info: [0mGET /css/header-bar.css [36m304 [0m4.187 ms - -[0m
+
+2016-02-04T01:18:22.873Z - info: [0mGET /css/patients.css [36m304 [0m3.870 ms - -[0m
+
+2016-02-04T01:18:22.874Z - info: [0mGET /css/sidebar.css [36m304 [0m4.581 ms - -[0m
+
+2016-02-04T01:18:22.874Z - info: [0mGET /css/employees.css [36m304 [0m4.738 ms - -[0m
+
+2016-02-04T01:18:22.881Z - info: [0mGET /css/fonts.css [36m304 [0m0.547 ms - -[0m
+
+2016-02-04T01:18:22.883Z - info: [0mGET /css/form.css [36m304 [0m2.704 ms - -[0m
+
+2016-02-04T01:18:22.884Z - info: [0mGET /css/style.css [36m304 [0m1.120 ms - -[0m
+
+2016-02-04T01:18:22.884Z - info: [0mGET /js/jquery.js [36m304 [0m1.661 ms - -[0m
+
+2016-02-04T01:18:22.885Z - info: [0mGET /bundle.js [36m304 [0m0.942 ms - -[0m
+
+2016-02-04T01:18:23.085Z - info: [0mGET /views/components/dashboard/main/views/dashboard.html [32m200 [0m3.580 ms - 509[0m
+
+2016-02-04T01:18:23.085Z - info: [0mGET /views/components/dashboard/patientQueue/views/patients.html [32m200 [0m3.547 ms - 2857[0m
+
+2016-02-04T01:18:23.172Z - info: [0mGET /views/components/receptionistPortal/signin/views/login.html [32m200 [0m1.763 ms - 1128[0m
+
+2016-02-04T01:18:23.172Z - info: [0mGET /views/components/dashboard/sidebar/views/side-bar.html [32m200 [0m1.522 ms - 2860[0m
+
+2016-02-04T01:18:23.172Z - info: [0mGET /views/shared/widget/views/header-bar.html [32m200 [0m1.856 ms - 1677[0m
+
+2016-02-04T01:18:23.268Z - info: [0mGET /fonts/MYRIADPRO-SEMIBOLD.woff [32m200 [0m2.980 ms - 62448[0m
+
+2016-02-04T01:18:23.268Z - info: [0mGET /fonts/MYRIADPRO-REGULAR.woff [32m200 [0m2.726 ms - 61848[0m
+
+2016-02-04T01:18:23.268Z - info: [0mGET /fonts/fontawesome-webfont.woff?v=4.1.0 [32m200 [0m2.803 ms - 83760[0m
+
+2016-02-04T01:18:23.285Z - info: [0mGET /css/login_styles.css [32m200 [0m0.867 ms - 3835[0m
+
+2016-02-04T01:18:23.591Z - info: [0mGET / [36m304 [0m0.430 ms - -[0m
+
+2016-02-04T01:18:23.665Z - info: [0mGET /css/vendor.css [36m304 [0m1.225 ms - -[0m
+
+2016-02-04T01:18:23.665Z - info: [0mGET /vendor.js [36m304 [0m1.334 ms - -[0m
+
+2016-02-04T01:18:23.665Z - info: [0mGET /css/header-bar.css [36m304 [0m1.421 ms - -[0m
+
+2016-02-04T01:18:23.666Z - info: [0mGET /css/sidebar.css [36m304 [0m1.715 ms - -[0m
+
+2016-02-04T01:18:23.666Z - info: [0mGET /css/employees.css [36m304 [0m1.900 ms - -[0m
+
+2016-02-04T01:18:23.666Z - info: [0mGET /css/patients.css [36m304 [0m1.997 ms - -[0m
+
+2016-02-04T01:18:23.670Z - info: [0mGET /css/fonts.css [36m304 [0m0.360 ms - -[0m
+
+2016-02-04T01:18:23.671Z - info: [0mGET /css/form.css [36m304 [0m0.629 ms - -[0m
+
+2016-02-04T01:18:23.671Z - info: [0mGET /js/jquery.js [36m304 [0m0.546 ms - -[0m
+
+2016-02-04T01:18:23.673Z - info: [0mGET /css/style.css [36m304 [0m1.106 ms - -[0m
+
+2016-02-04T01:18:23.675Z - info: [0mGET /bundle.js [36m304 [0m0.344 ms - -[0m
+
+2016-02-04T01:18:23.890Z - info: [0mGET /views/components/dashboard/main/views/dashboard.html [36m304 [0m7.118 ms - -[0m
+
+2016-02-04T01:18:23.891Z - info: [0mGET /views/components/dashboard/patientQueue/views/patients.html [36m304 [0m4.405 ms - -[0m
+
+2016-02-04T01:18:23.969Z - info: [0mGET /views/components/receptionistPortal/signin/views/login.html [36m304 [0m0.576 ms - -[0m
+
+2016-02-04T01:18:23.969Z - info: [0mGET /views/shared/widget/views/header-bar.html [36m304 [0m0.307 ms - -[0m
+
+2016-02-04T01:18:23.971Z - info: [0mGET /views/components/dashboard/sidebar/views/side-bar.html [36m304 [0m0.346 ms - -[0m
+
+2016-02-04T01:18:24.039Z - info: [0mGET /fonts/MYRIADPRO-SEMIBOLD.woff [36m304 [0m0.936 ms - -[0m
+
+2016-02-04T01:18:24.039Z - info: [0mGET /fonts/MYRIADPRO-REGULAR.woff [36m304 [0m0.986 ms - -[0m
+
+2016-02-04T01:18:24.039Z - info: [0mGET /fonts/fontawesome-webfont.woff?v=4.1.0 [36m304 [0m0.963 ms - -[0m
+
+2016-02-04T01:18:24.080Z - info: [0mGET /css/login_styles.css [36m304 [0m0.588 ms - -[0m
+
+2016-02-04T01:18:24.090Z - info: [0mGET /images/logo.png [32m200 [0m1.250 ms - 11911[0m
+
+2016-02-04T01:18:24.154Z - info: [0mGET /css/login_animate.css [32m200 [0m1.377 ms - 68522[0m
+
+2016-02-04T01:18:30.963Z - info: [0mPOST /auth/login [32m200 [0m54.410 ms - 202[0m
+
+2016-02-04T01:18:31.001Z - info: [0mGET /fonts/glyphicons-halflings-regular.woff2 [32m200 [0m2.540 ms - 18028[0m
+
+2016-02-04T01:18:32.558Z - info: [0mGET /views/components/dashboard/employees/views/employees.html [36m304 [0m1.041 ms - -[0m
+
+2016-02-04T01:18:32.581Z - info: [0mGET /api/employee/admin/56b105dd62f20c99b60d3b84 [36m304 [0m1.313 ms - -[0m
+
+2016-02-04T01:18:33.670Z - info: [0mGET /views/components/dashboard/formBuilder/views/create.html [36m304 [0m0.828 ms - -[0m
+
+2016-02-04T01:18:33.699Z - info: [0mGET /views/components/dashboard/formBuilder/views/directive-templates/form/form.html [36m304 [0m0.768 ms - -[0m
+
+2016-02-04T01:18:33.702Z - info: [0mGET /api/form/template/company/56b105dd62f20c99b60d3b84 [36m304 [0m3.677 ms - -[0m
+
+2016-02-04T01:18:33.728Z - info: [0mGET /views/components/dashboard/formBuilder/views/directive-templates/field/textfield.html [36m304 [0m0.658 ms - -[0m
+
+2016-02-04T01:18:34.160Z - info: [0mGET /views/components/dashboard/themes/views/dashboardIndex.html [32m200 [0m2.880 ms - 1757[0m
+
+2016-02-04T01:18:34.175Z - info: [0mGET /css/themes.css [36m304 [0m0.611 ms - -[0m
+
+2016-02-04T01:18:34.198Z - info: [0mGET /images/themes/city3.jpg [32m200 [0m3.694 ms - 166259[0m
+
+2016-02-04T01:18:34.198Z - info: [0mGET /images/themes/city1.jpg [32m200 [0m4.787 ms - 304704[0m
+
+2016-02-04T01:18:34.199Z - info: [0mGET /images/themes/colors.jpg [32m200 [0m4.749 ms - 285640[0m
+
+2016-02-04T01:18:34.208Z - info: [0mGET /images/themes/city0.jpg [32m200 [0m14.954 ms - 1004724[0m
+
+2016-02-04T01:18:34.210Z - info: [0mGET /images/themes/lake.jpg [32m200 [0m6.186 ms - 542581[0m
+
+2016-02-04T01:18:34.211Z - info: [0mGET /images/themes/old-fashioned.jpg [32m200 [0m4.956 ms - 293782[0m
+
+2016-02-04T01:18:34.214Z - info: [0mGET /images/themes/city2.png [32m200 [0m20.086 ms - 1514903[0m
+
+2016-02-04T01:18:34.231Z - info: [0mGET /images/themes/tron.jpg [32m200 [0m2.516 ms - 145396[0m
+
+2016-02-04T01:18:34.237Z - info: [0mGET /images/themes/flamingo1.jpg [32m200 [0m2.116 ms - 197695[0m
+
+2016-02-04T01:18:34.251Z - info: [0mGET /images/themes/flamingo2.jpg [32m200 [0m18.990 ms - 674759[0m
+
+2016-02-04T01:18:34.268Z - info: [0mGET /images/themes/pink_trees.jpg [32m200 [0m75.567 ms - 2534616[0m
+
+2016-02-04T01:18:34.270Z - info: [0mGET /images/themes/walkway.jpg [32m200 [0m29.162 ms - 1146401[0m
+
+2016-02-04T01:18:34.306Z - info: [0mGET /images/themes/maverick.png [32m200 [0m101.477 ms - 2864129[0m
+
+2016-02-04T01:18:34.651Z - info: [0mGET /views/components/dashboard/settings/views/settings.html [36m304 [0m1.189 ms - -[0m
+
+2016-02-04T01:18:34.665Z - info: [0mGET /css/settings.css [36m304 [0m0.605 ms - -[0m
+

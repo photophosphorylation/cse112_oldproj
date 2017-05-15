@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8"/>
+</head>
+<body>
+<p><a href="https://travis-ci.org/lorenzofox3/Smart-Table"><img src="https://travis-ci.org/lorenzofox3/Smart-Table.svg?branch=master" alt="Build Status" /></a></p>
+
+<h1 id="smarttable">Smart Table</h1>
+
+<p><a href="https://gitter.im/lorenzofox3/Smart-Table?utm_source=badge&amp;utm_medium=badge&amp;utm_campaign=pr-badge&amp;utm_content=badge">![Gitter][Gitter](https://badges.gitter.im/Join Chat.svg)</a></p>
+
+<p>Smart table is a table module for angular js. It allows you to quickly compose your table in a declarative way including sorting, filtering, row selection pagination.
+It is lightweight (around 3kb minified) and has no other dependencies than Angular itself.
+Check the <a href="http://lorenzofox3.github.io/smart-table-website/">documentation</a> website for more details</p>
+
+<h2 id="submittinganissue">submitting an issue</h2>
+
+<p>Please be responsible, the open source community is not there to guess your problem or to do your job. When submitting an issue try as much as possible to:</p>
+
+<ol>
+<li><p>search in the already existing issues or on <a href="http://stackoverflow.com/questions/tagged/smart-table?sort=newest&amp;pageSize=30">stackoverflow</a> if your issue has not been raised before.</p></li>
+<li><p>give a precise description mentionning angular version, smart-table version.</p></li>
+<li><p>give a way to reproduce your issue, the best would be with a <strong>running example</strong>, you can use <a href="http://plnkr.co/">plunkr</a> (smart-table is the list of available packages). Note if you want to mimic ajax loading behaviour you can use <a href="https://docs.angularjs.org/api/ng/service/$timeout">$timeout</a> angular service or <a href="https://docs.angularjs.org/api/ng/service/$httpBackend">$httpBackend</a>.</p></li>
+<li><p>isolate your code sample on the probable issue to avoid pollution and noise.</p></li>
+<li><p>Close your issue when a solution has been found (and share it with the community)</p></li>
+</ol>
+
+<p>Note that 80% of the open issues are actually not issues but &#8220;problem&#8221; due to developpers laziness or lack of investigation. These &#8220;issues&#8221; are a waste of time for us and especially if we have to setup a sample to reproduce the issue which those developpers could have done. Any open issue which does not fulfill this contract will be closed without investigation.</p>
+
+<h2 id="install">Install</h2>
+
+<p>the easiest way is to run <code>bower install angular-smart-table</code>, then you just have to add the script and register the module <code>smart-table</code> to you application</p>
+
+<h2 id="test">Test</h2>
+
+<p>run <code>npm install</code> after you have installed the dependencies (<code>npm install</code> and <code>bower install</code>)</p>
+
+<h2 id="custombuilds">custom builds</h2>
+
+<p>smart-table is based around a main directive which generate a top level controller whose API can be accessed by sub directives
+(plugins), if you don&#8217;t need some of these, simply edit the gulpfile (the pluginList variable) and run <code>gulp build</code></p>
+
+<h2 id="olderversions">Older versions</h2>
+
+<p>Smart-Table used to be configuration based and if you rely on this version, you can still access the code on the <a href="https://github.com/lorenzofox3/Smart-Table/tree/vx.2.x">0.2.x</a> branch. You will be able to find the documentation related to this version
+<a href="https://github.com/lorenzofox3/smart-table-website">here</a> (simply open index.html in a browser).</p>
+
+<p>Note, I have closed all the issues related to these versions as people get confused when reading these issues and commented on them like it was related to the newer version. Feel free to reopen any of them (or open a new one), but don&#8217;t forget to mention it is related to the older versions.</p>
+
+<h2 id="license">License</h2>
+
+<p>Smart Table module is under MIT license:</p>
+
+<blockquote>
+<p>Copyright (C) 2014 Laurent Renard.</p>
+
+<p>Permission is hereby granted, free of charge, to any person
+obtaining a copy of this software and associated documentation files
+(the &#8220;Software&#8221;), to deal in the Software without restriction,
+including without limitation the rights to use, copy, modify, merge,
+publish, distribute, sublicense, and/or sell copies of the Software,
+and to permit persons to whom the Software is furnished to do so,
+subject to the following conditions:</p>
+
+<p>The above copyright notice and this permission notice shall be
+included in all copies or substantial portions of the Software.</p>
+
+<p>THE SOFTWARE IS PROVIDED &#8220;AS IS&#8221;, WITHOUT WARRANTY OF ANY KIND,
+EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
+NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS
+BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN
+ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
+CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.</p>
+</blockquote>
+
+</body>
+</html>

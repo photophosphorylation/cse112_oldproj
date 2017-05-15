@@ -1,0 +1,1 @@
+module.exports=function(e){require("./karma.conf")(e),e.autoWatch=!1,e.preprocessors={"toaster.js":["coverage"]},e.coverageReporter={type:"html",dir:"coverage/"},e.singleRun=!0,e.reporters.push("coverage"),e.plugins.push("karma-coverage"),e.set(e)};

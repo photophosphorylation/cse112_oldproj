@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8"/>
+</head>
+<body>
+<h1 id="ui-currencydirective">ui-currency directive</h1>
+
+<p>This directive gives greater control over your currency elements by allowing you to set CSS styles based on the number&#8217;s sign.
+In angular, you are only able to specify what the currency symbol is (however, you might not want to change it for localization). </p>
+
+<h2 id="usage">Usage</h2>
+
+<p>Apply the directive to your html elements:</p>
+
+<pre><code>myAppModule.controller('MyController', function($scope) {
+    $scope.SomeNumber = 123;
+});
+
+  &lt;span ui-currency ng-model=&quot;SomeNumber&quot;&gt;&lt;/span&gt;
+</code></pre>
+
+<p>Default styles are in angular-ui.css and are pretty boring, you could just override these in your
+stylesheet and make things most excellent (e.g. increasing size for negatives, doing a hover sorta thingy )</p>
+
+<p>.ui-currency-pos {
+ color: green;
+ }
+ .ui-currency-neg {
+ color: red;
+ }
+ .ui-currency-zero {
+ color: blue;
+ }
+ .ui-currency-pos.ui-bignum, .ui-currency-neg.ui-smallnum {
+ font-size: 110%;
+ }</p>
+
+<h3 id="options">Options</h3>
+
+<p>All the options can be controlled by ui.config (see Global Defaults) or passed in the ui-currency attribute on the declaration.
+The symbol attribute defaults to null and is then controlled by the default locale settings. </p>
+
+<pre><code>&lt;span ui-currency=&quot;{ pos='pstyle' neg='nstyle' zero='zstyle' symbol='USD$' bignum='1000' smallnum='-1000'}&quot; ng-model=&quot;SomeNumber&quot; &gt;&lt;/span&gt;
+</code></pre>
+
+<p>If the model is greater than or equal to 1000 add ui-bignum to css class, if less than or equal to &#8211;1000 add ui-small num. If attr is-total attribute
+is set the bignum/smallnum is not applied. This is useful if the options are global and you don&#8217;t want totals to necessarily have these classes. </p>
+
+<h3 id="notes">Notes</h3>
+
+<p>This directive wraps angular&#8217;s currency filter. If that changes, you are on your own.</p>
+
+</body>
+</html>

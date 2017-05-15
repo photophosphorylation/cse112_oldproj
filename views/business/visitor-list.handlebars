@@ -1,0 +1,59 @@
+<section class="content-header">
+    <h1 style="display: inline-block;">Visitor Queue</h1>
+    <div class="pull-right">
+        <div id="currentDate"></div>
+        <div id="txt"></div>
+    </div>
+</section>
+
+<section class="content">
+    {{#if message}}
+        <div class="alert alert-danger">{{message}}</div>
+    {{/if}}
+
+    <div class="row">
+        <div class="col-md-12">
+            <div class="box box-info">
+                <!-- /.box-header -->
+                <div class="box-body">
+                    <div class="table-responsive">
+                        <table class="table no-margin">
+                            <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Doctor</th>
+                                <th>Appointment Time</th>
+                                <th>Check In Time</th>
+                                <th>Status</th>
+                            </tr>
+                            </thead>
+                            <tbody id="appointment-list">
+                            {{#each patients}}
+                                <tr onclick = "highlight()">
+                                    <td>{{visitor}}</td>
+                                    <td>{{doctor}}</td>
+                                    <td>{{apptTime}}</td>
+                                    <td>{{currentTime}}</td>
+                                    <td>{{state}}</td>
+                            {{/each}}
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <!-- /.table-responsive -->
+                </div>
+                <!-- /.box-body -->
+                <div class="box-footer clearfix">
+                    <a href="#" class="btn btn-sm btn-success btn-flat pull-right" onclick = "checkIn()">Check In</a>
+                    <a href="#" class="btn btn-sm btn-warning btn-flat pull-right" onclick = "checkOut()">Check Out</a>
+                    <a href="#" class="btn btn-sm btn-info btn-flat pull-right" onclick = "reschedule()">Reschedule</a>
+                </div>
+                <!-- /.box-footer -->
+            </div>
+        </div>
+    </div>
+</section>
+
+<script src="/socket.io/socket.io.js"></script>
+<script src="/javascripts/visitor-list.js"></script>
+

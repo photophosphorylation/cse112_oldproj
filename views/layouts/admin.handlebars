@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{{ title }}</title>
+    {{>styles}}
+
+</head>
+<body class="skin-blue">
+<div class="wrapper">
+    {{>header}}
+
+    {{>sidebar-admin}}
+    <div class="content-wrapper">
+        {{{body}}}
+    </div>
+
+    {{>footer}}
+    {{>scripts}}
+</div>
+
+</body>
+</html>

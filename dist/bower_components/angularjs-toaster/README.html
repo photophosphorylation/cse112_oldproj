@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8"/>
+</head>
+<body>
+<h1 id="angularjs-toaster">AngularJS-Toaster</h1>
+
+<p><strong>AngularJS Toaster</strong> is an AngularJS port of the <strong>toastr</strong> non-blocking notification jQuery library. It requires AngularJS v1.2.6 or higher and angular-animate for the CSS3 transformations.
+(I would suggest to use /1.2.8/angular-animate.js, there is a weird blinking in newer versions.)</p>
+
+<h3 id="currentversion0.4.18">Current Version 0.4.18</h3>
+
+<h2 id="demo">Demo</h2>
+
+<ul>
+<li>Simple demo is at http://plnkr.co/edit/HKTC1a</li>
+<li>Older versions are http://plnkr.co/edit/1poa9A or http://plnkr.co/edit/4qpHwp or http://plnkr.co/edit/lzYaZt (with version 0.4.5)</li>
+<li>Older version with Angular 1.2.0 is placed at http://plnkr.co/edit/mejR4h</li>
+<li>Older version with Angular 1.2.0-rc.2 is placed at http://plnkr.co/edit/iaC2NY</li>
+<li>Older version with Angular 1.1.5 is placed at http://plnkr.co/mVR4P4</li>
+</ul>
+
+<h2 id="gettingstarted">Getting started</h2>
+
+<p>Optionally: to install with bower, use:
+<code>
+bower install --save angularjs-toaster
+</code>
+or with npm :
+<code>
+npm install --save angularjs-toaster
+</code>
+* Link scripts:</p>
+
+<pre><code class="html">&lt;link href=&quot;https://cdnjs.cloudflare.com/ajax/libs/angularjs-toaster/0.4.16/toaster.min.css&quot; rel=&quot;stylesheet&quot; /&gt;
+&lt;script src=&quot;https://ajax.googleapis.com/ajax/libs/angularjs/1.2.0/angular.min.js&quot; &gt;&lt;/script&gt;
+&lt;script src=&quot;https://code.angularjs.org/1.2.0/angular-animate.min.js&quot; &gt;&lt;/script&gt;
+&lt;script src=&quot;https://cdnjs.cloudflare.com/ajax/libs/angularjs-toaster/0.4.16/toaster.min.js&quot;&gt;&lt;/script&gt;
+</code></pre>
+
+<ul>
+<li>Add toaster container directive:</li>
+</ul>
+
+<pre><code class="html">&lt;toaster-container&gt;&lt;/toaster-container&gt;
+</code></pre>
+
+<ul>
+<li>Prepare the call of toaster method:</li>
+</ul>
+
+<pre><code class="js">// Display an info toast with no title
+angular.module('main', ['toaster', 'ngAnimate'])
+    .controller('myController', function($scope, toaster) {
+        $scope.pop = function(){
+            toaster.pop('success', &quot;title&quot;, &quot;text&quot;);
+        };
+    });
+</code></pre>
+
+<ul>
+<li>Call controller method on button click:</li>
+</ul>
+
+<pre><code class="html">&lt;div ng-controller=&quot;myController&quot;&gt;
+    &lt;button ng-click=&quot;pop()&quot;&gt;Show a Toaster&lt;/button&gt;
+&lt;/div&gt;
+</code></pre>
+
+<h3 id="closebutton">Close Button</h3>
+
+<p>The Close Button&#8217;s visibility can be configured at three different levels:</p>
+
+<ul>
+<li><p>Globally in the config for all toast types:
+<code>html
+&lt;toaster-container toaster-options=&quot;{'close-button': true}&quot;&gt;&lt;/toaster-container&gt;
+</code></p></li>
+<li><p>Per info-class type:
+By passing the close-button configuration as an object instead of a boolean, you can specify the global behavior an info-class type should have.
+<code>html
+&lt;toaster-container toaster-options=&quot;
+{'close-button':{ 'toast-warning': true, 'toast-error': false } }&quot;&gt;
+&lt;/toaster-container&gt;
+</code>
+If a type is not defined and specified, the default behavior for that type is false.</p></li>
+<li><p>Per toast constructed via toaster.pop(&#8216;success&#8217;, &#8220;title&#8221;, &#8220;text&#8221;):
+<code>html
+toaster.pop({
+            type: 'error',
+            title: 'Title text',
+            body: 'Body text',
+            showCloseButton: true
+        });
+</code>
+This option is given the most weight and will override the global configurations for that toast. However, it will not persist to other toasts of that type and does not alter or pollute the global configuration.</p></li>
+</ul>
+
+<h3 id="closehtml">Close Html</h3>
+
+<p>The close button html can be overridden either globally or per toast call.</p>
+
+<ul>
+<li><p>Globally:</p>
+
+<pre><code class="html">&lt;toaster-container toaster-options=&quot;{'close-html':'&lt;button&gt;Close&lt;/button&gt;', 
+    'showCloseButton':true}&quot;&gt;&lt;/toaster-container&gt;
+</code></pre></li>
+<li><p>Per toast:</p>
+
+<pre><code class="js">toaster.pop({
+        type: 'error',
+        title: 'Title text',
+        body: 'Body text',
+        showCloseButton: true,
+        closeHtml: '&lt;button&gt;Close&lt;/button&gt;'
+});
+</code></pre></li>
+</ul>
+
+<h3 id="bodyoutputtype">Body Output Type</h3>
+
+<p>The rendering of the body content is configurable at both the Global level, which applies to all toasts, and the individual toast level when passed as an argument to the toast.</p>
+
+<p>There are four types of body renderings: trustedHtml&#8217;, &#8216;template&#8217;, &#8216;templateWithData&#8217;, &#8216;directive&#8217;.</p>
+
+<ul>
+<li><p>trustedHtml: When using this configuration, the toast will parse the body content using
+<code>$sce.trustAsHtml(toast.body)</code>.
+If the html can be successfully parsed, it will be bound to the toast via <code>ng-bind-html</code>. If it cannot be parsed as &#8220;trustable&#8221; html, an exception will be thrown. </p></li>
+<li><p>template: Will use the <code>toast.body</code> if passed as an argument, else it will fallback to the template bound to the <code>'body-template': 'toasterBodyTmpl.html'</code> configuration option.</p></li>
+<li>templateWithData:
+
+<ul>
+<li>Will use the <code>toast.body</code> if passed as an argument, else it will fallback to the template bound to the <code>'body-template': 'toasterBodyTmpl.html'</code> configuration option.</li>
+<li>Assigns any data associated with the template to the toast.</li>
+</ul></li>
+<li>directive
+
+<ul>
+<li>Will use the <code>toast.body</code> argument to represent the name of a directive that you want to render as the toast&#8217;s body, else it will fallback to the template bound to the <code>'body-template': 'toasterBodyTmpl.html'</code> configuration option.</li>
+</ul>
+
+<pre><code class="js">// The toast pop call, passing in a directive name to be rendered
+toaster.pop({
+        type: 'info',
+        body: 'bind-unsafe-html',
+        bodyOutputType: 'directive'
+});
+</code></pre>
+
+<pre><code class="js">// The directive that will be dynamically rendered
+.directive('bindUnsafeHtml', [function () {
+        return {
+            template: &quot;&lt;span style='color:orange'&gt;Orange directive text!&lt;/span&gt;&quot;
+        };
+}])
+</code></pre>
+
+<ul>
+<li><p>Will use the <code>toast.directiveData</code> argument to accept data that will be bound to the directive&#8217;s scope.</p>
+
+<pre><code class="js">  // The toast pop call, passing in a directive name to be rendered
+  toaster.pop({
+      type: 'info',
+      body: 'bind-name',
+      bodyOutputType: 'directive',
+      directiveData: { name: 'Bob' }
+  });
+</code></pre>
+
+<pre><code class="js">  // The directive that will be dynamically rendered
+  .directive('bindName', [function () {
+    return {
+        template: &quot;&lt;span style='color:orange'&gt;Hi {{directiveData.name}}!&lt;/span&gt;&quot;
+    };
+  }])
+</code></pre></li>
+</ul>
+
+<p>There are additional documented use cases in these <a href="test/directiveTemplateSpec.js">tests</a>.</p></li>
+</ul>
+
+<p>All four options can be configured either globally for all toasts or individually per toast.pop() call. If the <code>body-output-type</code> option is configured on the toast, it will take precedence over the global configuration for that toast instance.</p>
+
+<ul>
+<li><p>Globally:</p>
+
+<pre><code class="html">&lt;toaster-container toaster-options=&quot;{'body-output-type': 'template'}&quot;&gt;&lt;/toaster-container&gt;
+</code></pre></li>
+<li><p>Per toast:</p>
+
+<pre><code class="js">toaster.pop({
+        type: 'error',
+        title: 'Title text',
+        body: 'Body text',
+        bodyOutputType: 'trustedHtml'
+});
+</code></pre></li>
+</ul>
+
+<h3 id="onhidecallback">On Hide Callback</h3>
+
+<p>A callback function can be attached to each toast instance. The callback will be invoked upon toast removal. This can be used to chain toast calls.</p>
+
+<pre><code class="js">toaster.pop({
+            title: 'A toast',
+            body: 'with a callback',
+            onHideCallback: function () { 
+                toaster.pop({
+                    title: 'A toast',
+                    body: 'invoked as a callback'
+                });
+            }
+});
+</code></pre>
+
+<h3 id="otheroptions">Other Options</h3>
+
+<pre><code class="html">// Change display position
+&lt;toaster-container toaster-options=&quot;{'position-class': 'toast-top-full-width'}&quot;&gt;&lt;/toaster-container&gt;
+</code></pre>
+
+<h3 id="animations">Animations</h3>
+
+<p>Unlike toastr, this library relies on ngAnimate and CSS3 transformations for optional animations. To include and use animations, add a reference to angular-animate.min.js (as described in Getting started - Link scripts) and add ngAnimate as a dependency alongside toaster. </p>
+
+<pre><code class="js">// Inject ngAnimate to enable animations
+angular.module('main', ['toaster', 'ngAnimate']);
+</code></pre>
+
+<p>If you do not want to use animations, you can safely remove the angular-animate.min.js reference as well as the injection of ngAnimate. Toasts will be displayed without animations.</p>
+
+<h2 id="author">Author</h2>
+
+<p><strong>Jiri Kavulak</strong></p>
+
+<h2 id="credits">Credits</h2>
+
+<p>Inspired by http://codeseven.github.io/toastr/demo.html.</p>
+
+<h2 id="copyright">Copyright</h2>
+
+<p>Copyright © 2013&#8211;2015 <a href="https://twitter.com/jirikavi">Jiri Kavulak</a>.</p>
+
+<h2 id="license">License</h2>
+
+<p>AngularJS-Toaster is under MIT license - http://www.opensource.org/licenses/mit-license.php</p>
+
+</body>
+</html>

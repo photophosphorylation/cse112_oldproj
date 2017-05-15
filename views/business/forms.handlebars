@@ -1,0 +1,22 @@
+
+
+
+<section class="content-header">
+    <h1>Form Editor </h1>
+    <div id="txt" class="pull-right"></div>
+    <h1 class="pull-right" id="currentDate"></h1>
+</section>
+
+<section class="content">
+    <form method="POST">
+        <textarea id="fill-me-in"></textarea>
+    </form>
+    {{>scripts}}
+    <script src="/plugins/formBuilder/form-builder.js"></script>
+    <script src="/plugins/jQueryUI/jquery-ui.js"></script>
+    <link rel="stylesheet" type="text/css" href="/plugins/formBuilder/form-builder.css">
+    <script>
+        $("#fill-me-in").formBuilder();
+    </script>
+</section>
+

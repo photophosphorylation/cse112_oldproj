@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8"/>
+</head>
+<body>
+<h1 id="angular-ui-ieshiv">angular-ui-ieshiv</h1>
+
+<h2 id="important">Important!</h2>
+
+<p>If not installed properly, angular WILL throw an exception. </p>
+
+<pre><code>&quot;No module: ui.directives&quot;
+</code></pre>
+
+<p>Which means you have not included the angular-ui library in the file, or the shiv is in the wrong place.</p>
+
+<p>WHY? Well, angular is throwing the exception and I can&#8217;t catch and stop it. If properly setup, you should be good.
+If not, then you should probably fix it or yank it out. Of course, then you won&#8217;t have the shiv for ie. </p>
+
+<h2 id="description">Description</h2>
+
+<p>This is used in order to support IE versions that do not support custom elements. For example: </p>
+
+<pre><code> &lt;ng-view&gt;&lt;/ng-view&gt;
+ &lt;ui-currency ng-model=&quot;somenum&quot;&gt;&lt;/ui-currency&gt;
+</code></pre>
+
+<p>IE 8 and earlier do not allow custom tag elements into the DOM. It just ignores them.
+In order to remedy, the trick is to tell browser by calling document.createElement(&#8216;my-custom-element&#8217;).
+Then you can use, <my-custom-element>&#8230;</my-custom-element>, you also may need to define css styles. </p>
+
+<p>In current version, this will automagically define directives found in the ui.directives module and
+angular&#8217;s ngView, ngInclude, ngPluralize directives.</p>
+
+<h2 id="usage">Usage</h2>
+
+<p>The shiv needs to run after angular has compiled the application. Best to load angular-ui-ieshiv.js at
+bottom of <head> section. </p>
+
+<pre><code>&lt;!--[if lte IE 8]&gt; &lt;script src=&quot;build/angular-ui-ieshiv.js&quot;&gt;&lt;/script&gt;&lt;![endif]--&gt;
+</code></pre>
+
+<h3 id="options">Options</h3>
+
+<pre><code>There will be
+</code></pre>
+
+<h3 id="notes">Notes</h3>
+
+<pre><code>- modules are searched for directives 
+- only IE 8 and earlier will cause shiv to run
+- there will be a slight performance hit (for IE) 
+</code></pre>
+
+<h3 id="todo">Todo</h3>
+
+<pre><code>- provide ability to specify which directives to include/exclude
+- automagically locate all custom directives in current ng-app (this will involve recursion)
+</code></pre>
+
+</body>
+</html>

@@ -1,0 +1,210 @@
+<section class="content-header">
+    <h1>Settings </h1>
+    <h1 class="" id="currentDate"></h1>
+    <div id="txt" class=""></div>
+</section>
+
+<section class="content">
+    <div class="row" style="">
+        <div class='col-md-8'>
+            {{#if edited}}
+                <div class="box-body">
+                    <div class="alert alert-success" role="alert">
+                        {{edited}}
+                    </div>
+                </div>
+            {{/if}}
+            {{#if alert}}
+                <div class="box-body">
+                    <div class="alert alert-warning" role="alert">
+                        {{alert}}
+                    </div>
+                </div>
+            {{/if}}
+            {{#if message}}
+                <div class="box-body">
+                    <div class="alert alert-danger">{{message}}</div>
+                </div>
+            {{/if}}
+        </div>
+    </div>
+
+    <!-- Row 1 -->
+    <div class="row">
+        <div class="col-md-8">
+            <div class="box box-primary">
+                <div class="box-header with-border">
+                    <h3 class='box-title'>Change Password</h3>
+                </div>
+                <form class="" action="" method="post">
+                    <div class="box-body">
+                        <div class="form-group">
+                            <label >Old Password</label>
+                            <input type="password" id="editPassword" name="oldPassword" value="" class="form-control" placeholder='Enter old password' required>
+                        </div>
+                        <div class="form-group">
+                            <label >New Password</label>
+                            <input type="password" id="editPassword" name="editPassword" value="" class="form-control" placeholder='Password' required>
+                        </div>
+                        <div class="form-group">
+                            <label >Confirm Password</label>
+                            <input type="password" id="editPassword" name="editPassword2" value="" class="form-control" placeholder='Password' required>
+                        </div>
+                    </div>
+                    <div class='box-footer'>
+                        <button type="submit" class="btn btn-primary pull-right">Update</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-8">
+            <div class="box box-primary">
+                <div class="box-header with-border" >
+                    <h3 class='box-title'>Update Contact Information</h3>
+                </div>
+                <form class="" action="" method="post">
+                    <div class='box-body'>
+                        <div class="form-group">
+                            <label >Name</label>
+                            <input type="text" id="editPassword" name="editName" value="{{fname}} {{lname}}" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label >Email Address</label>
+                            <input type="email" id="editPassword" name="editEmail" value="{{email}}" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label >Phone Number</label>
+                            <input type="text" id="editPassword" name="editPhone" value="{{phone}}" class="form-control" required>
+                        </div>
+                    </div>
+                    <div class="box-footer">
+                        <button type="submit" class="btn btn-primary pull-right">Update</button>
+                    </div>
+
+                </form>
+            </div>
+        </div>
+    </div>
+
+    {{#if isAdmin}}
+        <!-- ROW 2 -->
+        <div class="row">
+            <div class="col-md-8">
+                <div class ="box box-primary">
+                    <div class="box-header with-border">
+                        <h3 class='box-title'>Upload a New Logo</h3>
+                        <p style="color:grey">Upload your own logo to match your office.</p>
+                    </div>
+                    <form id="uploadForm" enctype="multipart/form-data" action="/uploadlogo" method="post">
+                        <div class='box-body text-center' >
+                            <div class='row verticalAlign'>
+                                <div class='col-md-6'>
+                                    {{#if logo}}
+                                        <h4 class="">Current Logo</h4>
+                                    {{else}}
+                                        <h2>There is currently no logo to display for your business</h2>
+                                    {{/if}}
+                                </div>
+                                <div class='col-md-6'>
+
+                                    <div class='form-group'>
+                                        <input type="file" name="userLogo" class="text-center" />
+                                        <input type="hidden" value="54eca979f2a2d47937757617" name="business" class="text-center"/>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class='row'>
+                                <div class='col-md-12'>
+                                    <img style='max-width: 100%' class="logoImage logoRow" src={{logo}} />
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div class='box-footer'>
+                            <input class ="btn btn-primary pull-right" type="submit" value="Upload Image" name="Upload Button"/>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <!-- Change Theme -->
+        <!--
+            <div class="col-md-6">
+    			<div class ="box box-primary col-md-6">
+    			    <div class="box-header with-border">
+    			        <h3 class='box-title'>Upload a New Background</h3>
+    			        <p style="color:grey">Upload your own background to match your office.</p>
+    			    </div>
+    			    <form id="uploadForm" enctype="multipart/form-data" action="/uploadlogo" method="post">
+    				    <div class='box-body text-center' >
+    				    	<div class='row verticalAlign'>
+    					    	<div class='col-md-6'>
+    						        {{#if logo}}
+    						            <h4 class="">Current Background</h4>
+    						        {{else}}
+    						            <h2>There is currently no background to display for your business</h2>
+    						        {{/if}}
+    						    </div>
+    						    <div class='col-md-6'>
+
+    									<div class='form-group'>
+    									    <input type="file" name="userLogo" class="text-center" />
+    									    <input type="hidden" value="54eca979f2a2d47937757617" name="business" class="text-center"/>
+    									</div>
+    							</div>
+    						</div>
+    						<div class='row'>
+    							<div class='col-md-12'>
+								    <img style='max-width: 100%' class="logoImage logoRow" src={{logo}} />
+    							</div>
+    						</div>
+    					</div>
+
+
+    					<div class='box-footer'>
+    						    <input class ="btn btn-primary pull-right" type="submit" value="Upload Image" name="Upload Button"/>
+    					</div>
+    				</form>
+                    </div>
+    			</div>
+            </div>
+           	-->
+
+
+        <!-- Row 3 -->
+        <!-- Change company info -->
+        <div class="row">
+            <div class="col-md-8">
+                <div class="box box-primary">
+                    <div class="box-header with-border" >
+                        <h3 class='box-title'>Company Info</h3>
+                        <p style="color:grey">Configure other parts of your company account.</p>
+                    </div>
+                    <form class="" action="/businesssetting" method="post">
+                        <div class='box-body'>
+                            <div class="form-group">
+                                <label >Company Name</label>
+                                <input type="text" id="companyName" name="companyName" class="form-control input-lg" value="{{companyName}}" required>
+                            </div>
+                            <div class="form-group">
+                                <label >Phone Number</label>
+                                <input type="text" id="phone" name ="phone"class="form-control input-lg" value="{{companyPhone}}" required>
+                            </div>
+                        </div>
+                        <div class="box-footer">
+                            <button type="submit" class="btn btn-primary pull-right">Update</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+        </div>
+
+        </div>
+        </div>
+    {{/if}}
+</section>
