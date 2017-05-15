@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>routes/api/appointment/appointment.controller.js - Documentation</title>
+
+    <script src="scripts/prettify/prettify.js"></script>
+    <script src="scripts/prettify/lang-css.js"></script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+<body>
+
+<input type="checkbox" id="nav-trigger" class="nav-trigger" />
+<label for="nav-trigger" class="navicon-button x">
+  <div class="navicon"></div>
+</label>
+
+<label for="nav-trigger" class="overlay"></label>
+
+<nav>
+    <li class="nav-link nav-home-link"><a href="index.html">Home</a></li><li class="nav-heading"><a href="global.html">Globals</a></li><li class="nav-item"><span class="nav-item-type type-member">M</span><span class="nav-item-name"><a href="global.html#appointmentsToday">appointmentsToday</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#confirm">confirm</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#createForm">createForm</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#createResponse">createResponse</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#decodeAuthString">decodeAuthString</a></span></li><li class="nav-item"><span class="nav-item-type type-member">M</span><span class="nav-item-name"><a href="global.html#express">express</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#get">get</a></span></li><li class="nav-item"><span class="nav-item-type type-member">M</span><span class="nav-item-name"><a href="global.html#gulp">gulp</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#makeForm">makeForm</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#nextState">nextState</a></span></li><li class="nav-item"><span class="nav-item-type type-member">M</span><span class="nav-item-name"><a href="global.html#ObjectID">ObjectID</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#post">post</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#put">put</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#render">render</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#retrieve">retrieve</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#show">show</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#updateBusiness">updateBusiness</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#updateState">updateState</a></span></li>
+</nav>
+
+<div id="main">
+    
+    <h1 class="page-title">routes/api/appointment/appointment.controller.js</h1>
+    
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>/**
+ * Using Rails-like standard naming convention for endpoints.
+ * GET     /appointment              ->  show
+ */
+
+'use strict';
+var ObjectID = require('mongodb').ObjectID;
+
+/*
+ * Shows all appointments
+ */
+
+exports.index = function(req, res) {
+
+  // grab our db object from the request
+  var db = req.db;
+  var collection = db.get('appointments');
+
+  // query the collection
+  collection.find({ }, function(err, users) {
+    if (err) { return handleError(res, err); }
+    return res.json(200, users);
+  });
+};
+
+/**
+ * Confirms the users first name, last name, date of birth and business id
+ * @param {Object} req
+ * @param {Object} res
+ * @param {Object} next
+ * @returns `200` Ok or `404` error depedning if id was found
+ */
+exports.confirm = function (req, res, next) {
+    var db = req.db;
+    var appointments = db.get('appointments');
+    var business;
+
+    if(!req.mobileToken) {
+        return res.send(400, "Mobiletoken is empty cannot access business id!");
+    }  else {
+        business = appointments.id(req.mobileToken.business);
+    }
+
+    if(!req.query.fname || !req.query.lname || !req.query.dob){
+        return res.sendStatus(400);
+    }
+
+    var fname = req.query.fname.replace(/['"]+/g, '');
+    var lname = req.query.lname.replace(/['"]+/g, '');
+    var dob = req.query.dob.replace(/['"]+/g, '');
+
+
+    appointments.findOne({
+        'fname': fname,
+        'lname': lname,
+        'dob': dob
+    }, function (err, appt) {
+        if (err) { return handleError(res, err); }
+        if(!appt) { return res.sendStatus(404); }
+        return res.json(200, appt);
+    });
+};
+
+/**
+ * Retrieves the list of appointments
+ * @param {Object} req
+ * @param {Object} res
+ * @param {Object} next
+ * @returns `200` Ok or `404` error depedning if id was found
+ */
+exports.retrieve = function (req, res, next) {
+    var db = req.db;
+    var appointments = db.get('appointments');
+
+    appointments.findById(req.params.id, function (err, doc) {
+        if (err) {
+            return next(err);
+        }
+        if (!doc) {
+            return res.sendStatus(404);
+        }
+        return res.json(doc);
+    });
+};
+
+/**
+ * Transitions the state to the next state
+ * @param {Object} req
+ * @param {Object} res
+ * @param {Object} next
+ * @returns `200` Ok or error depending if the state update was successful
+ */
+exports.nextState = function (req, res, next) {
+    var db = req.db;
+    var appointments = db.get('appointments');
+
+    appointments.find({_id: req.params.id}, function (err, data) {
+        var currState = {};
+        if (data[0].state === 'scheduled') {
+            currState = {$set: {state: 'formDone'}};
+        } else if (data[0].state === 'formDone') {
+            currState = {$set: {state: 'checkedIn'}};
+        } else if (data[0].state === 'checkedIn') {
+            currState = {$set: {state: 'roomed'}};
+        } else if (data[0].state === 'roomed') {
+            currState = {$set: {state: 'done'}};
+        } else {
+            currState = {$set: {state: 'done'}};
+        }
+
+        appointments.findAndModify({_id: req.params.id}, currState, function (err, data) {
+            if (err) {
+                return next(err);
+            }
+            return res.json(200, data);
+        });
+    });
+};
+
+/**
+ * PUT an updated state
+ * @param {Object} req
+ * @param {Object} res
+ * @param {Object} next
+ * @returns if the state was valid
+ */
+exports.updateState = function (req, res, next) {
+    // grab our db object from the request
+    var db = req.db;
+    var collection = db.get('appointments');
+    var validStates = ['scheduled', 'formDone', 'checkedIn', 'roomed', 'done'];
+    var isValid = false;
+
+    // Determine if the state is a valid one
+    for (var i = 0; i &lt; validStates.length; i++) {
+        if (validStates[i] === req.body.state) {
+            isValid = true;
+        }
+    }
+
+    // Check if valid flag was set
+    if (!isValid) {
+        return res.status(400).send('Malformed request, the state variable must be set to a valid state.');
+    }
+
+    // If all is good update the new state
+    collection.findAndModify({_id: req.params.id}, {$set: {state: req.body.state}}, function (err, data) {
+        if (err) {
+            return next(err);
+        }
+        return res.json(200, data);
+    });
+};
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<br class="clear">
+
+<footer>
+    Generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.4.3</a> on Mon May 15 2017 13:53:49 GMT-0700 (PDT) using the Minami theme.
+</footer>
+
+<script>prettyPrint();</script>
+<script src="scripts/linenumber.js"></script>
+</body>
+</html>

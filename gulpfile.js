@@ -18,6 +18,12 @@ var exec = require('child_process').exec;
 function execute(command, callback) {
     exec(command, function(error, stdout, stderr){callback(stdout);});
 }
+
+gulp.task('test', function () {
+  return gulp.src('build', {read: false})
+    .pipe(plugins.clean());
+});
+
 gulp.task('clean', function () {
   return gulp.src('build', {read: false})
     .pipe(plugins.clean());

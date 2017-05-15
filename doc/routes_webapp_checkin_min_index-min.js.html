@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>routes/webapp/checkin/min/index-min.js - Documentation</title>
+
+    <script src="scripts/prettify/prettify.js"></script>
+    <script src="scripts/prettify/lang-css.js"></script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+<body>
+
+<input type="checkbox" id="nav-trigger" class="nav-trigger" />
+<label for="nav-trigger" class="navicon-button x">
+  <div class="navicon"></div>
+</label>
+
+<label for="nav-trigger" class="overlay"></label>
+
+<nav>
+    <li class="nav-link nav-home-link"><a href="index.html">Home</a></li><li class="nav-heading"><a href="global.html">Globals</a></li><li class="nav-item"><span class="nav-item-type type-member">M</span><span class="nav-item-name"><a href="global.html#appointmentsToday">appointmentsToday</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#confirm">confirm</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#createForm">createForm</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#createResponse">createResponse</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#decodeAuthString">decodeAuthString</a></span></li><li class="nav-item"><span class="nav-item-type type-member">M</span><span class="nav-item-name"><a href="global.html#express">express</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#get">get</a></span></li><li class="nav-item"><span class="nav-item-type type-member">M</span><span class="nav-item-name"><a href="global.html#gulp">gulp</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#makeForm">makeForm</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#nextState">nextState</a></span></li><li class="nav-item"><span class="nav-item-type type-member">M</span><span class="nav-item-name"><a href="global.html#ObjectID">ObjectID</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#post">post</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#put">put</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#render">render</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#retrieve">retrieve</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#show">show</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#updateBusiness">updateBusiness</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#updateState">updateState</a></span></li>
+</nav>
+
+<div id="main">
+    
+    <h1 class="page-title">routes/webapp/checkin/min/index-min.js</h1>
+    
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>var express = require('express');
+var router = express.Router();
+
+//Define the controllers for checkin process
+var checkin = require('./checkin');
+var nocode = require('./nocode');
+var apptinfo = require('./apptinfo');
+var customform = require('./customform');
+var sign = require('./sign');
+var done = require('./done');
+
+//Setup the routes
+router.get('/:id/checkin', updateBusiness, checkin.get);
+
+// router.get('/:id/nocode', updateBusiness, nocode.get);
+// router.post('/:id/nocode', updateBusiness, nocode.post);
+
+router.get('/:id/apptinfo', updateBusiness, apptinfo.get);
+
+router.get('/:id/customform', updateBusiness, customform.get);
+router.post('/:id/customform', updateBusiness, customform.post);
+
+router.get('/:id/sign', updateBusiness, sign.get);
+router.post('/:id/sign', updateBusiness, sign.post);
+
+router.get('/:id/done', updateBusiness, done.get);
+
+module.exports = router;
+
+/**
+ * Middleware to ensure that req.session.business contains info about the current business
+ */
+function updateBusiness(req, res, next) {
+    //Simple case: first time on the page
+    if (!req.session.business) {
+        req.db.get('businesses').findById(req.params.id, function (err, business) {
+            if (err) {
+                return next(err);
+            }
+            req.session.business = business;
+            req.session.save(function (err) {
+                if (err) {
+                    return next(err);
+                }
+                next();
+            });
+        });
+    } else if (req.session.business._id !== req.params.id) {
+        //This means the business was switched which could be part of a security attack
+        //Destroy the session and then get the new business to be safe
+        req.session.destroy(function (err) {
+            if (err) {
+                return next(err);
+            }
+            req.db.get('businesses').findById(req.params.id, function (err, business) {
+                if (err) {
+                    return next(err);
+                }
+                req.session.business = business;
+                req.session.save(function (err) {
+                    if (err) {
+                        return next(err);
+                    }
+                    next();
+                });
+            });
+        });
+    } else { //Everything looks good, do nothing
+        next();
+    }
+}
+
+
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<br class="clear">
+
+<footer>
+    Generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.4.3</a> on Mon May 15 2017 13:53:49 GMT-0700 (PDT) using the Minami theme.
+</footer>
+
+<script>prettyPrint();</script>
+<script src="scripts/linenumber.js"></script>
+</body>
+</html>

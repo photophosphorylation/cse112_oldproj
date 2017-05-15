@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>routes/webapp/business/addemployees.js - Documentation</title>
+
+    <script src="scripts/prettify/prettify.js"></script>
+    <script src="scripts/prettify/lang-css.js"></script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+<body>
+
+<input type="checkbox" id="nav-trigger" class="nav-trigger" />
+<label for="nav-trigger" class="navicon-button x">
+  <div class="navicon"></div>
+</label>
+
+<label for="nav-trigger" class="overlay"></label>
+
+<nav>
+    <li class="nav-link nav-home-link"><a href="index.html">Home</a></li><li class="nav-heading"><a href="global.html">Globals</a></li><li class="nav-item"><span class="nav-item-type type-member">M</span><span class="nav-item-name"><a href="global.html#appointmentsToday">appointmentsToday</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#confirm">confirm</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#createForm">createForm</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#createResponse">createResponse</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#decodeAuthString">decodeAuthString</a></span></li><li class="nav-item"><span class="nav-item-type type-member">M</span><span class="nav-item-name"><a href="global.html#express">express</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#get">get</a></span></li><li class="nav-item"><span class="nav-item-type type-member">M</span><span class="nav-item-name"><a href="global.html#gulp">gulp</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#makeForm">makeForm</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#nextState">nextState</a></span></li><li class="nav-item"><span class="nav-item-type type-member">M</span><span class="nav-item-name"><a href="global.html#ObjectID">ObjectID</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#post">post</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#put">put</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#render">render</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#retrieve">retrieve</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#show">show</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#updateBusiness">updateBusiness</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#updateState">updateState</a></span></li>
+</nav>
+
+<div id="main">
+    
+    <h1 class="page-title">routes/webapp/business/addemployees.js</h1>
+    
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>var crypto = require('crypto');
+var baby = require('babyparse');
+var async = require('async');
+// var sendgrid  = require('sendgrid')('robobetty', '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');
+var sendgrid = require('sendgrid')('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');
+var ObjectId = require('mongodb').ObjectID;
+
+ /**
+ * Takes a req and res parameters and is inputted into function to get employee, notemployee, and business data.
+ *
+ * @param req and res The two parameters passed in to get the apprporiate employee,
+ * @returns The appropriate data about the employee
+ */
+exports.get = function(req,res){
+	    var database =  req.db;
+        var employeeDB = database.get('employees');
+        var employee;
+        var notemployee;
+        var businessID = req.user[0].business.toString();
+
+        async.parallel({
+            employee: function(cb) {
+                employeeDB.find({
+                    registrationToken: {$exists: false}, 
+                    business: ObjectId(businessID)
+                }, function (err,results){
+                        if( err ) { return next(err); }
+                        if( !results ) { return next(new Error('Error finding employee')); }
+
+                        employeee = results;
+                        cb();
+                });
+            },
+            nonemployee: function(cb) {
+                employeeDB.find({
+                    registrationToken: {$exists: true}, 
+                    business: ObjectId(businessID)}, function (err,results){
+
+                    if (err) {
+                        console.log("Error finding nonemployees")
+                        return next(err);
+                    }
+                    if(!results) {
+                        return next(new Error('Error finding employee'));
+                    }
+
+                     notemployee = results;
+                    //  console.log('Found some not-registered employees');
+                    //  console.log(notemployee);
+                     cb();
+                });
+            }
+        },
+
+        function(err,results){
+
+            if(err){
+                throw err;
+            }
+
+            res.render('business/addemployees', {
+                title: 'Express',
+                notsigned: notemployee,
+                signed: employeee,
+                isOwner: req.user[0].admin,
+                businessId: req.user[0].business,
+                employees: "active"
+            });
+
+        });
+}
+
+/**
+ * Takes a req and res parameters and is inputted into function to get employee, notemployee, and business data.
+ *  Allows the User to input specified data and make changes
+ * @param req and res The two parameters passed in to get the apprporiate employee,
+ * @returns The appropriate data about the employee
+ */
+exports.post = function(req,res,next){
+
+    var database =  req.db;
+    var employeeDB = database.get('employees');
+    var businessID = req.user[0].business;
+    var name = req.body.inputName;
+    var inputEmail = req.body.inputEmail;
+    var inputPhone = req.body.inputPhone;
+
+    var token = randomToken();
+
+    var salt = crypto.randomBytes(128).toString('base64');
+    var password;
+
+    crypto.pbkdf2('password', salt, 10000, 512, function(err, dk) {
+        password = dk;
+        employeeDB.insert({
+            business: businessID,
+            fname: name,
+            email: inputEmail,
+            phone: inputPhone,
+            registrationToken : token,
+            admin: false,
+            // password: password
+            // need to create a randomly generated bCrypted Password
+        });
+        // can't use variables in an object's field. Instead, create the field outside, then put it as the text argument in sendgrid
+        var emailContent = 'Hello ' + name + ', \n\n' + 'Please click on the following link, or paste this into your browser to complete sign-up the process: ' + 'http://team-fubar.herokuapp.com/employeeregister?token=' + token;
+
+        sendgrid.send({
+            to: inputEmail,
+            from: 'test@localhost.com',
+            subject: 'Employee Signup',
+            text: emailContent
+        }, function (err){
+            if (err) {
+                return next(err);
+            }
+        });
+
+        res.redirect('/addemployees');
+    });
+}
+
+// OLD GOLD TEAM CODE
+/*exports.post = function(req,res){
+    var parsed = baby.parse(req.body.csvEmployees);
+    var rows = parsed.data;
+    var database =  req.db;
+    var employeeDB = database.get('employees');
+    var businessID = req.user[0].business;
+
+
+    for(var i = 0; i &lt; rows.length; i++){
+        var username = rows[i][0];
+        var email = rows[i][1];
+        var nameArr = username.split(' ');
+        var fname = nameArr[0];
+        var lname = nameArr[1];
+        var token = randomToken();
+        employeeDB.insert({
+            business: ObjectId(businessID),
+            fname: fname,
+            lname: lname,
+            email: email,
+            registrationToken : token,
+            admin: false
+        });
+
+
+        sendgrid.send({
+            to: email,
+            from: 'test@localhost',
+            subject: 'Employee Signup',
+            text: 'Hello ' + username + ',\n\n' + 'Please click on the following link, or paste this into your browser to complete sign-up the process: \n\n' +
+            'http://robobetty-dev.herokuapp.com/employeeregister?token=' + token
+        }, function (err){
+            if (err) {
+                return next(err);
+            }
+        });
+    }
+    res.redirect('/addemployees');
+}*/
+
+
+ function randomToken() {
+        return crypto.randomBytes(24).toString('hex');
+    }
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<br class="clear">
+
+<footer>
+    Generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.4.3</a> on Mon May 15 2017 13:53:49 GMT-0700 (PDT) using the Minami theme.
+</footer>
+
+<script>prettyPrint();</script>
+<script src="scripts/linenumber.js"></script>
+</body>
+</html>

@@ -1,5 +1,7 @@
+var assert = require('assert');
+
 describe ("test", function(){
     it("should work", function () {
-        expect(true).toBe(true)
-    })
-})
+        assert.equal(true, true);
+    });
+});

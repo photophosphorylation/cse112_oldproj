@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>routes/webapp/checkin/customform.js - Documentation</title>
+
+    <script src="scripts/prettify/prettify.js"></script>
+    <script src="scripts/prettify/lang-css.js"></script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+<body>
+
+<input type="checkbox" id="nav-trigger" class="nav-trigger" />
+<label for="nav-trigger" class="navicon-button x">
+  <div class="navicon"></div>
+</label>
+
+<label for="nav-trigger" class="overlay"></label>
+
+<nav>
+    <li class="nav-link nav-home-link"><a href="index.html">Home</a></li><li class="nav-heading"><a href="global.html">Globals</a></li><li class="nav-item"><span class="nav-item-type type-member">M</span><span class="nav-item-name"><a href="global.html#appointmentsToday">appointmentsToday</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#confirm">confirm</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#createForm">createForm</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#createResponse">createResponse</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#decodeAuthString">decodeAuthString</a></span></li><li class="nav-item"><span class="nav-item-type type-member">M</span><span class="nav-item-name"><a href="global.html#express">express</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#get">get</a></span></li><li class="nav-item"><span class="nav-item-type type-member">M</span><span class="nav-item-name"><a href="global.html#gulp">gulp</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#makeForm">makeForm</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#nextState">nextState</a></span></li><li class="nav-item"><span class="nav-item-type type-member">M</span><span class="nav-item-name"><a href="global.html#ObjectID">ObjectID</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#post">post</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#put">put</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#render">render</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#retrieve">retrieve</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#show">show</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#updateBusiness">updateBusiness</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#updateState">updateState</a></span></li>
+</nav>
+
+<div id="main">
+    
+    <h1 class="page-title">routes/webapp/checkin/customform.js</h1>
+    
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>var ObjectID = require('mongodb').ObjectID;
+var _ = require('underscore');
+var style = require('./../../../lib/style.js');
+var sms = require('./../../../lib/sms.js');
+
+//Custom Form
+function makeDropdown(options, name, body) {
+    var s = '&lt;select class="form-control" name="'+name+'" id="'+name+'">';
+    _.each(options, function (option) {
+        s += '&lt;option value="'+option+'" ' + (body[name] === option ? 'selected' : '') + '>'+option+'&lt;/option> ';
+    });
+    s+= '&lt;/select>';
+    return s;
+}
+
+function makeTextfield(name, body) {
+    return'&lt;input type="text" class="form-control form-width-custom" name="'+name+'" id="' + name + '"value="' + (body[name] || '') + '">';
+}
+
+function makeFormGroup(field, index, body) {
+    var name = '_' + index;
+
+    var s = '&lt;div class="form-group">';
+    s += '&lt;label for="' + name + '" class="col-md-4 control-label">' + field.label + '&lt;/label>';
+
+    s += '&lt;div class="col-md-8">';
+    if (field.type === 'textfield') {
+        s += makeTextfield(name, body);
+    } else if (field.type === 'dropdown') {
+        s += makeDropdown(field.options, name, body);
+    }
+    s += '&lt;/div>';
+
+    s += '&lt;/div>';
+    return s;
+}
+
+function makeSubmitButton() {
+    var s = '&lt;div class="form-group">';
+    s += '&lt;div>';
+    s += '&lt;button type="submit" class="btn btn-lg btn-block custom-button custom-center">Submit&lt;/button>';
+    s += '&lt;/div>';
+    s += '&lt;/div>';
+
+    return s;
+}
+/**
+ *
+ *
+ * @param db The MongoDB object
+ * @param businessId The id for the business
+ * @param body The form body (used to prefill form)
+ * @param fn Callback function `fn(formHtml)`
+ */
+function makeForm(db, businessId, body, fn) {
+    var businesses = db.get('businesses');
+    var forms = db.get('forms');
+
+    //Find the business and get their form
+    businesses.findById(businessId, function (err, business) {
+        if (err) {
+            return fn(err);
+        }
+        if (!business) {
+            return fn(new Error('Business not found: ' + businessId));
+        }
+        forms.findOne({business: business._id}, function (err, form) {
+            if (err) {
+                return fn(err);
+            }
+            if (!form) {
+                return fn(new Error('Form not found for business: ' + businessId));
+            }
+
+            var formHtml = '&lt;form class="form-horizontal" method="post" action="customform" enctype="application/x-www-form-urlencoded">';
+
+            _.each(form.fields, function (field, index) {
+                formHtml += makeFormGroup(field, index, body);
+            });
+
+            formHtml += makeSubmitButton();
+
+            formHtml += '&lt;/form>';
+
+            fn(null, formHtml);
+        });
+    });
+}
+
+exports.get = function (req, res, next) {
+    var business = req.session.business;
+    makeForm(req.db, req.params.id, {}, function (err, formHtml) {
+        if (err) {
+            return next(err);
+        }
+        res.render('checkin/customform', {
+            formHtml: formHtml,
+            companyName: business.companyName,
+            bg: business.style.bg,
+            logo: business.logo,
+            buttonBg: style.rgbObjectToCSS(business.style.buttonBg),
+            buttonText: style.rgbObjectToCSS(business.style.buttonText),
+            containerText: style.rgbObjectToCSS(business.style.containerText),
+            containerBg: style.rgbObjectToCSS(business.style.containerBg)
+        });
+    });
+};
+
+exports.post = function (req, res, next) {
+    var db = req.db;
+    var forms = db.get('forms');
+
+    var business = req.session.business;
+
+    forms.findOne({business: ObjectID(business._id)}, function (err, form) {
+        if (err) {
+            return next(err);
+        }
+        if (!form) {
+            return next(new Error('Form for business not found: ' + business._id));
+        }
+
+        //Ensure that there are all the responses
+        var valid = _.every(form.fields, function (field, index) {
+            var name = '_' + index;
+            //TODO: Validation for dropdowns
+            return name in req.body &amp;&amp; req.body[name].trim() !== '';
+        });
+
+        if (!valid) {
+            makeForm(db, req.params.id, req.body, function (formHtml) {
+                res.render('checkin/customform', {
+                    formHtml: formHtml,
+                    formError: 'You are missing required fields.',
+                    companyName: business.companyName,
+                    bg: business.style.bg,
+                    logo: business.logo,
+                    buttonBg: style.rgbObjectToCSS(business.style.buttonBg),
+                    buttonText: style.rgbObjectToCSS(business.style.buttonText),
+                    containerText: style.rgbObjectToCSS(business.style.containerText),
+                    containerBg: style.rgbObjectToCSS(business.style.containerBg)
+                });
+            });
+        } else { //Form is valid, let's put it into the DB
+            var formResponses = db.get('formResponses');
+            var formResponse = {
+                appointment: req.session.appointmentId,
+                answers: []
+            };
+
+            _.each(form.fields, function (field, index) {
+                var name = '_' + index;
+                formResponse.answers.push({
+                    label: field.label,
+                    response: req.body[name]
+                });
+            });
+
+            formResponses.insert(formResponse, function (err) {
+                if (err) {
+                    return next(err);
+                }
+
+                //Update the state of the appointment
+                var appointmentId = req.session.appointmentId;
+                db.get('appointments').findAndModify({_id: appointmentId}, {
+                    $set: {
+                        state: 'formDone'
+                    }
+                }, function (err, appt) {
+                    if (err) {
+                        return next(err);
+                    }
+                    if (!appt) {
+                        return next(new Error('Appointment not found'));
+                    }
+
+                    //Find the employee this appointment belongs to
+                    db.get('employees').findById(appt.employee, function (err, employee) {
+                        if (err) {
+                            return next(err);
+                        }
+                        if (!employee) {
+                            return next(new Error('Employee not found'));
+                        }
+
+                        sms.sendText(employee.phone, 'Your patient ' + appt.fname + ' ' + appt.lname + ' has checked in.', function (err) {
+                            if (err) {
+                                return next(err);
+                            }
+
+                            res.redirect('sign');
+                        });
+                    });
+                });
+            });
+        }
+    });
+};
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<br class="clear">
+
+<footer>
+    Generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.4.3</a> on Mon May 15 2017 13:53:49 GMT-0700 (PDT) using the Minami theme.
+</footer>
+
+<script>prettyPrint();</script>
+<script src="scripts/linenumber.js"></script>
+</body>
+</html>
