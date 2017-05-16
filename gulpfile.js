@@ -152,7 +152,6 @@ gulp.task('mongorestore', function() {
 });
 
 
-gulp.task('default', ['pre-test', 'test', 'clean', 'lint', 'browser-sync']);
 
 
 // prerequisites - must have heroku command line tools installed
@@ -310,3 +309,5 @@ gulp.task('apidoc-url', function(){
   .pipe(plugins.open('', options));
 });
 gulp.task('doc-deploy', ['apidoc','deploy-gh','apidoc-url']);
+
+gulp.task('default', ['pre-test', 'test', 'clean', 'lint', 'apidoc', 'browser-sync']);
