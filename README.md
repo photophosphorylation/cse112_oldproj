@@ -1,4 +1,6 @@
-# web-app [ ![Codeship Status for CSE112-GoldTeam/web-app](https://codeship.com/projects/5f33bf40-cb9d-0133-dbda-4a84e368cd36/status?branch=master)](https://codeship.com/projects/59497)
+# web-app [![Code Climate](https://codeclimate.com/github/photophosphorylation/cse112_oldproj/badges/gpa.svg)](https://codeclimate.com/github/photophosphorylation/cse112_oldproj)
+
+# web-app [![Test Coverage](https://codeclimate.com/github/photophosphorylation/cse112_oldproj/badges/coverage.svg)](https://codeclimate.com/github/photophosphorylation/cse112_oldproj/coverage)
 
 First Run
 ----------------------------
