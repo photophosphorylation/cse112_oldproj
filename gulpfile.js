@@ -10,7 +10,6 @@ var plugins= require('gulp-load-plugins')({
 	'jasmine-*', 'mongobackup', , 'yargs'],
 	scope: ['dependencies', 'devDependencies'],
 	lazy: false
-
 });
 
 var exec = require('child_process').exec;
@@ -18,10 +17,31 @@ var exec = require('child_process').exec;
 function execute(command, callback) {
     exec(command, function(error, stdout, stderr){callback(stdout);});
 }
-
+/*
 gulp.task('test', function () {
   return gulp.src('build', {read: false})
     .pipe(plugins.clean());
+});*/
+
+var istanbul = require('gulp-istanbul');
+// We'll use mocha in this example, but any test framework will work
+var mocha = require('gulp-mocha');
+
+gulp.task('pre-test', function () {
+  return gulp.src(['lib/*.js'])
+    // Covering files
+    .pipe(istanbul({includeUntested: true}))
+    // Force `require` to return covered files
+    .pipe(istanbul.hookRequire());
+});
+
+gulp.task('test', ['pre-test'], function () {
+  return gulp.src(['test/*.js'])
+    .pipe(mocha())
+    // Creating the reports after tests ran
+    .pipe(istanbul.writeReports())
+    // Enforce a coverage of at least 0%
+    .pipe(istanbul.enforceThresholds({ thresholds: { global: 0 } }));
 });
 
 gulp.task('clean', function () {
@@ -137,8 +157,7 @@ gulp.task('mongorestore', function() {
 });
 
 
-
-gulp.task('default', ['browser-sync']);
+gulp.task('default', ['pre-test', 'test', 'clean', 'lint', 'browser-sync']);
 
 
 // prerequisites - must have heroku command line tools installed
