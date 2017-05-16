@@ -17,6 +17,7 @@ module.exports = {
       .click("/html/body/nav/div/div[1]/a")
       .useCss()
       .waitForElementVisible('body',1000)
+      .end();
       /*.setValue('input[type=text]', 'Sample Name')
       .click('button[id=submit]' )
       .pause(1000)
