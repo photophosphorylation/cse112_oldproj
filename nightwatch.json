@@ -7,7 +7,7 @@
     "globals_path": "./BrowserBinaries/ExternalGlobals.js",
 
     "selenium": {
-        "start_process": true,
+        "start_process": false,
         "server_path": "./node_modules/selenium-server-standalone-jar/jar/selenium-server-standalone-3.4.0.jar",
         "log_path": "",
         "port": 4444,
