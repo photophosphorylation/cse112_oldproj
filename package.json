@@ -7,7 +7,7 @@
   "scripts": {
     "build": "gulp",
     "start": "node ./bin/www",
-    "test": "nyc mocha"
+    "test": "nyc mocha && nightwatch"
   },
   "dependencies": {
     "async": "^0.9.0",
