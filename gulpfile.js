@@ -17,11 +17,6 @@ var exec = require('child_process').exec;
 function execute(command, callback) {
     exec(command, function(error, stdout, stderr){callback(stdout);});
 }
-/*
-gulp.task('test', function () {
-  return gulp.src('build', {read: false})
-    .pipe(plugins.clean());
-});*/
 
 var istanbul = require('gulp-istanbul');
 // We'll use mocha in this example, but any test framework will work
@@ -50,7 +45,7 @@ gulp.task('clean', function () {
 });
 
 gulp.task('lint', function() {
-  return gulp.src('./*.js')
+  return gulp.src(['./routes/**/*.js', './lib/*.js'])
     .pipe(plugins.jshint())
     .pipe(plugins.jshint.reporter('jshint-stylish'));
 });
