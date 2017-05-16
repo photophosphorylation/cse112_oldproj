@@ -1,6 +1,4 @@
-# web-app [![Code Climate](https://codeclimate.com/github/photophosphorylation/cse112_oldproj/badges/gpa.svg)](https://codeclimate.com/github/photophosphorylation/cse112_oldproj)
-
-# web-app [![Test Coverage](https://codeclimate.com/github/photophosphorylation/cse112_oldproj/badges/coverage.svg)](https://codeclimate.com/github/photophosphorylation/cse112_oldproj/coverage)
+# web-app [![Code Climate](https://codeclimate.com/github/photophosphorylation/cse112_oldproj/badges/gpa.svg)](https://codeclimate.com/github/photophosphorylation/cse112_oldproj) [![Test Coverage](https://codeclimate.com/github/photophosphorylation/cse112_oldproj/badges/coverage.svg)](https://codeclimate.com/github/photophosphorylation/cse112_oldproj/coverage)
 
 First Run
 ----------------------------
