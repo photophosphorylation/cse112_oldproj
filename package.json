@@ -14,6 +14,7 @@
     "babyparse": "^0.4.1",
     "bcrypt-nodejs": "latest",
     "body-parser": "^1.10.2",
+    "chart.js": "^2.6.0",
     "connect-flash": "^0.1.1",
     "cookie-parser": "~1.3.3",
     "debug": "~2.1.1",
