@@ -6,7 +6,7 @@ var browserSync = require('browser-sync');
 var mongobackup = require('mongobackup');
 
 var plugins= require('gulp-load-plugins')({
-	pattern: ['gulp-*', 'gulp.*', 'check-*', 
+	pattern: ['gulp-*', 'gulp.*', 'check-*',
 	'jasmine-*', 'mongobackup', , 'yargs'],
 	scope: ['dependencies', 'devDependencies'],
 	lazy: false
@@ -129,6 +129,8 @@ gulp.task('browser-sync', ['nodemon'/*, 'mongostart', 'watch-check'*/], function
     //Change whether browser will auto open
     open: true,
 
+		notify: false,
+
     // open the proxied app in chrome
     //browser: ['google chrome']
   });
@@ -158,10 +160,10 @@ gulp.task('mongorestore', function() {
 //               - must be authenticated with heroku
 //               - must have git installed and be in application root directory
 //               - must be authenticated with git so that password does not have to be entered on push
-gulp.task('stage', ['test'], function(){ 
+gulp.task('stage', ['test'], function(){
     execute('git symbolic-ref --short HEAD', function(br){
         console.log('deploying current branch: ' + br);
-        var timer; 
+        var timer;
         return gulp.src('')
                 .pipe(plugins.shell([
                     '<%= setKillTimer() %>',
@@ -194,7 +196,7 @@ gulp.task('stage', ['test'], function(){
                         }
                     }
                 }));
-    }); 
+    });
 });
 
 // check pages on local
@@ -284,7 +286,7 @@ gulp.task('apidoc', function(){
 var deploy = require('gulp-gh-pages');
 
 gulp.task('deploy-gh', function () {
-   	var currentdate = new Date();    
+   	var currentdate = new Date();
 	/*var timeString = currentdate.getDate() + "/"
                 + (currentdate.getMonth()+1)  + "/"
                 + currentdate.getFullYear() + " @ "
