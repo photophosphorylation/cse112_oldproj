@@ -15,7 +15,7 @@
     <h1>Dashboard </h1>
     <div id="txt" class="pull-right"></div>
     <h1 class="pull-right" id="currentDate"></h1>
-    <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal"><i class="fa fa-cogs" aria-hidden="true"></i> </button>
+    <button type="button" class="btn btn-info btn-lg pull-right" data-toggle="modal" data-target="#myModal"><i class="fa fa-cogs" aria-hidden="true"></i> </button>
 </section>
 
 <div id="myModal" class="modal fade" role="dialog">
@@ -114,10 +114,10 @@
   </div>
 </div>
 
-<section class="content">
+<section class="content" style="margin-top: 30px;">
   <div class="row top-buffer">
     <div class="col-md-2">
-      <div class="card text-center" style="background-color: #1E8BC3; color: white; width: 200px; height: 250px;">
+      <div class="card text-center" style="background-color: #1E8BC3; color: white; width: 225px; height: 250px;">
         <h3 class="card-header" style="padding-top: 40px;">Users Online</h3>
         <i class="fa fa-users fa-2x" aria-hidden="true"></i>
         <div class="card-block">
@@ -125,8 +125,8 @@
         </div>
       </div>
     </div>
-    <div class="col-md-6">
-      <div class="card text-center" style="background-color: #2ECC71; color: white; width: 600px; height: 250px;">
+    <div class="col-md-5">
+      <div class="card text-center" style="background-color: #2ECC71; color: white; width: 650px; height: 250px;">
         <h3 class="card-header" style="padding-top: 40px;">Most Viewed Pages</h3>
         <i class="fa fa-eye fa-2x" aria-hidden="true"></i>
         <div class="card-block">
@@ -139,9 +139,37 @@
             <b style="float: right;">25 views</b><br>
           </div>
           <div style="padding-left: 40px; padding-right: 40px;">
-            <button type="button" class="btn btn-default">Daily</button>
+            <button type="button" class="btn btn-danger">Daily</button>
             <button type="button" class="btn btn-default">Weekly</button>
-            <button type="button" class="btn btn-link">Monthly</button>
+            <button type="button" class="btn btn-default">Monthly</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-2">
+      <div class="card text-center" style="background-color: #F22613; color: white; width: 225px; height: 250px;">
+        <h3 class="card-header" style="padding-top: 40px;">Unread Messages</h3>
+        <i class="fa fa-envelope fa-2x" aria-hidden="true"></i>
+        <div class="card-block">
+          <h1 class="card-title" style="font-size: 64px; color: white;">3</h4>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-2">
+      <div class="card text-center" style="background-color: #913D88; color: white; width: 400px; height: 250px;">
+        <h3 class="card-header" style="padding-top: 40px;">Upcoming Appointments</h3>
+        <i class="fa fa-check fa-2x" aria-hidden="true"></i>
+        <div class="card-block">
+          <div style="padding-left: 50px; padding-right:50px; font-size: 22px;">
+            <span style="float: left;">Gary Busey</span>
+            <span style="float: right;">5/30/17</span> <br>
+            <span style="float: left;">Jill Stein</span>
+            <span style="float: right;">6/1/17</span><br>
+            <span style="float: left;">Patrick Star</span>
+            <span style="float: right;">6/4/17</span><br>
+          </div>
+          <div style="padding-left: 40px; padding-right: 40px; text-align: center;">
+            <br> <u style="font-size: 15px;">View More</span>
           </div>
         </div>
       </div>
