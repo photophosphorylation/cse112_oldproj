@@ -100,24 +100,24 @@
 }
 
 .btn-success {
-  background-color: #ffae00;
-  color: #ffffff;
+  background-color: #edbc5c;
+  color: #ebebeb;
   font-family: 'Lato', sans-serif;
   border-radius: 4px; /* Overrides bootstrap rounded corners*/
-  border-color: #ffae00;
+  border-color: #edbc5c;
 }
 
 .btn-danger {
-  background-color: #071C33;
-  color: #ffffff;
+  background-color: #071C49;
+  color: #ebebeb;
   font-family: 'Lato', sans-serif;
   border-radius: 4px; /* Overrides bootstrap rounded corners*/
-  border-color: #071C33;
+  border-color: #071C49;
 }
 
 .btn-success:hover {
-  background-color: #ffae00;
-  color: #ffffff;
+  background-color: #edbc5c;
+  color: #ebebeb;
 }
 
 .container-checkin {
@@ -161,70 +161,70 @@
 */
 
 .navbar-default {
-  background-color: #071C33;
-  border-color: #071C33;
+  background-color: #071C49;
+  border-color: #071C49;
   font-family: "Open Sans","Helvetica Neue",Arial,sans-serif;
   font-weight: 700;
   text-transform: uppercase;
 }
 .navbar-default .navbar-brand {
-  color: #ffae00;
+  color: #edbc5c;
 }
 .navbar-default .navbar-brand:hover, .navbar-default .navbar-brand:focus {
-  color: #ffffff;
+  color: #ebebeb;
 }
 .navbar-default .navbar-text {
-  color: #ffae00;
+  color: #edbc5c;
 }
 .navbar-default .navbar-nav > li > a {
-  color: #ffffff;
+  color: #ebebeb;
 }
 .navbar-default .navbar-nav > li > a:hover, .navbar-default .navbar-nav > li > a:focus {
-  color: #ffffff;
+  color: #ebebeb;
 }
 .navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:hover, .navbar-default .navbar-nav > .active > a:focus {
-  color: #ffae00;
-  background-color: #071C33;
+  color: #edbc5c;
+  background-color: #071C49;
 }
 .navbar-default .navbar-nav > .open > a, .navbar-default .navbar-nav > .open > a:hover, .navbar-default .navbar-nav > .open > a:focus {
-  color: #ffffff;
-  background-color: #071C33;
+  color: #ebebeb;
+  background-color: #071C49;
 }
 .navbar-default .navbar-toggle {
-  border-color: #071C33;
+  border-color: #071C49;
 }
 .navbar-default .navbar-toggle:hover, .navbar-default .navbar-toggle:focus {
-  background-color: #071C33;
+  background-color: #071C49;
 }
 .navbar-default .navbar-toggle .icon-bar {
-  background-color: #ffae00;
+  background-color: #edbc5c;
 }
 .navbar-default .navbar-collapse,
 .navbar-default .navbar-form {
-  border-color: #ffae00;
+  border-color: #edbc5c;
 }
 .navbar-default .navbar-link {
-  color: #ffae00;
+  color: #edbc5c;
 }
 .navbar-default .navbar-link:hover {
-  color: #ffffff;
+  color: #ebebeb;
 }
 
 @media (max-width: 767px) {
   .navbar-default .navbar-nav .open .dropdown-menu > li > a {
-    color: #ffae00;
+    color: #edbc5c;
   }
   .navbar-default .navbar-nav .open .dropdown-menu > li > a:hover, .navbar-default .navbar-nav .open .dropdown-menu > li > a:focus {
-    color: #ffffff;
+    color: #ebebeb;
   }
   .navbar-default .navbar-nav .open .dropdown-menu > .active > a, .navbar-default .navbar-nav .open .dropdown-menu > .active > a:hover, .navbar-default .navbar-nav .open .dropdown-menu > .active > a:focus {
-    color: #ffae00;
-    background-color: #071C33;
+    color: #edbc5c;
+    background-color: #071C49;
   }
 }
 
 .navbar-collapse, .navbar{
-  border-bottom-color: #ffae00;
+  border-bottom-color: #edbc5c;
 }
 
 .navbar-landing-padding{
@@ -248,8 +248,8 @@ h1, .h1, h4{
   font-size: 20px;
 }
 .custom-button {
-  background-color: #ffae00;
-  color: #ffffff;
+  background-color: #edbc5c;
+  color: #ebebeb;
   font-family: 'Lato', sans-serif;
   border-radius: 4px; /* Overrides bootstrap rounded corners*/
   border-color: #34495e;
@@ -258,12 +258,12 @@ h1, .h1, h4{
 }
 
 .custom-button:visited, .custom-button:link, .btn:visited, .btn:link {
-    color: #ffffff;
+    color: #ebebeb;
 }
 
 .custom-button:hover {
-  background-color: #ffae00;
-  color: #ffffff;
+  background-color: #edbc5c;
+  color: #ebebeb;
 }
 
 /* Made navbar static so need to push container down*/
@@ -296,12 +296,12 @@ h1, .h1, h4{
 }
 
 .heading {
-  color:#071C33;
+  color:#071C49;
   font-weight: bolder;
 }
 
 .info-text{
-  color:#071C33;
+  color:#071C49;
   font-size: 20px;
 }
 
@@ -335,9 +335,9 @@ h1, .h1, h4{
 
 .testimonial {
   margin: 50px auto;
-  background: #071C33;
+  background: #071C49;
   padding: 20px 30px;
-  color: #ffae00;
+  color: #edbc5c;
   font-style: italic;
   width: 70%;
 }
@@ -347,7 +347,7 @@ h1, .h1, h4{
   height: 0;
   border-left: 15px solid transparent;
   border-right: 15px solid transparent;
-  border-top: 15px solid #071C33;
+  border-top: 15px solid #071C49;
   margin-top: -50px;
   margin-left: 140px;
 }
@@ -372,12 +372,12 @@ h1, .h1, h4{
 }
 
 .testimonial-grey {
-  background: #ffae00;
-  color: #071C33;
+  background: #edbc5c;
+  color: #071C49;
 }
 
 .arrow-down-grey {
-  border-top: 15px solid #ffae00;
+  border-top: 15px solid #edbc5c;
 }
 
 .testimonial-author {
@@ -389,7 +389,7 @@ h1, .h1, h4{
   width: 100%;
   /* Set the fixed height of the footer here */
   height: 100px;
-  background-color: #071C33;
+  background-color: #071C49;
 }
 
 .footer-links {
@@ -405,7 +405,7 @@ a:visited {
 }
 
 a:hover {
-  color: #ffffff;
+  color: #ebebeb;
 }
 
 .footer-copyright{
@@ -593,7 +593,7 @@ a:hover {
 }
 
 .navbar-default .navbar-tabs ul > .active > a, .navbar-default .navbar-tabs ul > .active > a:hover, .navbar-default .navbar-tabs ul > .active > a:focus {
-  color: #ffae00;
+  color: #edbc5c;
   background-color: #555765;
 }
 
@@ -676,7 +676,7 @@ a:hover {
 
 /*************** Form Builder ***************/
 .toolbar-bgcolor {
-  background-color: #071C33;
+  background-color: #071C49;
 }
 
 #formContent {
@@ -730,7 +730,7 @@ a:hover {
 .custom-button-wide {
   background-color: #21ca6b;
   margin-bottom: 20px;
-  color: #ffffff;
+  color: #ebebeb;
   font-family: 'Lato', sans-serif;
   border-radius: 4px; /* Overrides bootstrap rounded corners*/
   border-color: #21ca6b;
@@ -865,8 +865,8 @@ a:hover {
 
 .price.panel-green>.panel-heading {
   color: #fff;
-  background-color: #ffae00;
-  border-color: #ffae00;
+  background-color: #edbc5c;
+  border-color: #edbc5c;
   border-bottom: 1px solid #ffcf66;
 }
 
@@ -890,9 +890,9 @@ a:hover {
 
 .price.panel-red>.panel-heading {
   color: #fff;
-  background-color: #071C33;
-  border-color: #071C33;
-  border-bottom: 1px solid #071C33;
+  background-color: #071C49;
+  border-color: #071C49;
+  border-bottom: 1px solid #071C49;
 }
 
 
