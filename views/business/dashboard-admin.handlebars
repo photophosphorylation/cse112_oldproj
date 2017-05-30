@@ -1,3 +1,5 @@
+
+
 <section class="content-header">
     <h1>Dashboard </h1>
     <div id="txt" class="pull-right"></div>
@@ -5,161 +7,33 @@
 </section>
 
 <section class="content">
-
-    {{#message}}
-        <div class="alert alert-danger">{{message}}</div>
-    {{/message}}
-    <div class="row">
-        <div class="col-md-12">
-            <div class="box box-warning box-solid">
-                <div class="box-header with-border" data-widget="collapse">
-                    <i class="fa fa-minus" style="display: none"></i>
-                    <h3 class="box-title">Quart 3.0</h3>
-                    <h3 class="box-title pull-right" style="pull-right">Pending</h3>
-                </div><!-- /.box-header -->
-                <div class="box-body">
-                    <table style="width:100%">
-                        <colgroup>
-                            <col span="2" class="col-md-6">
-                        </colgroup>
-                        <tr>
-                            <td>Company Name: Quart 3.0</td>
-                            <td>Address: 2105 Garnet Ave. San Diego, CA 92109</td>
-                        </tr>
-
-                        <tr>
-                            <td>Owner: Gev Gev</td>
-                            <td>Description: Web developer co</td>
-                        </tr>
-                        <tr>
-                            <td>Contact: 858-270-2086</td>
-                            <td>Notes:</td>
-                        </tr>
-                    </table>
-                </div><!-- /.box-body -->
-            </div><!-- /.box -->
-        </div><!-- /.col -->
-
-        <div class="col-md-12">
-            <div class="box box-danger box-solid">
-                <div class="box-header with-border" data-widget="collapse">
-                    <i class="fa fa-minus" style="display: none"></i>
-                    <h3 class="box-title">Pint 2.0</h3>
-                    <h3 class="box-title pull-right" style="pull-right">Late</h3>
-                </div><!-- /.box-header -->
-                <div class="box-body">
-                    <table style="width:100%">
-                        <colgroup>
-                            <col span="2" class="col-md-6">
-                        </colgroup>
-                        <tr>
-                            <td>Company Name: Pint 2.0</td>
-                            <td>Address: 2105 Garnet Ave. San Diego, CA 92109</td>
-                        </tr>
-
-                        <tr>
-                            <td>Owner: Thomas A. Powell</td>
-                            <td>Description: Web dev</td>
-                        </tr>
-                        <tr>
-                            <td>Contact: 858-270-2086</td>
-                            <td>Notes:</td>
-                        </tr>
-                    </table>
-                </div><!-- /.box-body -->
-            </div><!-- /.box -->
-        </div><!-- /.col -->
-
-        <div class="col-md-12">
-            <div class="box box-success box-solid">
-                <div class="box-header with-border" data-widget="collapse">
-                    <i class="fa fa-minus" style="display: none"></i>
-                    <h3 class="box-title">Fubar</h3>
-                    <h3 class="box-title pull-right" style="pull-right">Paid</h3>
-                </div> <!-- /.box-header -->
-                <div class="box-body">
-                    <table style="width:100%">
-                        <colgroup>
-                            <col span="2" class="col-md-6">
-                        </colgroup>
-                        <tr>
-                            <td>Company Name: Fubar</td>
-                            <td>Address: 2105 Garnet Ave. San Diego, CA 92109</td>
-                        </tr>
-
-                        <tr>
-                            <td>Owner: Gev Gev</td>
-                            <td>Description: Web developer co</td>
-                        </tr>
-                        <tr>
-                            <td>Contact: 858-270-2086</td>
-                            <td>Notes:</td>
-                        </tr>
-                    </table>
-                </div><!-- /.box-body -->
-            </div><!-- /.box -->
-        </div><!-- /.col -->
+  <div class="row">
+  <div class="col-md-4">
+    <div style="width: 300px; height: 300px;">
+      <canvas id="chart1" width="400" height="400"></canvas>
     </div>
+  </div>
+  <div class="col-md-4"></div>
+  <div class="col-md-4"></div>
+  </div>
 </section>
 
-
-<!--Analytics-->
-<script src='/javascripts/analytics.js'></script>
-
-  <div>
-    <meta charset="utf-8">
-    <link rel="stylesheet" type="text/css" href="https://cdn.mxpnl.com/libs/mixpanel-platform/css/reset.css">
-    <link rel="stylesheet" type="text/css" href="https://cdn.mxpnl.com/libs/mixpanel-platform/build/mixpanel-platform.v0.latest.min.css">
-    <script src="https://cdn.mxpnl.com/libs/mixpanel-platform/build/mixpanel-platform.v0.latest.min.js"></script>
-  </div>
-  <div class="mixpanel-platform-body">
-    <div class="">
-      <div id="eventSelect" style="float: left;"></div>
-      <div id="by" class="mixpanel-platform-label" style="margin-left: 10px; display: none;">by</div>
-      <div id="propSelect" style="float: left;"></div>
-      <div id="dateSelect" style="float: right;"></div>
-      <div style="clear: both;"></div>
-      <div id="graph"></div>
-    </div>
-    <div id="table"></div>
-    <script>
-      MP.api.setCredentials("efa2485252acd5e41711ceb71ec5285e", "e48ded64efa367831e11cfd37ee276c0")
-
-      var eventSelect = $('#eventSelect').MPEventSelect();
-      var propSelect  = $('#propSelect').MPPropertySelect();
-      var dateSelect  = $('#dateSelect').MPDatepicker();
-      var eventGraph  = $('#graph').MPChart({chartType: 'line'});
-      var eventTable  = $('#table').MPTable({
-        showPercentages: true,
-        firstColHeader: 'Event'
-      });
-
-      var runQuery = function() {
-        var eventName = eventSelect.MPEventSelect('value'),
-            propName  = propSelect.MPPropertySelect('value'),
-            dateRange = dateSelect.MPDatepicker('value');
-
-        if (eventName) {
-          MP.api.segment(eventName, propName, dateRange).done(function(results) {
-            eventGraph.MPChart('setData', results);
-            eventTable.MPTable('setData', results);
-          });
-        }
-      };
-      eventSelect.on('change', function(e, eventName) {
-        propSelect.MPPropertySelect('setEvent', eventName);
-        $("#by").show();
-        runQuery();
-      });
-      propSelect.on('change', runQuery);
-      dateSelect.on('change', runQuery);
-    </script>
-  </div>
-
-</section>
-
-<style>
-.select_button {
-    height: 32px !important;
-}
-</style>
+<script>
+data = {
+  datasets: [{
+      data: [20, 10],
+      backgroundColor: [
+          'rgba(54, 162, 235, 0.2)',
+          'rgba(255, 99, 132, 0.2)' ],
+      borderColor: [
+          'rgba(54, 162, 235, 1)',
+          'rgba(255,99,132,1)' ]
+      }],
+      labels: [ 'On Time', 'Missed']
+  };
+  var chart1 = new Chart(document.getElementById("chart1"), {
+      type: 'doughnut',
+      data: data,
+      options: Chart.defaults.doughnut
+  });
+</script>
