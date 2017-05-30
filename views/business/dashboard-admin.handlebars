@@ -1,4 +1,15 @@
+<style>
+  #calendar {
+      font-size: 8pt;
+      font-family: 'Source Sans Pro','Helvetica Neue',Helvetica,Arial,sans-serif;
+  }
+  #calendar h2 {
+      font-size: 12pt;
+      font-family: 'Source Sans Pro','Helvetica Neue',Helvetica,Arial,sans-serif;
 
+  }
+  .top-buffer { margin-bottom:40px; }
+</style>
 
 <section class="content-header">
     <h1>Dashboard </h1>
@@ -7,7 +18,46 @@
 </section>
 
 <section class="content">
-  <div class="row">
+  <div class="row top-buffer">
+    <div class="col-md-2">
+      <div class="card text-center" style="background-color: #1E8BC3; color: white; width: 200px; height: 250px;">
+        <h3 class="card-header" style="padding-top: 40px;">Users Online</h3>
+        <i class="fa fa-users fa-2x" aria-hidden="true"></i>
+        <div class="card-block">
+          <h1 class="card-title" style="font-size: 64px; color: white;">5</h4>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="card text-center" style="background-color: #2ECC71; color: white; width: 600px; height: 250px;">
+        <h3 class="card-header" style="padding-top: 40px;">Most Viewed Pages</h3>
+        <i class="fa fa-eye fa-2x" aria-hidden="true"></i>
+        <div class="card-block">
+          <div style="padding-left: 50px; padding-right:50px; font-size: 22px;">
+            <span style="float: left;">/dashboard</span>
+            <b style="float: right;">25 views</b> <br>
+            <span style="float: left;">/index</span>
+            <b style="float: right;">5 views</b><br>
+            <span style="float: left;">/login</span>
+            <b style="float: right;">25 views</b>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row top-buffer">
+    <div class="col-md-9 card">
+        <canvas id="chart2" width="1000" height="300"></canvas>
+    </div>
+    <div class="col-md-3 card">
+      <h4 style="padding-left: 95px;">Upcoming Appointments</h4>
+      <div style="width: 400px; height: 400px;">
+        <div id='calendar'></div>
+      </div>
+    </div>
+  </div>
+  <div class="row top-buffer">
     <div class="col-md-3 card">
       <div style="width: 300px; height: 300px;">
         <canvas id="chart1" width="400" height="400"></canvas>
@@ -23,12 +73,14 @@
         <canvas id="chart3" width="400" height="400"></canvas>
       </div>
     </div>
-  </div>
-  <div class="row">
-    <div class="col-md-8 card">
-        <canvas id="chart2" width="1000" height="300"></canvas>
+    <div class="col-md-3 card">
+      <div style="width: 300px; height: 300px;">
+        <canvas id="chart5" width="400" height="400"></canvas>
+      </div>
     </div>
+
   </div>
+
 </section>
 
 <script>
@@ -50,7 +102,12 @@ function addMissedVsOnTime() {
     var chart1 = new Chart(document.getElementById("chart1"), {
         type: 'doughnut',
         data: data,
-        options: Chart.defaults.doughnut
+        options: {
+          title: {
+              display: true,
+              text: 'Appointments missed vs. Appointments On Time'
+          }
+        }
     });
 }
 
@@ -70,7 +127,12 @@ function addNumUsers() {
   var myLineChart = new Chart(document.getElementById("chart2"), {
     type: 'line',
     data: data,
-    options: Chart.defaults.line
+    options: {
+        title: {
+            display: true,
+            text: 'Number of Users Online Per Month'
+        }
+    }
   });
 }
 
@@ -96,7 +158,12 @@ function addTypeOfMessagingUsed() {
     var chart1 = new Chart(document.getElementById("chart3"), {
         type: 'pie',
         data: data,
-        options: Chart.defaults.doughnut
+        options: {
+          title: {
+              display: true,
+              text: 'Method of Communication'
+          }
+        }
     });
 }
 
@@ -124,7 +191,57 @@ function addTypeOfAppointment() {
     var chart1 = new Chart(document.getElementById("chart4"), {
         type: 'pie',
         data: data,
-        options: Chart.defaults.doughnut
+        options: {
+          title: {
+              display: true,
+              text: 'Reason for Appointment'
+          }
+        }
+
     });
+
+}
+
+addRating();
+function addRating() {
+  data = {
+    datasets: [{
+        data: [10, 30, 42, 50, 40],
+        backgroundColor: [
+          'rgba(255, 99, 132, 0.2)',
+          'rgba(54, 162, 235, 0.2)',
+          'rgba(255, 206, 86, 0.2)',
+          'rgba(75, 192, 192, 0.2)',
+          'rgba(255, 159, 64, 0.2)'],
+        borderColor: [
+          'rgba(255, 99, 132, 0.2)',
+          'rgba(54, 162, 235, 0.2)',
+          'rgba(255, 206, 86, 0.2)',
+          'rgba(75, 192, 192, 0.2)',
+          'rgba(255, 159, 64, 1)'
+        ]
+    }],
+    labels: [ '1 star', '2 star', '3 star', '4 star', '5 star']
+    };
+    var chart1 = new Chart(document.getElementById("chart5"), {
+        type: 'pie',
+        data: data,
+        options: {
+          title: {
+              display: true,
+              text: 'Ratings received in feedback'
+          }
+        }
+    });
+}
+addCalendar();
+function addCalendar() {
+  $('#calendar').fullCalendar({
+    header: {
+        left: '',
+        center: 'prev title next',
+        right: ''
+    }
+  })
 }
 </script>
