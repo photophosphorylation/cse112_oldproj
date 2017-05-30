@@ -2,7 +2,7 @@
 html, body {
     height: 100%;
     width: 100%;
-    font-family: 'Open Sans', 'Helvetica Neue', Arial, sans-serif;
+    font-family: 'Roboto', sans-serif;
 }
 
 hr {
@@ -12,7 +12,7 @@ hr {
 }
 
 h1 {
-    font-family: 'Open Sans', 'Helvetica Neue', Arial, sans-serif;
+    font-family: 'Roboto', sans-serif;
     color: #34495e;
     font-weight: 700;
 
@@ -27,7 +27,7 @@ h1 {
 */
 #format_Footer_h3{
     font-family: 'Open Sans', 'Helvetica Neue', Arial, sans-serif;
-    color: #ffae00;
+    color: #edbc5c;
     font-weight: 400;
 
 }
@@ -50,7 +50,7 @@ section{
 }
 
 #custom_hr{
-    border-color: #ffae00;
+    border-color: #edbc5c;
     border-width: 3px;
     max-width: 75px;
 }
@@ -65,7 +65,7 @@ section{
     margin: 0 auto 20px;
 }
 .text-primary {
-    color: #071C33;
+    color: #071C49;
 }
 .no-gutter > [class*='col-'] {
     padding-right: 0;
@@ -73,8 +73,8 @@ section{
 }
 .btn-default {
     color: #222222;
-    background-color: #ffffff;
-    border-color: #ffffff;
+    background-color: #ebebeb;
+    border-color: #ebebeb;
     -webkit-transition: all 0.35s;
     -moz-transition: all 0.35s;
     transition: all 0.35s;
@@ -112,17 +112,17 @@ fieldset[disabled] .btn-default:active,
 .btn-default.disabled.active,
 .btn-default[disabled].active,
 fieldset[disabled] .btn-default.active {
-    background-color: #ffffff;
-    border-color: #ffffff;
+    background-color: #ebebeb;
+    border-color: #ebebeb;
 }
 .btn-default .badge {
-    color: #ffffff;
+    color: #ebebeb;
     background-color: #222222;
 }
 .btn-primary {
-    color: #ffffff;
-    background-color: #071C33;
-    border-color: #ffae00;
+    color: #ebebeb;
+    background-color: #071C49;
+    border-color: #edbc5c;
     -webkit-transition: all 0.35s;
     -moz-transition: all 0.35s;
     transition: all 0.35s;
@@ -133,9 +133,9 @@ fieldset[disabled] .btn-default.active {
 .btn-primary:active,
 .btn-primary.active,
 .open > .dropdown-toggle.btn-primary {
-    color: #ffffff;
-    background-color: #ffae00;
-    border-color: #ffae00;
+    color: #070707;
+    background-color: #edbc5c;
+    border-color: #edbc5c;
 }
 .btn-primary:active,
 .btn-primary.active,
@@ -160,12 +160,12 @@ fieldset[disabled] .btn-primary:active,
 .btn-primary.disabled.active,
 .btn-primary[disabled].active,
 fieldset[disabled] .btn-primary.active {
-    background-color: #071C33;
-    border-color: #071C33;
+    background-color: #071C49;
+    border-color: #071C49;
 }
 .btn-primary .badge {
-    color: #071C33;
-    background-color: #ffffff;
+    color: #071C49;
+    background-color: #ebebeb;
 }
 .btn {
     font-family: 'Open Sans', 'Helvetica Neue', Arial, sans-serif;
@@ -190,7 +190,7 @@ fieldset[disabled] .btn-primary.active {
 
 /***Carousel***/
 .carousel{
-    background: #ffae00;
+    background: #edbc5c;
     margin-top: 20px;
 }
 .carousel .item img{
@@ -218,8 +218,8 @@ footer .footer-col {
 }
 footer .footer-below {
     padding: 25px 0;
-    background-color: #071C33;
-    border-top-color: #ffae00;
+    background-color: #071C49;
+    border-top-color: #edbc5c;
 }
 
 .btn-social {
@@ -239,7 +239,7 @@ footer .footer-below {
 }
 
 footer a{
-    color: #ffae00;
+    color: #edbc5c;
 }
 
 /********************* NavBar CSS **************************/
@@ -251,71 +251,71 @@ footer a{
 }
 
 .navbar-default {
-    background-color: #071C33;
-    border-color: #071C33;
+    background-color: #071C49;
+    border-color: #071C49;
     font-family: "Open Sans","Helvetica Neue",Arial,sans-serif;
     font-weight: 700;
-    color: #FFF;
+    color: #ebebeb;
     text-transform: uppercase;
 }
 .navbar-default .navbar-brand {
-    color: #ffae00;
+    color: #edbc5c;
 }
 .navbar-default .navbar-brand:hover, .navbar-default .navbar-brand:focus {
-    color: #ffffff;
+    color: #ebebeb;
 }
 .navbar-default .navbar-text {
-    color: #ffae00;
+    color: #edbc5c;
 }
 .navbar-default .navbar-nav > li > a {
-    color: #ffffff;
+    color: #ebebeb;
 }
 .navbar-default .navbar-nav > li > a:hover, .navbar-default .navbar-nav > li > a:focus {
-    color: #ffffff;
+    color: #ebebeb;
 }
 .navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:hover, .navbar-default .navbar-nav > .active > a:focus {
-    color: #ffae00;
-    background-color: #071C33;
+    color: #edbc5c;
+    background-color: #071C49;
 }
 .navbar-default .navbar-nav > .open > a, .navbar-default .navbar-nav > .open > a:hover, .navbar-default .navbar-nav > .open > a:focus {
-    color: #ffffff;
-    background-color: #071C33;
+    color: #ebebeb;
+    background-color: #071C49;
 }
 .navbar-default .navbar-toggle {
-    border-color: #071C33;
+    border-color: #071C49;
 }
 .navbar-default .navbar-toggle:hover, .navbar-default .navbar-toggle:focus {
-    background-color: #071C33;
+    background-color: #071C49;
 }
 .navbar-default .navbar-toggle .icon-bar {
-    background-color: #ffae00;
+    background-color: #edbc5c;
 }
 .navbar-default .navbar-collapse,
 .navbar-default .navbar-form {
-    border-color: #ffae00;
+    border-color: #edbc5c;
 }
 .navbar-default .navbar-link {
-    color: #ffae00;
+    color: #edbc5c;
 }
 .navbar-default .navbar-link:hover {
-    color: #ffffff;
+    color: #ebebeb;
 }
 
 @media (max-width: 767px) {
     .navbar-default .navbar-nav .open .dropdown-menu > li > a {
-        color: #ffae00;
+        color: #edbc5c;
     }
     .navbar-default .navbar-nav .open .dropdown-menu > li > a:hover, .navbar-default .navbar-nav .open .dropdown-menu > li > a:focus {
-        color: #ffffff;
+        color: #ebebeb;
     }
     .navbar-default .navbar-nav .open .dropdown-menu > .active > a, .navbar-default .navbar-nav .open .dropdown-menu > .active > a:hover, .navbar-default .navbar-nav .open .dropdown-menu > .active > a:focus {
-        color: #ffae00;
-        background-color: #071C33;
+        color: #edbc5c;
+        background-color: #071C49;
     }
 }
 
 .navbar-collapse, .navbar{
-    border-bottom-color: #ffae00;
+    border-bottom-color: #edbc5c;
 }
 
 .navbar-landing-padding{
@@ -324,25 +324,25 @@ footer a{
 
 /***Contact form***/
 .btn-warning{
-    background-color: #071C33;
+    background-color: #071C49;
 }
 
 .btn-warning:hover{
-    color: #071C33;
+    color: #071C49;
     background-color: #fff;
 }
 
 .control-label{
     color: #fff;
-    text-shadow: 1px 0 #071C33, 0 1px #071C33, 1px 0 #071C33, 0 1px #071C33;
+    text-shadow: 1px 0 #071C49, 0 1px #071C49, 1px 0 #071C49, 0 1px #071C49;
 }
 
 .form-color{
-    border: 3px solid #071C33 !important;
+    border: 3px solid #071C49 !important;
 }
 
 .input-group-addon{
-    border: 3px solid #071C33;
+    border: 3px solid #071C49;
 }
 
 textarea.form-control {
@@ -378,19 +378,17 @@ header .header-content .header-content-inner h1 {
     font-weight: 700;
     text-transform: uppercase;
     margin-top: 0;
-    color: #FFF;
+    color: #EBEBEB;
     margin-bottom: 0;
-    text-shadow: 2px 2px 0px #000;
 }
 header .header-content .header-content-inner hr {
     margin: 30px auto;
 }
 header .header-content .header-content-inner p {
     font-weight: 300;
-    color: #FFFFFF;
+    color: #EBEBEB;
     font-size: 16px;
     margin-bottom: 50px;
-    text-shadow: 2px 2px 0px #000;
 }
 @media (min-width: 768px) {
     header {
@@ -427,7 +425,7 @@ header .header-content .header-content-inner p {
     margin: 50px auto;
     background: #fff;
     padding: 20px 30px;
-    color: #071C33;
+    color: #071C49;
     font-style: italic;
     width: 70%;
 }
@@ -445,7 +443,7 @@ header .header-content .header-content-inner p {
 .testimonial-author {
     margin: 10px 0 0 20px;
     font-family: Arial, Helvetica, sans-serif;
-    color: #071C33;
+    color: #071C49;
     font-size: 15px;
     text-align: left;
 }
@@ -463,7 +461,7 @@ header .header-content .header-content-inner p {
 
 .testimonial-grey {
     background: #fff;
-    color: #071C33;
+    color: #071C49;
 }
 
 .arrow-down-grey {
@@ -524,8 +522,8 @@ header .header-content .header-content-inner p {
 
 .price.panel-green>.panel-heading {
     color: #fff;
-    background-color: #ffae00;
-    border-color: #ffae00;
+    background-color: #edbc5c;
+    border-color: #edbc5c;
     border-bottom: 1px solid #ffcf66;
 }
 
@@ -550,9 +548,9 @@ header .header-content .header-content-inner p {
 
 .price.panel-red>.panel-heading {
     color: #fff;
-    background-color: #071C33;
-    border-color: #071C33;
-    border-bottom: 1px solid #071C33;
+    background-color: #071C49;
+    border-color: #071C49;
+    border-bottom: 1px solid #071C49;
 }
 
 
@@ -586,29 +584,29 @@ header .header-content .header-content-inner p {
 }
 
 .btn-success {
-    background-color: #ffae00;
-    color: #ffffff;
+    background-color: #edbc5c;
+    color: #ebebeb;
     font-family: 'Lato', sans-serif;
     border-radius: 4px; /* Overrides bootstrap rounded corners*/
-    border-color: #ffae00;
+    border-color: #edbc5c;
 }
 
 .btn-danger {
-    background-color: #071C33;
-    color: #ffffff;
+    background-color: #071C49;
+    color: #ebebeb;
     font-family: 'Lato', sans-serif;
     border-radius: 4px; /* Overrides bootstrap rounded corners*/
-    border-color: #071C33;
+    border-color: #071C49;
 }
 
 .btn-success:hover {
-    background-color: #ffae00;
-    color: #ffffff;
+    background-color: #edbc5c;
+    color: #ebebeb;
 }
 
 .btn-danger:hover {
-    background-color: #071C33;
-    color: #ffffff;
+    background-color: #071C49;
+    color: #ebebeb;
 }
 
 
@@ -624,7 +622,7 @@ header .header-content .header-content-inner p {
 }
 
 .form-control:focus{
-    border-color: #ffae00;
+    border-color: #edbc5c;
 }
 
 /**Invalid login information**/
@@ -640,7 +638,7 @@ header .header-content .header-content-inner p {
 }
 
 .centerForm:focus{
-    border-color: #ffae00;
+    border-color: #edbc5c;
 }
 
 .regis {
@@ -649,14 +647,14 @@ header .header-content .header-content-inner p {
     margin-top: 20px;
     height: 35px;
     width: 300px;
-    border:3px solid #071C33;
+    border:3px solid #071C49;
     border-radius: 4px;
     box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
 }
 
 .regTitleColor{
     color: #fff;
-    text-shadow: 1px 0 #071C33, 0 1px #071C33, 1px 0 #071C33, 0 1px #071C33;
+    text-shadow: 1px 0 #071C49, 0 1px #071C49, 1px 0 #071C49, 0 1px #071C49;
 }
 
 .custom-center {
