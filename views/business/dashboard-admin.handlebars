@@ -13,72 +13,176 @@
 
 <section class="content-header">
     <h1>Dashboard </h1>
+    <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal"><i class="fa fa-cogs" aria-hidden="true"></i> </button>
 </section>
+
+<div id="myModal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Configure Dashboard</h4>
+      </div>
+      <div class="modal-body">
+        <div>
+          <h2 style="text-align: center;">Graphs</h2>
+          <div style="text-align: center;">
+            <i class="fa fa-line-chart fa-2x" aria-hidden="true"></i>
+          </div>
+          <div class="row" style="margin-left: 20px;row top-buffe">
+            <h4 style="float: left;">Show Number of Users Online Per Month</h4>
+            <div style="float: right; margin-right: 30px;">
+              <input type="checkbox" checked data-toggle="toggle">
+            </div>
+          </div>
+          <div class="row" style="margin-left: 20px;">
+            <h4 style="float: left;">Show Appointments Missed vs Appointments On Time</h4>
+            <div style="float: right; margin-right: 30px;">
+              <input type="checkbox" checked data-toggle="toggle">
+            </div>
+          </div>
+          <div class="row" style="margin-left: 20px;">
+            <h4 style="float: left;">Show Reason for Appointment</h4>
+            <div style="float: right; margin-right: 30px;">
+              <input type="checkbox" checked data-toggle="toggle">
+            </div>
+          </div>
+          <div class="row" style="margin-left: 20px;">
+            <h4 style="float: left;">Show Method of Communication</h4>
+            <div style="float: right; margin-right: 30px;">
+              <input type="checkbox" checked data-toggle="toggle">
+            </div>
+          </div>
+          <div class="row" style="margin-left: 20px;">
+            <h4 style="float: left;">Show Rating received in feedback</h4>
+            <div style="float: right; margin-right: 30px;">
+              <input type="checkbox" checked data-toggle="toggle">
+            </div>
+          </div>
+          <h2 style="text-align: center;">Calendar</h2>
+          <div style="text-align: center;">
+            <i class="fa fa-calendar fa-2x" aria-hidden="true"></i>
+          </div>
+          <div class="row" style="margin-left: 20px;row top-buffe">
+            <h4 style="float: left;">Show Calendar</h4>
+            <div style="float: right; margin-right: 30px;">
+              <input type="checkbox" checked data-toggle="toggle">
+            </div>
+          </div>
+          <div class="row" style="margin-left: 20px;row top-buffe">
+            <h4 style="float: left;">Show All Appointments</h4>
+            <div style="float: right; margin-right: 30px;">
+              <input type="checkbox" checked data-toggle="toggle">
+            </div>
+          </div>
+          <h2 style="text-align: center;">Other</h2>
+          <div style="text-align: center;">
+            <i class="fa fa-list fa-2x" aria-hidden="true"></i>
+          </div>
+          <div class="row" style="margin-left: 20px;row top-buffe">
+            <h4 style="float: left;">Show Users Online</h4>
+            <div style="float: right; margin-right: 30px;">
+              <input type="checkbox" checked data-toggle="toggle">
+            </div>
+          </div>
+          <div class="row" style="margin-left: 20px;row top-buffe">
+            <h4 style="float: left;">Show Most Viewed Pages</h4>
+            <div style="float: right; margin-right: 30px;">
+              <input type="checkbox" checked data-toggle="toggle">
+            </div>
+          </div>
+          <div class="row" style="margin-left: 20px;row top-buffe">
+            <h4 style="float: left;">Show Time</h4>
+            <div style="float: right; margin-right: 30px;">
+              <input type="checkbox" checked data-toggle="toggle">
+            </div>
+          </div>
+          <div class="row" style="margin-left: 20px;row top-buffe">
+            <h4 style="float: left;">Show Date</h4>
+            <div style="float: right; margin-right: 30px;">
+              <input type="checkbox" checked data-toggle="toggle">
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer"> </div>
+    </div>
+
+  </div>
+</div>
 
 <section class="content">
   <div class="dash-wrapper">
     <div class="row top-buffer">
       <div class="col-md-3 card">
-        <div style="width: 300px; height: 300px;">
+        <div class="pie">
           <canvas id="chart1" width="400" height="400"></canvas>
         </div>
       </div>
       <div class="col-md-3 card">
-        <div style="width: 300px; height: 300px;">
+        <div class="pie">
           <canvas id="chart4" width="400" height="400"></canvas>
         </div>
       </div>
       <div class="col-md-3 card">
-        <div style="width: 300px; height: 300px;">
+        <div class="pie">
           <canvas id="chart3" width="400" height="400"></canvas>
         </div>
       </div>
       <div class="col-md-3 card">
-        <div style="width: 300px; height: 300px;">
+        <div class="pie">
           <canvas id="chart5" width="400" height="400"></canvas>
         </div>
       </div>
 
     </div>
     <div class="row top-buffer">
-      <div class="col-md-2">
-        <div class="card text-center" style="background-color: #1E8BC3; color: white; width: 200px; height: 250px;">
-          <h3 class="card-header" style="padding-top: 40px;">Users Online</h3>
-          <i class="fa fa-users fa-2x" aria-hidden="true"></i>
-          <div class="card-block">
-            <h1 class="card-title" style="font-size: 64px; color: white;">5</h4>
-          </div>
+    <div class="col-md-2"></div>
+    <div class="col-md-2">
+      <div class="card text-center" style="background-color: #1E8BC3; color: white; width: 100%; padding: 0 0 0 0;">
+        <h3 class="card-header" style="padding-top: 40px;">Users Online</h3>
+        <i class="fa fa-users fa-2x" aria-hidden="true"></i>
+        <div class="card-block">
+          <h1 class="card-title" style="font-size: 64px; color: white;">5</h4>
         </div>
       </div>
-      <div class="col-md-6">
-        <div class="card text-center" style="background-color: #2ECC71; color: white; width: 600px; height: 250px;">
-          <h3 class="card-header" style="padding-top: 40px;">Most Viewed Pages</h3>
-          <i class="fa fa-eye fa-2x" aria-hidden="true"></i>
-          <div class="card-block">
-            <div style="padding-left: 50px; padding-right:50px; font-size: 22px;">
-              <span style="float: left;">/dashboard</span>
-              <b style="float: right;">25 views</b> <br>
-              <span style="float: left;">/index</span>
-              <b style="float: right;">5 views</b><br>
-              <span style="float: left;">/login</span>
-              <b style="float: right;">25 views</b>
-            </div>
+    </div>
+    <div class="col-md-6">
+      <div class="card text-center" style="background-color: #2ECC71; color: white; width: 100%; padding: 0 0 0 0;">
+        <h3 class="card-header" style="padding-top: 40px;">Most Viewed Pages</h3>
+        <i class="fa fa-eye fa-2x" aria-hidden="true"></i>
+        <div class="card-block">
+          <div style="padding-left: 50px; padding-right:50px; font-size: 22px;">
+            <span style="float: left;">/dashboard</span>
+            <b style="float: right;">25 views</b> <br>
+            <span style="float: left;">/index</span>
+            <b style="float: right;">5 views</b><br>
+            <span style="float: left;">/login</span>
+            <b style="float: right;">25 views</b><br>
+          </div>
+          <div style="padding-left: 40px; padding-right: 40px;">
+            <button type="button" class="btn btn-default">Daily</button>
+            <button type="button" class="btn btn-default">Weekly</button>
+            <button type="button" class="btn btn-link">Monthly</button>
           </div>
         </div>
       </div>
     </div>
+  </div>
 
-    <div class="row top-buffer">
-      <div class="col-md-9 card">
-          <canvas id="chart2" width="1000" height="300"></canvas>
-      </div>
-      <div class="col-md-3 card">
-        <h4 style="padding-left: 95px;">Upcoming Appointments</h4>
-        <div style="width: 400px; height: 400px;">
-          <div id='calendar'></div>
-        </div>
+  <div class="row top-buffer">
+    <div class="col-md-9 card">
+        <canvas id="chart2" width="1000" height="300"></canvas>
+    </div>
+    <div class="col-md-3 card">
+      <h4 style="padding-left: 95px;">Upcoming Appointments</h4>
+      <div style="width: 400px; height: 400px;">
+        <div id='calendar'></div>
       </div>
     </div>
+  </div>
+
   </div>
 
 
@@ -106,7 +210,7 @@ function addMissedVsOnTime() {
         options: {
           title: {
               display: true,
-              text: 'Appointments missed vs. Appointments On Time'
+              text: 'Appointments Missed/On Time'
           }
         }
     });
@@ -170,7 +274,7 @@ addTypeOfAppointment();
 function addTypeOfAppointment() {
   data = {
     datasets: [{
-        data: [66, 54, 22, 11, 5],
+        data: [54, 22, 11, 5],
         backgroundColor: [
           'rgba(255, 99, 132, 0.2)',
           'rgba(54, 162, 235, 0.2)',
@@ -185,7 +289,7 @@ function addTypeOfAppointment() {
           'rgba(255, 159, 64, 1)'
         ]
     }],
-    labels: [ 'Business Meeting', 'Recruiting', 'Press', 'Logistics', 'Personal']
+    labels: ['Recruiting', 'Press', 'Logistics', 'Personal']
     };
     var chart1 = new Chart(document.getElementById("chart4"), {
         type: 'pie',
@@ -220,7 +324,7 @@ function addRating() {
           'rgba(255, 159, 64, 1)'
         ]
     }],
-    labels: [ '1 star', '2 star', '3 star', '4 star', '5 star']
+    labels: [ '1', '2', '3', '4', '5']
     };
     var chart1 = new Chart(document.getElementById("chart5"), {
         type: 'pie',
