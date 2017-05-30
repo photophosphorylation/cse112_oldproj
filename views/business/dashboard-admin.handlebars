@@ -13,73 +13,74 @@
 
 <section class="content-header">
     <h1>Dashboard </h1>
-    <div id="txt" class="pull-right"></div>
-    <h1 class="pull-right" id="currentDate"></h1>
 </section>
 
 <section class="content">
-  <div class="row top-buffer">
-    <div class="col-md-2">
-      <div class="card text-center" style="background-color: #1E8BC3; color: white; width: 200px; height: 250px;">
-        <h3 class="card-header" style="padding-top: 40px;">Users Online</h3>
-        <i class="fa fa-users fa-2x" aria-hidden="true"></i>
-        <div class="card-block">
-          <h1 class="card-title" style="font-size: 64px; color: white;">5</h4>
+  <div class="dash-wrapper">
+    <div class="row top-buffer">
+      <div class="col-md-3 card">
+        <div style="width: 300px; height: 300px;">
+          <canvas id="chart1" width="400" height="400"></canvas>
         </div>
       </div>
+      <div class="col-md-3 card">
+        <div style="width: 300px; height: 300px;">
+          <canvas id="chart4" width="400" height="400"></canvas>
+        </div>
+      </div>
+      <div class="col-md-3 card">
+        <div style="width: 300px; height: 300px;">
+          <canvas id="chart3" width="400" height="400"></canvas>
+        </div>
+      </div>
+      <div class="col-md-3 card">
+        <div style="width: 300px; height: 300px;">
+          <canvas id="chart5" width="400" height="400"></canvas>
+        </div>
+      </div>
+
     </div>
-    <div class="col-md-6">
-      <div class="card text-center" style="background-color: #2ECC71; color: white; width: 600px; height: 250px;">
-        <h3 class="card-header" style="padding-top: 40px;">Most Viewed Pages</h3>
-        <i class="fa fa-eye fa-2x" aria-hidden="true"></i>
-        <div class="card-block">
-          <div style="padding-left: 50px; padding-right:50px; font-size: 22px;">
-            <span style="float: left;">/dashboard</span>
-            <b style="float: right;">25 views</b> <br>
-            <span style="float: left;">/index</span>
-            <b style="float: right;">5 views</b><br>
-            <span style="float: left;">/login</span>
-            <b style="float: right;">25 views</b>
+    <div class="row top-buffer">
+      <div class="col-md-2">
+        <div class="card text-center" style="background-color: #1E8BC3; color: white; width: 200px; height: 250px;">
+          <h3 class="card-header" style="padding-top: 40px;">Users Online</h3>
+          <i class="fa fa-users fa-2x" aria-hidden="true"></i>
+          <div class="card-block">
+            <h1 class="card-title" style="font-size: 64px; color: white;">5</h4>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="card text-center" style="background-color: #2ECC71; color: white; width: 600px; height: 250px;">
+          <h3 class="card-header" style="padding-top: 40px;">Most Viewed Pages</h3>
+          <i class="fa fa-eye fa-2x" aria-hidden="true"></i>
+          <div class="card-block">
+            <div style="padding-left: 50px; padding-right:50px; font-size: 22px;">
+              <span style="float: left;">/dashboard</span>
+              <b style="float: right;">25 views</b> <br>
+              <span style="float: left;">/index</span>
+              <b style="float: right;">5 views</b><br>
+              <span style="float: left;">/login</span>
+              <b style="float: right;">25 views</b>
+            </div>
           </div>
         </div>
       </div>
     </div>
+
+    <div class="row top-buffer">
+      <div class="col-md-9 card">
+          <canvas id="chart2" width="1000" height="300"></canvas>
+      </div>
+      <div class="col-md-3 card">
+        <h4 style="padding-left: 95px;">Upcoming Appointments</h4>
+        <div style="width: 400px; height: 400px;">
+          <div id='calendar'></div>
+        </div>
+      </div>
+    </div>
   </div>
 
-  <div class="row top-buffer">
-    <div class="col-md-9 card">
-        <canvas id="chart2" width="1000" height="300"></canvas>
-    </div>
-    <div class="col-md-3 card">
-      <h4 style="padding-left: 95px;">Upcoming Appointments</h4>
-      <div style="width: 400px; height: 400px;">
-        <div id='calendar'></div>
-      </div>
-    </div>
-  </div>
-  <div class="row top-buffer">
-    <div class="col-md-3 card">
-      <div style="width: 300px; height: 300px;">
-        <canvas id="chart1" width="400" height="400"></canvas>
-      </div>
-    </div>
-    <div class="col-md-3 card">
-      <div style="width: 300px; height: 300px;">
-        <canvas id="chart4" width="400" height="400"></canvas>
-      </div>
-    </div>
-    <div class="col-md-3 card">
-      <div style="width: 300px; height: 300px;">
-        <canvas id="chart3" width="400" height="400"></canvas>
-      </div>
-    </div>
-    <div class="col-md-3 card">
-      <div style="width: 300px; height: 300px;">
-        <canvas id="chart5" width="400" height="400"></canvas>
-      </div>
-    </div>
-
-  </div>
 
 </section>
 

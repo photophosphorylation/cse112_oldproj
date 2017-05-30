@@ -605,6 +605,11 @@ a:hover {
   text-align: center;
 }
 
+.dash-wrapper {
+  width:70%;
+  position: absolute;
+}
+
 /************* Employee Register Page *************/
 .password{
   padding-left: 100px;
