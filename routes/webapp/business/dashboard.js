@@ -7,8 +7,8 @@ exports.get = function (req, res) {
 	var isOwner = req.user[0].admin;
 	var employeeId = req.user[0]._id;
 	var employeename = req.user[0].fname + ' ' + req.user[0].lname;
- 
-	if( isPeter ) {
+
+	if( true ) {
 		res.render('business/dashboard-admin', {
 			title: 'Express',
 			eid: employeeId,
@@ -48,7 +48,7 @@ exports.get = function (req, res) {
 			if( filteredAppts.length ) {
 				filteredAppts.forEach( function (elem, i, arr) {
 					var apptInfo = {};
-					
+
 
 					apptInfo.visitor = elem.fname + ' ' + elem.lname;
 					apptInfo.apptTime = formatDate(elem.date);
