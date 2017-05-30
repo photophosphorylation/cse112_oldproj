@@ -1,9 +1,4 @@
-<style>
-.card {
-  background-color: #fff;
-  margin: 10px 10px 10px 10px;
-}
-</style>
+
 
 <section class="content-header">
     <h1>Dashboard </h1>
@@ -13,9 +8,19 @@
 
 <section class="content">
   <div class="row">
-    <div class="col-md-4 card">
+    <div class="col-md-3 card">
       <div style="width: 300px; height: 300px;">
         <canvas id="chart1" width="400" height="400"></canvas>
+      </div>
+    </div>
+    <div class="col-md-3 card">
+      <div style="width: 300px; height: 300px;">
+        <canvas id="chart4" width="400" height="400"></canvas>
+      </div>
+    </div>
+    <div class="col-md-3 card">
+      <div style="width: 300px; height: 300px;">
+        <canvas id="chart3" width="400" height="400"></canvas>
       </div>
     </div>
   </div>
@@ -27,6 +32,7 @@
 </section>
 
 <script>
+Chart.defaults.global.legend.position = "bottom";
 addMissedVsOnTime();
 function addMissedVsOnTime() {
   data = {
@@ -68,4 +74,57 @@ function addNumUsers() {
   });
 }
 
+addTypeOfMessagingUsed();
+function addTypeOfMessagingUsed() {
+  data = {
+    datasets: [{
+        data: [20, 10, 40, 20],
+        backgroundColor: [
+          'rgba(255, 206, 86, 0.2)',
+          'rgba(75, 192, 192, 0.2)',
+          'rgba(153, 102, 255, 0.2)',
+          'rgba(255, 159, 64, 0.2)'],
+        borderColor: [
+          'rgba(255, 206, 86, 1)',
+          'rgba(75, 192, 192, 1)',
+          'rgba(153, 102, 255, 1)',
+          'rgba(255, 159, 64, 1)'
+        ]
+    }],
+    labels: [ 'SMS', 'Email', 'Phone', 'Messenger']
+    };
+    var chart1 = new Chart(document.getElementById("chart3"), {
+        type: 'pie',
+        data: data,
+        options: Chart.defaults.doughnut
+    });
+}
+
+addTypeOfAppointment();
+function addTypeOfAppointment() {
+  data = {
+    datasets: [{
+        data: [66, 54, 22, 11, 5],
+        backgroundColor: [
+          'rgba(255, 99, 132, 0.2)',
+          'rgba(54, 162, 235, 0.2)',
+          'rgba(255, 206, 86, 0.2)',
+          'rgba(75, 192, 192, 0.2)',
+          'rgba(255, 159, 64, 0.2)'],
+        borderColor: [
+          'rgba(255, 99, 132, 0.2)',
+          'rgba(54, 162, 235, 0.2)',
+          'rgba(255, 206, 86, 0.2)',
+          'rgba(75, 192, 192, 0.2)',
+          'rgba(255, 159, 64, 1)'
+        ]
+    }],
+    labels: [ 'Business Meeting', 'Recruiting', 'Press', 'Logistics', 'Personal']
+    };
+    var chart1 = new Chart(document.getElementById("chart4"), {
+        type: 'pie',
+        data: data,
+        options: Chart.defaults.doughnut
+    });
+}
 </script>
