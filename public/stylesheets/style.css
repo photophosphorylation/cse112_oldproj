@@ -611,9 +611,24 @@ a:hover {
   margin: 0 auto;
 }
 
-.pie {
+.pie-widget {
   width: 100%;
-  background-color: #ebebeb;
+  background-color: #efefef;
+  margin: auto;
+}
+
+.stat-widget {
+  width: 100%;
+  background-color: #efefef;
+  padding: 2px;
+}
+
+.dash-header {
+  position: relative;
+}
+
+.content-wrapper {
+  background-color: #e4e4e4;
 }
 
 /************* Employee Register Page *************/
@@ -629,6 +644,7 @@ a:hover {
 .employee-register-pic{
   margin-top: -15%;
 }
+
 /**************************************************/
 
 /**********************************************/
