@@ -19,21 +19,24 @@
 </section>
 
 <script>
-data = {
-  datasets: [{
-      data: [20, 10],
-      backgroundColor: [
-          'rgba(54, 162, 235, 0.2)',
-          'rgba(255, 99, 132, 0.2)' ],
-      borderColor: [
-          'rgba(54, 162, 235, 1)',
-          'rgba(255,99,132,1)' ]
-      }],
-      labels: [ 'On Time', 'Missed']
-  };
-  var chart1 = new Chart(document.getElementById("chart1"), {
-      type: 'doughnut',
-      data: data,
-      options: Chart.defaults.doughnut
-  });
+addMissedVsOnTime();
+function addMissedVsOnTime() {
+  data = {
+    datasets: [{
+        data: [20, 10],
+        backgroundColor: [
+            'rgba(54, 162, 235, 0.2)',
+            'rgba(255, 99, 132, 0.2)' ],
+        borderColor: [
+            'rgba(54, 162, 235, 1)',
+            'rgba(255,99,132,1)' ]
+        }],
+        labels: [ 'On Time', 'Missed']
+    };
+    var chart1 = new Chart(document.getElementById("chart1"), {
+        type: 'doughnut',
+        data: data,
+        options: Chart.defaults.doughnut
+    });
+}
 </script>
