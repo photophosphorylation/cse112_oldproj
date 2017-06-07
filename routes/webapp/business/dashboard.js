@@ -88,7 +88,8 @@ exports.get = function (req, res) {
             var formattedApptTime = formattedHour + ":" + formattedMinutes + ampm;
 
             return formattedApptTime;
-        }
+    }
+
 	}
 
 };

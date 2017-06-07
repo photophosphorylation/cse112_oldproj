@@ -6,7 +6,7 @@ function dateToString( date ) {
     var dateOfString = (('' + month).length < 2 ? '' : '') +  monthNames[month] + ' ';
     dateOfString += (('' + day).length < 2 ? '0' : '') + day + ' ';
     dateOfString += date.getFullYear();
-    
+
     return dateOfString;
 }
 
@@ -72,4 +72,164 @@ function getAppDate( date ){
 $(function() {
   getDate();
   $(startTime);
+
+	Chart.defaults.global.legend.position = "bottom";
+	addMissedVsOnTime();
+	function addMissedVsOnTime() {
+	  data = {
+	    datasets: [{
+	        data: [20, 10],
+	        backgroundColor: [
+	            'rgba(54, 162, 235, 0.2)',
+	            'rgba(255, 99, 132, 0.2)' ],
+	        borderColor: [
+	            'rgba(54, 162, 235, 1)',
+	            'rgba(255,99,132,1)' ]
+	        }],
+	        labels: [ 'On Time', 'Missed']
+	    };
+	    var chart1 = new Chart(document.getElementById("chart1"), {
+	        type: 'doughnut',
+	        data: data,
+	        options: {
+	          title: {
+	              display: true,
+	              text: 'Appointments Missed/On Time'
+	          }
+	        }
+	    });
+	}
+	addNumUsers();
+	function addNumUsers() {
+	  data = {
+	    datasets: [{
+	        label: "Users online",
+	        data: [400, 500, 400, 600, 1000, 700, 800, 650, 600, 660, 770],
+	        backgroundColor: 'rgba(54, 162, 235, 0.2)',
+	        borderColor: 'rgba(255,99,132,1)',
+	        borderWidth: 3
+	        }],
+	    labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'December']
+	    };
+	  var myLineChart = new Chart(document.getElementById("chart2"), {
+	    type: 'line',
+	    data: data,
+	    options: {
+	        title: {
+	            display: true,
+	            text: 'Number of Users Online Per Month'
+	        }
+	    }
+	  });
+	}
+
+	addTypeOfMessagingUsed();
+	function addTypeOfMessagingUsed() {
+	  data = {
+	    datasets: [{
+	        data: [20, 10, 40, 20],
+	        backgroundColor: [
+	          'rgba(255, 206, 86, 0.2)',
+	          'rgba(75, 192, 192, 0.2)',
+	          'rgba(153, 102, 255, 0.2)',
+	          'rgba(255, 159, 64, 0.2)'],
+	        borderColor: [
+	          'rgba(255, 206, 86, 1)',
+	          'rgba(75, 192, 192, 1)',
+	          'rgba(153, 102, 255, 1)',
+	          'rgba(255, 159, 64, 1)'
+	        ]
+	    }],
+	    labels: [ 'SMS', 'Email', 'Phone', 'Messenger']
+	    };
+	    var chart1 = new Chart(document.getElementById("chart3"), {
+	        type: 'pie',
+	        data: data,
+	        options: {
+	          title: {
+	              display: true,
+	              text: 'Method of Communication'
+	          }
+	        }
+	    });
+	}
+
+	addTypeOfAppointment();
+	function addTypeOfAppointment() {
+	  data = {
+	    datasets: [{
+	        data: [54, 22, 11, 5],
+	        backgroundColor: [
+	          'rgba(255, 99, 132, 0.2)',
+	          'rgba(54, 162, 235, 0.2)',
+	          'rgba(255, 206, 86, 0.2)',
+	          'rgba(75, 192, 192, 0.2)',
+	          'rgba(255, 159, 64, 0.2)'],
+	        borderColor: [
+	          'rgba(255, 99, 132, 0.2)',
+	          'rgba(54, 162, 235, 0.2)',
+	          'rgba(255, 206, 86, 0.2)',
+	          'rgba(75, 192, 192, 0.2)',
+	          'rgba(255, 159, 64, 1)'
+	        ]
+	    }],
+	    labels: ['Recruiting', 'Press', 'Logistics', 'Personal']
+	    };
+	    var chart1 = new Chart(document.getElementById("chart4"), {
+	        type: 'pie',
+	        data: data,
+	        options: {
+	          title: {
+	              display: true,
+	              text: 'Reason for Appointment'
+	          }
+	        }
+
+	    });
+
+	}
+
+	addRating();
+	function addRating() {
+	  data = {
+	    datasets: [{
+	        data: [10, 30, 42, 50, 40],
+	        backgroundColor: [
+	          'rgba(255, 99, 132, 0.2)',
+	          'rgba(54, 162, 235, 0.2)',
+	          'rgba(255, 206, 86, 0.2)',
+	          'rgba(75, 192, 192, 0.2)',
+	          'rgba(255, 159, 64, 0.2)'],
+	        borderColor: [
+	          'rgba(255, 99, 132, 0.2)',
+	          'rgba(54, 162, 235, 0.2)',
+	          'rgba(255, 206, 86, 0.2)',
+	          'rgba(75, 192, 192, 0.2)',
+	          'rgba(255, 159, 64, 1)'
+	        ]
+	    }],
+	    labels: [ '1', '2', '3', '4', '5']
+	    };
+	    var chart1 = new Chart(document.getElementById("chart5"), {
+	        type: 'pie',
+	        data: data,
+	        options: {
+	          title: {
+	              display: true,
+	              text: 'Ratings received in feedback'
+	          }
+	        }
+	    });
+	}
+	addCalendar();
+	function addCalendar() {
+	  $('#calendar').fullCalendar({
+	    header: {
+	        left: '',
+	        center: 'prev title next',
+	        right: ''
+	    }
+	  })
+	}
+
 });
