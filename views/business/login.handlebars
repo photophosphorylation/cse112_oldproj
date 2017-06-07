@@ -31,47 +31,54 @@
                         <span class = "icon-bar"></span>
                     </button>
                     <!--No Implementation of navbar-brand & page-scroll-->
-                    <a class = "navbar-brand page-scroll" href="/">Enqué</a>
+                    <a class = "navbar-brand page-scroll" href="/">Shiny Pigeons</a>
                 </div>
                 <!-- No Implementation of page-scroll-->
                 <div class = "collapse navbar-collapse" id="navbar-collapse-1">
                     <ul class="nav navbar-nav navbar-right navbar-landing-padding">
                         <li>
-                            <a href="/register" class="page-scroll" style="color: #edbc5c;">Register</a>
+                            <a href="/register" class="page-scroll" style="color: #edbc5c;">Sign Up</a>
                         </li>
                     </ul>
                 </div>
             </div>
         </nav>
         <!--Main Part that needs styling-->
-        <header>
-            <div class="header-content">
-                <form class="form-horizontal" action="login" method="post">
-                <div class="form-group">
-                    <label for="email" class="control-label">Email</label>
-                    <div class="">
-                        <input type="email" class="form-control" id="email" name="email" placeholder="Email" required>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label for="password" class="control-label">Password</label>
-                    <div class="">
-                        <input type="password" class="form-control" id="password" name="password" placeholder="Password" required>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <div class="">
-                        <button type="submit" class="btn btn-primary btn-x2">Sign in</button>
-                    </div>
-                </div>
-                </form>
-                {{#if message}}
-                    <div class="alert alert-danger">{{message}}</div>
-                {{/if}}
-            </div>
+        <div class="header-container1">
+                <div class="signin-box">
+                    <form class="form-horizontal" action="login" method="post">
+                        <div class="signin-title">
+                            <h3 class="signin-text"> Sign In </h3>
+                        </div>
+                    <div class="form-group">
+                        <label for="email" class="control-label">Email</label>
 
-        </header>
-
+                        <div class="">
+                            <input type="email" class="form-control" id="email" name="email" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="password" class="control-label">Password</label>
+                        <div class="">
+                            <input type="password" class="form-control" id="password" name="password" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="signin">
+                            <button class="signin-button" type="submit" class="btn btn-primary btn-x2">Sign in</button>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="createaccount">
+                            <p class="createaccount-text"> Don't have an account? <a href="/register"> Create One.</a> </p>
+                        </div>
+                    </div>
+                    </form>
+                    {{#if message}}
+                        <div class="alert alert-danger">{{message}}</div>
+                    {{/if}}
+                </div>
+        </div>
         <footer class = "text-center navbar-fixed-bottom">
             <div class="footer-below">
                 <div class="container">
