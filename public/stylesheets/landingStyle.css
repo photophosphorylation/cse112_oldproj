@@ -390,9 +390,7 @@ header .header-content .header-content-inner p {
     margin-bottom: 50px;
 }
 @media (min-width: 768px) {
-    header {
-        min-height: 100%;
-    }
+
     header .header-content {
         position: absolute;
         top: 50%;
@@ -401,11 +399,7 @@ header .header-content .header-content-inner p {
         transform: translateY(-50%);
         padding: 0 50px;
     }
-    header .header-content .header-content-inner {
-        max-width: 1000px;
-        margin-left: auto;
-        margin-right: auto;
-    }
+
     header .header-content .header-content-inner p {
         font-size: 24px;
         font-weight: 300;
@@ -611,13 +605,12 @@ header .header-content .header-content-inner p {
 
 /******** Login Page Form ****/
 .form-control{
-    margin: 0 auto;
     width: 300px;
     border: none;
 }
 
 .control-label, .label{
-    font-size: 18px;
+    font-size: 15px;
 }
 
 .form-control:focus{
@@ -706,4 +699,173 @@ header .header-content .header-content-inner p {
         font-size: 7em;
     }
 
+}
+
+/****** LOGIN PAGE by Paris Do *********/
+
+.form-horizontal .control-label {
+    text-align: left;
+}
+
+.form-control {
+    -moz-box-shadow:    inset 0 0 3px gray;
+    -webkit-box-shadow: inset 0 0 3px gray;
+    box-shadow:         inset 0 0 3px gray;
+    border-radius: 1px;
+}
+
+.form-horizontal .control-label {
+    padding-top: 0px;
+}
+
+label.control-label {
+    text-shadow: none;
+    color: black;
+    font-weight: 400;
+    display: block;
+    padding-bottom: 5px;
+    padding-top: 0px;
+}
+
+.form-horizontal .form-group {
+    margin-left: 25px;
+    margin-right: 25px;
+}
+
+.signin-box {
+    background: white;
+    -webkit-box-shadow: 0px 1px 5px 0px rgba(0,0,0,0.75);
+    -moz-box-shadow: 0px 1px 5px 0px rgba(0,0,0,0.75);
+    box-shadow: 0px 1px 5px 0px rgba(0,0,0,0.75);
+    border-radius: 3px;
+}
+
+.form-control {
+    width: 100%;
+}
+
+
+.header-content.pages {
+    max-width: 600px;
+}
+
+.signin-title {
+    padding-top: 20px;
+}
+
+h3.signin-text {
+    font-weight: bold;
+    color: #071c49;
+    text-align: center;
+}
+
+button.signin-button {
+    width: 100%;
+    color: white;
+    font-weight: bold;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    background-color: #071c49;
+    border: none;
+    border-radius: 3px;
+    margin-bottom: 8px;
+    margin-top: 10px;
+}
+
+.createaccount-text {
+    color: black;
+}
+
+.createaccount {
+    padding-bottom: 20px;
+}
+
+.header-content.pages{
+    position: absolute;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+}
+
+/****** REGISTER PAGE by Paris Do *********/
+.register-box {
+    background: white;
+    -webkit-box-shadow: 0px 1px 5px 0px rgba(0,0,0,0.75);
+    -moz-box-shadow: 0px 1px 5px 0px rgba(0,0,0,0.75);
+    box-shadow: 0px 1px 5px 0px rgba(0,0,0,0.75);
+    border-radius: 3px;
+}
+
+.regTitleColor {
+    color: #071c49;
+    text-shadow: none;
+    font-weight: bold;
+}
+
+.signup-title {
+    padding-top: 20px;
+}
+
+input.signup-button {
+    width: 100%;
+    color: white;
+    font-weight: bold;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    background-color: #071c49;
+    border: none;
+    border-radius: 3px;
+    margin-bottom: 25px;
+    margin-top: 10px;
+}
+
+.signin-account {
+    padding-top: 10px;
+    text-align: left;
+    padding-bottom: 5px;
+    border-bottom: 1px solid lightgray;
+}
+
+p.signin-account-text {
+    color: black;
+}
+
+header .header-content .header-content-inner {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.register-box {
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+.signin-box {
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+.header-container {
+    background-position: center;
+    background: url('../images/bgFilter1.jpg');
+    padding-top: 100px;
+    padding-bottom: 100px;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+.header-container1 {
+    height: 100%;
+    background-position: center;
+    background: url('../images/bgFilter1.jpg');
+    padding-top: 150px;
+    padding-bottom: 100px;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+
+.signup-title {
+    text-align: center;
 }
