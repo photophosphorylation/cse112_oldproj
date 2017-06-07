@@ -631,6 +631,20 @@ a:hover {
   background-color: #e4e4e4;
 }
 
+.user-chart {
+  background-color: #EFEFEF;
+  padding: 10px 10px 10px 10px;
+}
+
+.card-title {
+  font-size: 64px; c
+  color: white;
+}
+
+.card-header {
+  padding-top: 20px;
+}
+
 /************* Employee Register Page *************/
 .password{
   padding-left: 100px;
