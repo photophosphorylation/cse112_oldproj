@@ -5,17 +5,17 @@ module.exports = {
       .url('http://cse112oldproj.herokuapp.com')
       //.url('localhost:3000')
       .waitForElementVisible('body', 1000)
-      .useXpath()     // every selector now must be XPath
-      .click("//a[text()='Log In']")
-      .useCss()      // we're back to CSS now
+      //.useXpath()     // every selector now must be XPath
+      //.click("//a[text()='Log In']")
+      //.useCss()      // we're back to CSS now
       .waitForElementVisible('body',1000)
-      .useXpath()
-      .click("//a[text()='Register']")
-      .useCss()
+      //.useXpath()
+      //.click("//a[text()='Register']")
+      //.useCss()
       .waitForElementVisible('body',1000)
-      .useXpath()
-      .click("/html/body/nav/div/div[1]/a")
-      .useCss()
+      //.useXpath()
+      //.click("/html/body/nav/div/div[1]/a")
+      //.useCss()
       .waitForElementVisible('body',1000)
       .end();
       /*.setValue('input[type=text]', 'Sample Name')
