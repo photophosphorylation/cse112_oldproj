@@ -5,7 +5,6 @@
   "title": "Enque API",
   "private": true,
   "scripts": {
-    "install": "npm install",
     "build": "gulp",
     "start": "node ./bin/www",
     "test": "nyc mocha && nightwatch"
