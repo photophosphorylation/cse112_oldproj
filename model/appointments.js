@@ -39,4 +39,3 @@ module.exports = function(req,res) {
     })
 }
 */
->>>>>>> 2a6509da6609ec5f1c763271b59bf3764008a861:model/appointments.js
