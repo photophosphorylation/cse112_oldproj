@@ -1,6 +1,6 @@
 var auth = require('../../../lib/auth');
 var async = require('async');
-var appointment = require('../../../Model/Appointment');
+var appointment = require('../../../model/appointments.js');
 
 exports.get = function(req, res) {
   var db = req.db;
