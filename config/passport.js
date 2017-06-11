@@ -51,7 +51,6 @@ module.exports = function (passport) {
                 var businesses = db.get('businesses');
                 var employees = db.get('employees');
 
-
                 // find a user whose email is the same as the forms email
                 // we are checking to see if the user trying to login already exists
                 businesses.findOne({'email': email}, function (err, user) {
@@ -85,7 +84,6 @@ module.exports = function (passport) {
                                 console.log(body.id);
                             }
                         });
-
 
                         var options = {}
 

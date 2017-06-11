@@ -9,20 +9,27 @@ db.once('open',function(){
     console.log("we are connected");
 });
 
-var appointmentSchema = mongoose.Schema({
-    firstName: String,
-    lastName: String,
-    phone: String,
-    timeOf: Date,
-    reasonForAppointment: String,
-    methodOfCommunication: String,
-    ratingReceived: Number,
-    Missed: { type: Boolean, default: false },
+var exmployeeSchema = mongoose.Schema({
+    business: {type: mongoose.Schema.Types.ObjectId, ref: 'business'},
+    aptTime: { type: Date, default: Date.now }
+    missed: { type: Boolean, default: false },
     createdOn: { type: Date, default: Date.now }
 });
-
-var appointmentModel = mongoose.model('appointments', appointmentSchema);
-
+/*
+employees.insert({
+    business: ObjectId(businessID),
+    password: result.password,
+    phone: result.phone,
+    fname: result.fname,
+    lname: result.lname,
+    email: result.email,
+    smsNotify: true,
+    emailNotify: true,
+    admin: true
+},function(err, user){
+*/
+module.exports = mongoose.model('employees', employeeSchema);
+/*
 module.exports = function(req,res) {
     var doc = new appointmentModel({
         timeOf: Date.now(),
@@ -43,3 +50,4 @@ module.exports = function(req,res) {
     }
     })
 }
+*/

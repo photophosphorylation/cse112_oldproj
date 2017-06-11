@@ -1,7 +1,7 @@
 var auth = require('../../../lib/auth');
 var async = require('async');
-var appointment = require('../../../Model/Appointment')
+var appointment = require('../../../model/appointments.js')
 
 exports.test = function(req, res) {
-    appointment(req,res)
+  return true;
 }
