@@ -7,6 +7,7 @@ var router = express.Router();
 var landing = require('./landing');
 var login = require('./login');
 var accountSettings = require('./accountsettings');
+var customers = require('./customers');
 var register = require('./register');
 var dashboard = require('./dashboard');
 var addEmployees = require('./addemployees');
@@ -40,7 +41,7 @@ module.exports = function (passport) {
     router.post('/uploadlogo', isLoggedInBusiness, accountSettings.uploadLogo);
 
     router.post('/businesssetting', isLoggedInBusiness,accountSettings.setCompanyInfo);
-
+    router.get('/customers', isLoggedInBusiness, customers.get);
     router.get('/register', register.get);
     router.get('/forms', isLoggedInBusiness, formbuilder.get);
     router.post('/register', passport.authenticate('local-signup', {

@@ -1,5 +1,9 @@
 TN:
+<<<<<<< HEAD
 SF:/Users/alanxu/Desktop/cse112_oldproj/lib/auth.js
+=======
+SF:/Users/nathanng/GitHub/cse112_oldproj/lib/auth.js
+>>>>>>> 2a6509da6609ec5f1c763271b59bf3764008a861
 FN:3,(anonymous_1)
 FN:13,(anonymous_2)
 FN:25,isValidToken
@@ -79,7 +83,11 @@ BRF:18
 BRH:0
 end_of_record
 TN:
+<<<<<<< HEAD
 SF:/Users/alanxu/Desktop/cse112_oldproj/lib/sms.js
+=======
+SF:/Users/nathanng/GitHub/cse112_oldproj/lib/sms.js
+>>>>>>> 2a6509da6609ec5f1c763271b59bf3764008a861
 FN:8,(anonymous_1)
 FN:14,(anonymous_2)
 FNF:2
@@ -104,7 +112,11 @@ BRF:4
 BRH:0
 end_of_record
 TN:
+<<<<<<< HEAD
 SF:/Users/alanxu/Desktop/cse112_oldproj/lib/style.js
+=======
+SF:/Users/nathanng/GitHub/cse112_oldproj/lib/style.js
+>>>>>>> 2a6509da6609ec5f1c763271b59bf3764008a861
 FN:1,(anonymous_1)
 FNF:1
 FNH:0

@@ -1,8 +1,8 @@
 {
-  "name": "robobetty",
+  "name": "enque",
   "version": "0.6.0",
-  "description": "apiDoc for Robobetty",
-  "title": "Robobetty API",
+  "description": "apiDoc for Enque",
+  "title": "Enque API",
   "private": true,
   "scripts": {
     "build": "gulp",
@@ -79,6 +79,6 @@
     "yargs": "^3.4.4"
   },
   "engines": {
-    "node": "0.10.x"
+    "node": "7.8.0"
   }
 }

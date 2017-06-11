@@ -8,7 +8,7 @@ exports.get = function (req, res) {
 	var employeeId = req.user[0]._id;
 	var employeename = req.user[0].fname + ' ' + req.user[0].lname;
 
-	if( true ) {
+	if( isPeter ) {
 		res.render('business/dashboard-admin', {
 			title: 'Express',
 			eid: employeeId,
