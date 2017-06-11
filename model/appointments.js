@@ -17,8 +17,6 @@ var appointmentSchema = mongoose.Schema({
 });
 
 module.exports = mongoose.model('appointments', appointmentSchema);
-<<<<<<< HEAD:Model/Appointment.js
-=======
 /*
 module.exports = function(req,res) {
     var doc = new appointmentModel({
