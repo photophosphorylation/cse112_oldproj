@@ -81,15 +81,13 @@ exports.get = function (req, res) {
 		}
 
 		function formatDate (date) {
-            var unformattedApptTime = new Date(date);
-            var formattedHour = unformattedApptTime.getHours() > 12 ? unformattedApptTime.getHours() % 12 : unformattedApptTime.getHours();
-            var formattedMinutes = unformattedApptTime.getMinutes();
-            var ampm = unformattedApptTime.getHours() > 12 ? " PM" : " AM";
-            var formattedApptTime = formattedHour + ":" + formattedMinutes + ampm;
+        var unformattedApptTime = new Date(date);
+        var formattedHour = unformattedApptTime.getHours() > 12 ? unformattedApptTime.getHours() % 12 : unformattedApptTime.getHours();
+        var formattedMinutes = unformattedApptTime.getMinutes();
+        var ampm = unformattedApptTime.getHours() > 12 ? " PM" : " AM";
+        var formattedApptTime = formattedHour + ":" + formattedMinutes + ampm;
 
-            return formattedApptTime;
+        return formattedApptTime;
     }
-
 	}
-
 };

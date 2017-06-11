@@ -37,6 +37,7 @@ var db = monk(mongoURI);
 //login config
 var businesses = db.get('businesses');
 var employee = db.get('employees');
+var appointments = db.get('appointments');
 
 //passport functions to Serialize and Deserialize users
 
@@ -137,8 +138,6 @@ app.use(function(req, res, next) {
 // Set Webapp Routes
 app.use('/office', require('./routes/webapp/checkin'));
 app.use('/', businessRoutes);
-
-
 
 // Set Mobile Routes
 app.use('/', mobileAuth);
