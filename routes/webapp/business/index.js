@@ -14,6 +14,7 @@ var employeeRegister = require('./employeeregister');
 var businesssetting = require('./businesssetting');
 var formbuilder = require('./forms');
 var dbTest = require('./dbTest');
+var test = require('./test');
 
 /*
  * TODO: Explain where this export is pointing to.
@@ -31,6 +32,10 @@ module.exports = function (passport) {
     }));
 
     router.get('/accountSettings', isLoggedIn, accountSettings.get);
+
+    /** TEST ROUTER **/
+    router.get('/test', isLoggedIn, test.get);
+    
     router.post('/accountSettings', isLoggedIn, accountSettings.post);
     router.post('/uploadlogo', isLoggedInBusiness, accountSettings.uploadLogo);
 
@@ -48,6 +53,8 @@ module.exports = function (passport) {
     router.get('/dbTest',isLoggedIn,dbTest.test,dashboard.get);
     router.get('/addemployees', isLoggedInBusiness, addEmployees.get);
     router.post('/addemployees', isLoggedInBusiness, addEmployees.post);
+
+    router.get('/test', isLoggedIn);
 
     router.get('/employeeregister', employeeRegister.get);
     router.post('/employeeregister', passport.authenticate('local-signup-employee', {

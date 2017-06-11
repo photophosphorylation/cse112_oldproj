@@ -10,6 +10,19 @@ function dateToString( date ) {
     return dateOfString;
 }
 
+function getData() {
+	console.log("IN GETDATA()");
+	var http = new XMLHttpRequest();
+	url = '/test';
+  http.open("GET", url, true);
+  http.onreadystatechange = function() {
+      if(http.readyState == 4 && http.status == 200) {
+        document.getElementById('appointments').innerHTML = http.response;
+      }
+  };
+  http.send();
+}
+
 function getDate(){
 	var currentdate = new Date();
 	var datetime= '';
