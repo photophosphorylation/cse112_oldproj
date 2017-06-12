@@ -10,7 +10,7 @@ db.once('open',function(){
 });
 
 var customerSchema = mongoose.Schema({
-    //business: {type: mongoose.Schema.Types.ObjectId, ref: 'businesses'},
+    business: {type: mongoose.Schema.Types.ObjectId, ref: 'businesses'},
     firstName: String,
     lastName: String,
     age: String,

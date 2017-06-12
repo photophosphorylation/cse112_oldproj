@@ -19,36 +19,28 @@ exports.get = function(req,res){
 
 exports.post = function(req, res, next){
   console.log("FUCKKKKK")
-  var customer = new Customer({
-    firstName: req.body.inputFirstName,
-    lastName: req.body.inputLastName,
-    age: req.body.inputAge,
-    address: req.body.inputAddress,
-    phone: req.body.inputPhone,
-    email: req.body.inputEmail
-  });
-  customer.save(function(err) {
-    console.log("Saving");
-    if (err) {
-        console.log(err);
-    }
-  })
-  res.redirect('/customers');
-  /*
   var businessID = req.user[0].business;
-  console.log("Finding Busines...");
+  console.log("Finding Business...");
+  console.log(req.body);
+  console.log(req.body.inputFirstName);
+  console.log(req.body.inputLastName);
+  console.log(req.body.inputAge);
+  console.log(req.body.inputAddress);
+  console.log(req.body.inputPhone);
+  console.log(req.body.inputEmail);
   Business.findOne({ _id: businessID })
   .exec(function(err, business) {
-    //if (err) return handleError(err);
+
+
     var customer = new Customer({
-      //business: business,
+      business: business,
       firstName: req.body.inputFirstName,
       lastName: req.body.inputLastName,
       age: req.body.inputAge,
       address: req.body.inputAddress,
       phone: req.body.inputPhone,
       email: req.body.inputEmail,
-      createdOn: Date.now
+      createdOn: Date.now()
     });
     customer.save(function(err) {
       console.log("Saving");
@@ -58,5 +50,5 @@ exports.post = function(req, res, next){
     })
     res.redirect('/customers');
   });
-  */
+
 }
