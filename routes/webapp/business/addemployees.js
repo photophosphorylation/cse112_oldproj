@@ -21,7 +21,7 @@ exports.get = function(req,res){
         async.parallel({
             employee: function(cb) {
                 employeeDB.find({
-                    registrationToken: {$exists: false}, 
+                    registrationToken: {$exists: false},
                     business: ObjectId(businessID)
                 }, function (err,results){
                         if( err ) { return next(err); }
@@ -33,7 +33,7 @@ exports.get = function(req,res){
             },
             nonemployee: function(cb) {
                 employeeDB.find({
-                    registrationToken: {$exists: true}, 
+                    registrationToken: {$exists: true},
                     business: ObjectId(businessID)}, function (err,results){
 
                     if (err) {
@@ -120,48 +120,6 @@ exports.post = function(req,res,next){
     });
 }
 
-// OLD GOLD TEAM CODE
-/*exports.post = function(req,res){
-    var parsed = baby.parse(req.body.csvEmployees);
-    var rows = parsed.data;
-    var database =  req.db;
-    var employeeDB = database.get('employees');
-    var businessID = req.user[0].business;
-
-
-    for(var i = 0; i < rows.length; i++){
-        var username = rows[i][0];
-        var email = rows[i][1];
-        var nameArr = username.split(' ');
-        var fname = nameArr[0];
-        var lname = nameArr[1];
-        var token = randomToken();
-        employeeDB.insert({
-            business: ObjectId(businessID),
-            fname: fname,
-            lname: lname,
-            email: email,
-            registrationToken : token,
-            admin: false
-        });
-
-
-        sendgrid.send({
-            to: email,
-            from: 'test@localhost',
-            subject: 'Employee Signup',
-            text: 'Hello ' + username + ',\n\n' + 'Please click on the following link, or paste this into your browser to complete sign-up the process: \n\n' +
-            'http://robobetty-dev.herokuapp.com/employeeregister?token=' + token
-        }, function (err){
-            if (err) {
-                return next(err);
-            }
-        });
-    }
-    res.redirect('/addemployees');
-}*/
-
-
- function randomToken() {
-        return crypto.randomBytes(24).toString('hex');
-    }
+function randomToken() {
+      return crypto.randomBytes(24).toString('hex');
+}
