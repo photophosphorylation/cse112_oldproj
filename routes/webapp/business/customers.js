@@ -18,7 +18,7 @@ exports.get = function(req,res){
 				business: ObjectId(businessID)
 			}, function (err,results){
 				if( err ) { return next(err); }
-				if( !results ) { return next(new Error('Error finding employee')); }
+				if( !results ) { return next(new Error('Error finding customer')); }
 				customer = results;
 				cb();
 			});
@@ -38,13 +38,6 @@ exports.get = function(req,res){
 			});
 	  }
   );
-/*
-  res.render('business/customers', {
-    title: 'Customers',
-    layout: 'main',
-    dashboard: "active"
-  });
-  */
 };
 
 /*
