@@ -82,7 +82,7 @@ function getAppDate( date ){
   return appTime;
 }
 
-$(function() {
+$(document).ready(function() {
   getDate();
   $(startTime);
 
@@ -106,6 +106,16 @@ $(function() {
 	          }
 	        }
 	    });
+	}
+	addCalendar();
+	function addCalendar() {
+		$('#calendar').fullCalendar({
+			header: {
+					left: '',
+					center: 'prev title next',
+					right: ''
+			}
+		})
 	}
 	addNumUsers();
 	function addNumUsers() {
@@ -223,15 +233,6 @@ $(function() {
 	        }
 	    });
 	}
-	addCalendar();
-	function addCalendar() {
-	  $('#calendar').fullCalendar({
-	    header: {
-	        left: '',
-	        center: 'prev title next',
-	        right: ''
-	    }
-	  })
-	}
+
 
 });
