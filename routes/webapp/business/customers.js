@@ -2,12 +2,49 @@
 var Customer = require('../../../model/customers.js')
 var Business = require('../../../model/businesses.js')
 
+var async = require('async');
+var ObjectId = require('mongodb').ObjectID;
+
 exports.get = function(req,res){
+  var database =  req.db;
+	var customerDB = database.get('customers');
+	var customer;
+	var businessID = req.user[0].business.toString();
+
+	async.parallel({
+		customer: function(cb) {
+			customerDB.find({
+				registrationToken: {$exists: false},
+				business: ObjectId(businessID)
+			}, function (err,results){
+				if( err ) { return next(err); }
+				if( !results ) { return next(new Error('Error finding employee')); }
+				customer = results;
+				cb();
+			});
+		}},
+
+		function(err,results){
+
+			if(err){
+				throw err;
+			}
+
+			res.render('business/customers', {
+				title: 'Customers',
+				customers: customer,
+				isOwner: req.user[0].admin,
+				businessId: req.user[0].business,
+			});
+	  }
+  );
+/*
   res.render('business/customers', {
     title: 'Customers',
     layout: 'main',
     dashboard: "active"
   });
+  */
 };
 
 /*
@@ -16,22 +53,11 @@ exports.get = function(req,res){
 * @param req and res The two parameters passed in to get the apprporiate employee,
 * @returns The appropriate data about the employee
 */
-
+//TODO: Validate the form and send back an error
 exports.post = function(req, res, next){
-  console.log("FUCKKKKK")
   var businessID = req.user[0].business;
-  console.log("Finding Business...");
-  console.log(req.body);
-  console.log(req.body.inputFirstName);
-  console.log(req.body.inputLastName);
-  console.log(req.body.inputAge);
-  console.log(req.body.inputAddress);
-  console.log(req.body.inputPhone);
-  console.log(req.body.inputEmail);
   Business.findOne({ _id: businessID })
   .exec(function(err, business) {
-
-
     var customer = new Customer({
       business: business,
       firstName: req.body.inputFirstName,

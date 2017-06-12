@@ -34,7 +34,7 @@
                         <label for="address" class="control-label"><span style="color: red">* </span>Address</label>
                         <input id="inputAddress" class="form-control" type="text" name="inputAddress" value="{{ address }}" required>
 
-                        <label for="age" class="control-label"><span style="color: red">* </span>Age/label>
+                        <label for="age" class="control-label"><span style="color: red">* </span>Age</label>
                         <input id="inputAge" class="form-control" type="text" name="inputAge" value="{{ age }}" required>
                     </div>
                     <input class="btn btn-block btn-primary btn-lg btn-flat" name="submit" type="submit" href="/customers" value="Add Customer">
@@ -52,7 +52,7 @@
     </div>
   </div>
 
-  <div class="col-md-6">
+  <div class="col-md-12">
     <div class="box box-success">
       <div class="box-header with-border">
         <h3 class="box-title">Employees - registered</h3>
@@ -65,9 +65,9 @@
               <th>Email</th>
               <th>Phone</th>
             </tr>
-            {{#each signed}}
+            {{#each customers}}
             <tr>
-              <td>{{fname}} {{lname}}</td>
+              <td>{{firstName}} {{lastName}}</td>
               <td>{{email}}</td>
               <td>{{phone}}</td>
             </tr>
@@ -78,31 +78,6 @@
     </div>
   </div>
 
-  <div class="col-md-6">
-    <div class="box box-danger">
-      <div class="box-header with-border">
-        <h3 class="box-title">Employees - not registered</h3>
-      </div>
-      <div class="box-body">
-        <table class="table table-striped" id="notRegisteredEmployees">
-          <tbody>
-            <tr>
-              <th>Name</th>
-              <th>Email</th>
-              <th>Phone</th>
-            </tr>
-            {{#each notsigned}}
-            <tr>
-              <td>{{fname}} {{lname}}</td>
-              <td>{{email}}</td>
-              <td>{{phone}}</td>
-            </tr>
-            {{/each}}
-          </tbody>
-        </table>
-      </div>
-    </div>
-  </div>
   <button id="add-employee-show">+</button>
   <script>
   document.getElementById('add-employee-show').addEventListener('click', function() {
