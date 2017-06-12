@@ -1,16 +1,137 @@
-<section class="content-header">
-    <h1>Dashboard </h1>
-    <div id="txt" class="pull-right"></div>
-    <h1 class="pull-right" id="currentDate"></h1>
-</section>
-
-<section class="content">
-    {{#if message}}
-        <div class="alert alert-danger">{{message}}</div>
-    {{/if}}
-
-    <div class="pull-left" style = "width: 50%; margin: 0 auto;">
-        <img src="http://i25.photobucket.com/albums/c97/evilsmith/resizeAnalytics_zpsrfxnhb9b.png" alt="Analytics">
-    </div>
-
-</section>
+<style>
+  .content {
+    padding-left: 30px;
+  }
+  .title {
+    font-weight: bold;
+  }
+  .card {
+    margin: 10px;
+    padding: 10px;
+    background: white;
+  }
+  .task {
+    background: whitesmoke;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    padding: 10px;
+    margin: 3px 0px 3px 0px;
+  }
+  .task-header {
+    background: lightblue;
+    color: white;
+    font-weight: bold;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+    padding: 10px;
+    margin: 3px 0px 3px 0px;
+  }
+  .task-container {
+    border: 10px red;
+  }
+  canvas {
+    background: white;
+  }
+  #tasks, #monthlysummary, #yearlysummary, #calendar, #companysummary {
+    height: 38vh;
+    overflow: scroll;
+  }
+</style>
+<div>
+  <section class="content-header">
+      <h1>Dashboard </h1>
+      <div id="txt" class="pull-right"></div>
+      <h1 class="pull-right" id="currentDate"></h1>
+  </section>
+  <section class="content">
+      {{#if message}}
+          <div class="alert alert-danger">{{message}}</div>
+      {{/if}}
+      <div class="column">
+        <div class="row">
+          <div id="tasks" class="card col-md-4">
+            <span class="title">Upcoming Tasks</span>
+            <!-- TODO: Load actual tasks below -->
+            <div class="task-container">
+                <div class="task-header col-md-3">
+                  Jan 18, 2017
+                </div>
+                <div class="task col-md-9">
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                </div>
+            </div>
+            <div class="task-container">
+                <div class="task-header col-md-3">
+                  Jan 18, 2017
+                </div>
+                <div class="task col-md-9">
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                </div>
+            </div>
+            <div class="task-container">
+                <div class="task-header col-md-3">
+                  Jan 18, 2017
+                </div>
+                <div class="task col-md-9">
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                </div>
+            </div>
+            <div class="task-container">
+                <div class="task-header col-md-3">
+                  Jan 18, 2017
+                </div>
+                <div class="task col-md-9">
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                </div>
+            </div>
+            <div class="task-container">
+                <div class="task-header col-md-3">
+                  Jan 18, 2017
+                </div>
+                <div class="task col-md-9">
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                </div>
+            </div>
+            <div class="task-container">
+                <div class="task-header col-md-3">
+                  Jan 18, 2017
+                </div>
+                <div class="task col-md-9">
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                </div>
+            </div>
+          </div>
+          <div id="monthlysummary" class="card col-md-3">
+            <span class="title">Monthly Summary: Appointments</span>
+            <div class="donut-widget">
+              <canvas id="chart1" width="200" height="162"></canvas>
+            </div>
+          </div>
+          <div id="yearlysummary" class="card col-md-4">
+            <span class="title">Yearly Summary: Appointments</span>
+            <div class="line-widget">
+              <canvas id="chart2" width="200" height="120"></canvas>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div id="calendar" class="card col-md-4">
+            <span class="title">Calendar</span>
+            <!-- TODO: Add calendar -->
+          </div>
+          <div id="companysummary" class="card col-md-4">
+            <span class="title">Profile Summary</span>
+            <div>
+              Last Logged In: asndaksl
+            </div>
+          </div>
+          <div id="companysummary" class="card col-md-3">
+            <span class="title">Company Statistics</span>
+              <div class="pie-widget">
+                <canvas id="chart3" width="200" height="162"></canvas>
+              </div>
+          </div>
+        </div>
+      </div>
+  </section>
+</div>
