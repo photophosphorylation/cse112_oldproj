@@ -43,6 +43,7 @@ module.exports = function (passport) {
 
     router.post('/businesssetting', isLoggedInBusiness,accountSettings.setCompanyInfo);
     router.get('/customers', isLoggedIn, customers.get);
+    router.post('/customers', isLoggedIn, customers.post);
     router.get('/appointments', isLoggedIn, appointments.get);
     router.get('/register', register.get);
     router.get('/forms', isLoggedInBusiness, formbuilder.get);

@@ -17,25 +17,3 @@ var appointmentSchema = mongoose.Schema({
 });
 
 module.exports = mongoose.model('appointments', appointmentSchema);
-/*
-module.exports = function(req,res) {
-    var doc = new appointmentModel({
-        timeOf: Date.now(),
-        reasonForAppointment: "Business",
-        methodOfCommunication: "SMS",
-        ratingReceived: 5,
-        firstName: "Beter",
-        lastName: "Griffin"
-    });
-    doc.save(function (err) {
-        if (err) {
-            console.log(err)
-            return
-    }
-    else {
-        // Saved
-        console.log('it is saved')
-    }
-    })
-}
-*/

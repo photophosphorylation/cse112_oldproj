@@ -11,7 +11,7 @@ db.once('open',function(){
 
 
 // TODO: Finish schema
-var businessesSchema = mongoose.Schema({
+var businessSchema = mongoose.Schema({
     email: String,
     password: String,
     companyName: String,
@@ -57,4 +57,4 @@ businesses.insert({
         },
     },
 */
-module.exports = mongoose.model('customers', customerSchema);
+module.exports = mongoose.model('businesses', businessSchema);

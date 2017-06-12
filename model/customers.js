@@ -10,13 +10,15 @@ db.once('open',function(){
 });
 
 var customerSchema = mongoose.Schema({
+    //business: {type: mongoose.Schema.Types.ObjectId, ref: 'businesses'},
     firstName: String,
     lastName: String,
-    age: Number,
+    age: String,
     address: String,
     phone: String,
     email: String,
     createdOn: { type: Date, default: Date.now }
 });
 
-module.exports = mongoose.model('customers', customerSchema);
+var customerModel = mongoose.model('customers', customerSchema);
+module.exports = customerModel;

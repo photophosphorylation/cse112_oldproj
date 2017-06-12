@@ -10,7 +10,7 @@ db.once('open',function(){
 });
 
 var exmployeeSchema = mongoose.Schema({
-    business: {type: mongoose.Schema.Types.ObjectId, ref: 'business'},
+    business: {type: mongoose.Schema.Types.ObjectId, ref: 'businesses'},
     aptTime: { type: Date, default: Date.now }
     missed: { type: Boolean, default: false },
     createdOn: { type: Date, default: Date.now }
