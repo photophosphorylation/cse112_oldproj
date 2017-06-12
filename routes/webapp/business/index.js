@@ -45,6 +45,8 @@ module.exports = function (passport) {
     router.get('/customers', isLoggedIn, customers.get);
     router.post('/customers', isLoggedIn, customers.post);
     router.get('/appointments', isLoggedIn, appointments.get);
+    router.post('/appointments', isLoggedIn, appointments.post);
+
     router.get('/register', register.get);
     router.get('/forms', isLoggedInBusiness, formbuilder.get);
     router.post('/register', passport.authenticate('local-signup', {
