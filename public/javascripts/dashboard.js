@@ -13,7 +13,7 @@ function dateToString( date ) {
 function getData() {
 	console.log("IN GETDATA()");
 	var http = new XMLHttpRequest();
-	url = '/test';
+	url = '/pullData';
   http.open("GET", url, true);
   http.onreadystatechange = function() {
       if(http.readyState == 4 && http.status == 200) {
@@ -92,7 +92,7 @@ $(function() {
 	  data = {
 	    datasets: [{
 	        data: [20, 10],
-	        backgroundColor: ['rgb(54, 162, 235)', 'rgb(255, 99, 132)' ] 
+	        backgroundColor: ['rgb(54, 162, 235)', 'rgb(255, 99, 132)' ]
 	    }],
 			labels: [ 'On Time', 'Missed']
 		};
