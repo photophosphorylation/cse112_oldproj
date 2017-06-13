@@ -16,9 +16,7 @@ var addEmployees = require('./addemployees');
 var employeeRegister = require('./employeeregister');
 var businesssetting = require('./businesssetting');
 var formbuilder = require('./forms');
-var dbTest = require('./dbTest');
 var pullData = require('./pullData');
-var test = require('./test');
 
 /*
  * TODO: Explain where this export is pointing to.
