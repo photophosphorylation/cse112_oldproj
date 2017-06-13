@@ -17,6 +17,7 @@ var employeeRegister = require('./employeeregister');
 var businesssetting = require('./businesssetting');
 var formbuilder = require('./forms');
 var pullData = require('./pullData');
+var webhook = require('../../webapi/botwebhook');
 
 /*
  * TODO: Explain where this export is pointing to.
@@ -64,12 +65,19 @@ module.exports = function (passport) {
         failureRedirect : '/register' // redirect back to the signup page if there is an error
     }));
 
+    router.get('/webhook', webhook.get);
+    router.post('/webhook', webHookCallback, webhook.post);
+
     function isLoggedIn(req,res,next){
         if(req.isAuthenticated()){
             return next();
         }
 
         res.redirect('/');
+    }
+
+    function webHookCallback(req, res, next) {
+      return next();
     }
 
     // route middleware to make sure a user is logged in
