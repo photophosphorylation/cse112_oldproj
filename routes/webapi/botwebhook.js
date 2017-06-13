@@ -1,5 +1,5 @@
 /**
- * Http request methods for the messenger bot webhook.
+ * Handlers for the http request methods for the messenger bot webhook.
  * GET is used to retrieve access tokens
  * POST is used to communicate with the user and kick off appointment
  * creation/cancellation and check in actions
@@ -8,8 +8,9 @@
  var request = require('request');
  var businesses = require('../../model/businesses');
  var businessRoute = require('../webapp/business');
- var mTracker = require('../../messageTracker');
+ var state_tracker = require('../../lib/messageTracker');
 
+/* Request made by FB for webhook validation */
 exports.get = function (req, res) {
   console.log("IN THE WEBHOOK");
 
@@ -23,6 +24,7 @@ exports.get = function (req, res) {
   }
 };
 
+/* Request made by FB when receiving messages */
 exports.post = function(req, res, next) {
   var data = req.body;
   // Make sure this is a page subscription
@@ -30,22 +32,23 @@ exports.post = function(req, res, next) {
 
     // Iterate over each entry - there may be multiple if batched
     data.entry.forEach(function(entry) {
-      console.log("Recieved Message Via POST Request");
-      mTracker.userMessages['1'] = mTracker.userMessages['1'] || [];
-      mTracker.userMessages['1'].push("aWORD");
+      console.log("RECEIVED MESSAGE");
       var pageID = entry.id;
       var timeOfEvent = entry.time;
 
       // Iterate over each messaging event
       entry.messaging.forEach(function(event) {
-        console.log(mTracker.userMessages['1']);
-        if(req.session.items != null) {
-          receivedMessageHandler(event, req);
-        }
-        if (event.message) {
+        var senderID = event.sender.id;
+        console.log(senderID);
+        console.log(typeof senderID);
+        console.log(state_tracker);
+
+        if(event.postback) {
+          receivedPostBack(event);
+        } else if (event.message && state_tracker.hasKey(senderID)) {
+          continueConversation(event);
+        } else if(event.message && !state_tracker.hasKey(senderID)) {
           receivedMessage(event);
-        } else if(event.postback) {
-          receivedPostBack(event, req);
         } else {
           console.log("Webhook received unknown event: ", event);
         }
@@ -61,115 +64,101 @@ exports.post = function(req, res, next) {
   }
 };
 
-function receivedPostBack(event, req) {
-  console.log("IT'S A POSTBACK!!");
+function continueConversation(event) {
+  var senderID = event.sender.id;
+  var statesArray = state_tracker.getArray(senderID);
+  var action = state_tracker.getAction(senderID);
+  console.log("Continuing Conversation. Current state is ${action}");
+  var messageText = `This is a response to continue the convo for ${action}.`;
+  sendTextMessage(senderID, messageText);
+}
 
+/**
+ * Called when user sends a new postback from the persistent menu while the
+ * system is still working through an appoinment action.
+ **/
+function handleConflict(payload, senderID) {
+  console.log("RECEIVED NEW POSTBACK WHILE IN THE MIDDLE OF AN ACTION");
+
+  var payloadToText = {}
+  payloadToText['SET_UP_NEW_APPOINTMENT'] = "setting up a new appointment for you";
+  payloadToText['CHECK_APPOINTMENT_TIME'] = "checking your appointment time";
+  payloadToText['CHECK_IN_PAYLOAD'] = "checking you in to an appointment";
+  payloadToText['CANCEL_APPOINTMENT'] = "cancelling an appointment";
+
+  var currentAction = state_tracker.getAction(senderID);
+
+  var messageText = `I'm in the process of ${payloadToText[currentAction]}.`;
+
+  if(currentAction === payload) {
+    messageText += " would you like to start over?";
+  } else {
+    messageText += ` Should I stop this and start ${payloadToText[payload]}?`;
+  }
+
+  state_tracker.handleConflict(senderID);
+
+  return messageText;
+}
+
+/**
+ * Called when the post request contains a postback. Sets the user's
+ * state_tracker action and messageText according to the payload and then
+ * delegates to sendTextMessage. If the senderID is not in the map then the user
+ * sent a postback before compeleting the steps of another action and
+ * handleConlict is called to take care of setting messageText to the
+ * appropriate message and preparing state_tracker for the CONFLICT action.
+ */
+function receivedPostBack(event) {
+  console.log("GOT A POSTBACK");
+
+  var senderID = event.sender.id;
   var postback = event.postback;
   var payload = postback.payload;
+  var messageText = "";
+  var gettingStarted = false;
 
   console.log(payload);
 
-  if(payload === 'SET_UP_NEW_APPOINTMENT') {
-
-    console.log("Customer wants to setup new appointment!");
-    handleAppointmentSetup(event, req);
-
-  } else if(payload === 'CHECK_APPOINTMENT_TIME') {
-
-    console.log("Customer wants to check their appointment time!!");
-    handleCheckAppointment(event);
-
-  } else if(payload === 'CHECK_IN_PAYLOAD') {
-
-    console.log("Customer wants to check in!");
-    handleCheckIn(event);
-
-  } else if(payload === 'CANCEL_APPOINTMENT') {
-
-    console.log("Customer wants to cancel their appointment!!");
-    handleCancelAppointment(event);
-
-  } else if(payload === 'GET_STARTED_PAYLOAD') {
-
-    console.log("Customer hit getting started");
-    handleGettingStarted(event);
-
+  if(state_tracker.hasKey(senderID)) {
+    messageText = handleConflict(payload, senderID);
   } else {
-    console.log("Unrecognized PAYLOAD!!!");
+
+    switch (payload) {
+        case 'SET_UP_NEW_APPOINTMENT':
+          console.log("Customer wants to setup new appointment!");
+          messageText = "Ok. Let's set up a new appointment. What is the name of the business you'd like to set up an appointment with?";
+          break;
+        case 'CHECK_APPOINTMENT_TIME':
+          console.log("Customer wants to check their appointment time!!");
+          messageText = "Let's check your appointment time. What is the name of the business you have an appointment with?";
+          break;
+        case 'CHECK_IN_PAYLOAD':
+          console.log("Customer wants to check in!");
+          messageText = "Ok. I'll check you in to your appointment. What is the name of the business?";
+          break;
+        case 'CANCEL_APPOINTMENT':
+          console.log("Customer wants to cancel their appointment!!");
+          messageText = "I'll get started on your appointment cancellation. What is the name of the buisness?";
+          break;
+        case 'GET_STARTED_PAYLOAD':
+          messageText = "Hi there! Welcome to Enque! I can help you with your appointments. To get started pick an option from the menu in the textbox or reply with 'more help'(case sensitive)";
+          gettingStarted = true;
+          break;
+        default:
+          console.log("UNRECOGNIZED PAYLOAD");
+          messageText = "Sorry I didn't understand your last message.";
+
+    }
+
+    // Do not add to state_tracker if GETTING_STARTED_PAYLOAD was recieved
+    if(!gettingStarted) {
+      // set the action for this user in state_tracker
+      state_tracker.initStateTracker(senderID, payload);
+    }
   }
-}
-
-function handleGettingStarted(event) {
-  console.log("here we will display the basic convo options to the customer");
-
-  var senderID = event.sender.id;
-  var messageText = "Hi there! Welcome to Enque! I can help you with your appointments. To get started pick an option from the menu in the textbox or reply with 'more help'(case sensitive)";
 
   sendTextMessage(senderID, messageText);
-}
-
-function handleAppointmentSetup(event, req) {
-  console.log("here we will as the customer for some information and attempt to set up a new appointment");
-
-  req.session.items = ['NEW'];
-
-  var senderID = event.sender.id;
-  var messageText = "Ok, let's set up an appointment. Tell me the name of the bussiness you want to set up an appointment with.";
-  sendTextMessageWithSession(senderID, messageText,req);
-}
-
-function handleCheckIn(event) {
-  console.log("here we will check the customer in");
-
-  var senderID = event.sender.id;
-  var messageText = "Ok, let's check you in to your appointment. Tell me the name of the Business you have an appointment with.";
-
-  sendTextMessage(senderID, messageText);
-}
-
-function handleCheckAppointment(event) {
-  console.log("here we will tell the customer their appintment time");
-
-  var senderID = event.sender.id;
-  var messageText = "Ok, let's check your appointment time. Tell me the name of the Business followed by your name in the following format: 'Time: {BUSINESS NAME}, {YOUR FIRST NAME AND LAST NAME}'";
-
-  sendTextMessage(senderID, messageText);
-}
-
-function handleCancelAppointment(event) {
-  console.log("here we will help a customer cancel an appointment");
-
-  var senderID = event.sender.id;
-  var messageText = "Ok, let's cancel your appointment. Tell me the name of the Business followed by your name in the following format: 'Cancel: {BUSINESS NAME}, {YOUR FIRST NAME AND LAST NAME}'";
-
-  sendTextMessage(senderID, messageText);
-}
-
-function setUpNewFirst(event, bname, req) {
-    var senderID = event.sender.id;
-    var messageText = "Ok. What is your first and last name?"
-    businesses.findOne({companyName: bname})
-    .exec(function(err, business) {
-      if(business == null) {
-        messageText = "Sorry. I couldn't find a record for that business. Can you make sure you typed their name correctly, please."
-      } else {
-        req.session.items.push(bname);
-      }
-    });
-
-    sendTextMessage(senderID, messageText);
-}
-
-function receivedMessageHandler(event, req) {
-  if(req.session.items != null && req.session.items[0] === 'NEW') {
-
-      if(req.session.items.length == 1) {
-        var businessName = event.message.message.text;
-        setUpNewFirst(event, businessName, req);
-      }
-
-
-  }
 }
 
 /**
@@ -199,7 +188,6 @@ function receivedMessage(event) {
         case 'generic':
           sendGenericMessage(senderID);
           break;
-
         default:
           sendTextMessage(senderID, messageText);
       }
@@ -257,21 +245,6 @@ function sendGenericMessage(recipientId, messageText) {
   // To be expanded in later sections
 }
 
-function sendTextMessageWithSession(recipientId, messageText, req) {
-  console.log(req.session.items);
-
-  var messageData = {
-      recipient: {
-        id: recipientId
-      },
-      message: {
-        text: messageText
-      }
-  };
-
-  callSendAPI(messageData);
-}
-
 function sendTextMessage(recipientId, messageText) {
   var messageData = {
     recipient: {
@@ -306,7 +279,3 @@ function callSendAPI(messageData) {
     }
   });
 }
-/*
-exports.post = function (req, res) {
-  };
- */
