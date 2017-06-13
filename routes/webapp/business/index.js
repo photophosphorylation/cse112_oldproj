@@ -1,3 +1,4 @@
+/* jshint node: true */
 'use strict';
 
 var express = require('express');
@@ -15,7 +16,6 @@ var addEmployees = require('./addemployees');
 var employeeRegister = require('./employeeregister');
 var businesssetting = require('./businesssetting');
 var formbuilder = require('./forms');
-var dbTest = require('./dbTest');
 var test = require('./test');
 
 /*
@@ -55,8 +55,6 @@ module.exports = function (passport) {
     }));
 
     router.get('/dashboard', isLoggedIn, dashboard.get);
-    //router.get('/dbTest',isLoggedIn)
-    router.get('/dbTest',isLoggedIn,dbTest.test,dashboard.get);
     router.get('/addemployees', isLoggedInBusiness, addEmployees.get);
     router.post('/addemployees', isLoggedInBusiness, addEmployees.post);
 

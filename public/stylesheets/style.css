@@ -23,7 +23,7 @@
   background-position: center;
   /*background-image: url('../images/bg2.jpg');*/
   text-align: center;
-  color: white;
+  color: #030303;
 }
 .header .header-content {
   position: relative;
@@ -88,6 +88,14 @@
   margin-bottom: 20px;
   border-radius: 4px;
   z-index: 5;
+}
+
+.checkin-box {
+  background-color: #eeeeee;
+}
+
+.box-footer {
+  background-color: #eeeeee;
 }
 
 .customBG {
