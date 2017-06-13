@@ -34,4 +34,4 @@ exports.get = function(req,res,next){
         businessId: req.user[0].business,
         employees: "active"
     });
-}
+};

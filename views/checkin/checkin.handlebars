@@ -9,25 +9,7 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
 
     <style>
-    body, h1, h2, h3, h4, h5, h6 {
-        /*color: {{containerText}} !important;*/
-    }
 
-    .customBG {
-        /*background-image: url(/images/bg/full/{{bg}});*/
-        /*background-image: url({{bg}});*/
-        background: linear-gradient(to bottom, rgba(242,97,0, 1), rgba(255,151,0, 0.2));
-    }
-
-    .btn {
-        /*background-color: {{buttonBg}} !important;*/
-        /*border-color: {{buttonBg}} !important;*/
-        /*color: {{buttonText}} !important;*/
-    }
-
-    .container-checkin {
-        background-color: {{containerBg}};
-    }
     footer {
         position: fixed;
         bottom: 0;
@@ -50,26 +32,14 @@
 </head>
 
 <body class = "customBG">
-<!-- this nav bar is consistent with PK's navbar
-<header role="banner" class="navbar navbar-fixed-top navbar-custom">
-<div class="container">
-<div class="navbar-inverse side-collapse in">
-<ul class="nav navbar-nav">
-<li><a class="navbar-brand" href="#">Company Logo</a></li>
-</ul>
-</div>
-</div>
-</header> -->
-
-<!-- <div class="container container-checkin"> -->
 
 <h1 class ="header text-center"><strong>Welcome to {{companyName}}!</strong></h1>
 
-<img class="checkinphoto center-block" src="{{logo}}" alt="...">
+<!--<img class="checkinphoto center-block" src="{{logo}}" alt="...">-->
 
 <div class="row">
     <div class="col-xs-10 col-sm-6 col-md-6 col-lg-4 center-block" style="float:none; padding: 20px">
-        <div class="box box-primary">
+        <div class="box box-primary checkin-box">
             <div class="box-header with-border">
                 <h3 class="box-title">Check In</h3>
             </div>
@@ -92,19 +62,12 @@
                     </div>
                     <div class="checkbox">
                         <label>
-                        <!-- <label class="control-label inputDOB">New Patient?</label> -->
                         <input type="checkbox" id="new-patient" name="new-patient" value="{{ newPatient }}">
                         New Patient?
                         </label>
                     </div>
-                    <!-- <div class="form-group">
-                        <label class="control-label inputDOB">Phone Number</label>
-                        <input type="phone" id="inputPhone" name="inputPhone" value="{{ inputDOB }}" class="form-control" placeholder='(xxx) xxx-xxxx' required autofocus>
-                    </div> -->
                     <div class="box-footer">
                         <input type="submit" id="checkin" class="btn btn-lg btn-primary center-block" value="Check In" >
-                        <!-- <a type="button" class="btn custom checkinbutton" href="done">Check In -->
-                        <!-- </a> -->
                     </div>
                 </form>
             </div>

@@ -1,6 +1,6 @@
 //var expressValidator = require('express-validator');
-var Customer = require('../../../model/customers.js')
-var Business = require('../../../model/businesses.js')
+var Customer = require('../../../model/customers.js');
+var Business = require('../../../model/businesses.js');
 
 var async = require('async');
 var ObjectId = require('mongodb').ObjectID;
@@ -66,8 +66,8 @@ exports.post = function(req, res, next){
       if (err) {
           console.log(err);
       }
-    })
+    });
     res.redirect('/customers');
   });
 
-}
+};

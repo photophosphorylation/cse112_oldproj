@@ -1,6 +1,6 @@
-var Appointment = require('../../../model/appointments.js')
-var Customer = require('../../../model/customers.js')
-var Business = require('../../../model/businesses.js')
+var Appointment = require('../../../model/appointments.js');
+var Customer = require('../../../model/customers.js');
+var Business = require('../../../model/businesses.js');
 
 var async = require('async');
 var ObjectId = require('mongodb').ObjectID;
@@ -12,15 +12,17 @@ exports.get = function(req, res){
   var todayApts;
   var missedApts;
   var businessID = req.user[0].business.toString();
+
   var tmrwDate = new Date(new Date().getTime() + 24 * 60 * 60 * 1000);
   var day = tmrwDate.getDate();
   var month = tmrwDate.getMonth();
   var year = tmrwDate.getFullYear();
   tmrwDate = new Date(year, month, day);
+
   var currDate = new Date(new Date().getTime());
-  var day = currDate.getDate();
-  var month = currDate.getMonth();
-  var year = currDate.getFullYear();
+  day = currDate.getDate();
+  month = currDate.getMonth();
+  year = currDate.getFullYear();
   currDate = new Date(year, month, day);
   console.log(currDate);
   console.log(tmrwDate);
@@ -34,7 +36,8 @@ exports.get = function(req, res){
         if( err ) { return next(err); }
         if( !results ) { return next(new Error('Error finding appointment')); }
         appointment = results.sort(function(a,b){
-          return new Date(a.aptTime) - new Date(b.aptTime)});
+          return new Date(a.aptTime) - new Date(b.aptTime);
+        });
         cb();
       });
     },
@@ -47,7 +50,8 @@ exports.get = function(req, res){
         if( err ) { return next(err); }
         if( !results ) { return next(new Error('Error finding appointment')); }
         todayApts = results.sort(function(a,b){
-          return new Date(a.aptTime) - new Date(b.aptTime)});
+          return new Date(a.aptTime) - new Date(b.aptTime);
+        });
         cb();
       });
     },
@@ -60,7 +64,8 @@ exports.get = function(req, res){
         if( err ) { return next(err); }
         if( !results ) { return next(new Error('Error finding appointment')); }
         missedApts = results.sort(function(a,b){
-          return new Date(a.aptTime) - new Date(b.aptTime)});
+          return new Date(a.aptTime) - new Date(b.aptTime);
+        });
         cb();
       });
     }
@@ -70,7 +75,7 @@ exports.get = function(req, res){
       if(err){
         throw err;
       }
-      if(req.session['failure'] == undefined){
+      if(req.session.failure === undefined){
         res.render('business/appointments', {
           title: 'Appointments',
           appointments: appointment,
@@ -91,7 +96,7 @@ exports.get = function(req, res){
           message: "Customer does not exist!"
         });
       }
-      req.session['failure'] = undefined;
+      req.session.failure = undefined;
    }
  );
 };
@@ -101,10 +106,14 @@ exports.post = function(req, res, next){
   var custFirstName = req.body.customerFirstName;
   var custLastName = req.body.customerLastName;
   var custAge = req.body.customerAge;
-  Customer.findOne({ business: businessID, firstName: custFirstName, lastName: custLastName, age: custAge})
+  Customer.findOne({
+    business: businessID,
+    firstName: custFirstName,
+    lastName: custLastName, 
+    age: custAge})
   .exec(function(err, customer) {
-    if (customer == null){
-      req.session['failure'] = true;
+    if (customer === null){
+      req.session.failure = true;
       res.redirect('/appointments');
     }
     else{
@@ -124,7 +133,7 @@ exports.post = function(req, res, next){
         if (err) {
           console.log(err);
         }
-      })
+      });
       res.redirect('/appointments');
     }
   });
