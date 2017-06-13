@@ -11,7 +11,7 @@ db.once('open',function(){
 
 var appointmentSchema = mongoose.Schema({
     business: {type: mongoose.Schema.Types.ObjectId, ref: 'businesses'},
-    customer: {type: mongoose.Schema.Types.ObjectId, ref: 'customer'},
+    customer: {type: mongoose.Schema.Types.ObjectId, ref: 'customers'},
     customerFirstName: String,
     customerLastName: String,
     customerAge: String,
