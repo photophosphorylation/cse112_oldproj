@@ -72,22 +72,24 @@ exports.get = function (req, res) {
 			}
 		});
 
-		function renderDashboard () {
-			res.render('business/visitor-list', {
-				title: "Express",
-				isAdmin: req.user[0].admin,
-				patients: patientList
-			});
-		}
 
-		function formatDate (date) {
-        var unformattedApptTime = new Date(date);
-        var formattedHour = unformattedApptTime.getHours() > 12 ? unformattedApptTime.getHours() % 12 : unformattedApptTime.getHours();
-        var formattedMinutes = unformattedApptTime.getMinutes();
-        var ampm = unformattedApptTime.getHours() > 12 ? " PM" : " AM";
-        var formattedApptTime = formattedHour + ":" + formattedMinutes + ampm;
-
-        return formattedApptTime;
-    }
 	}
 };
+
+function renderDashboard () {
+	res.render('business/visitor-list', {
+		title: "Express",
+		isAdmin: req.user[0].admin,
+		patients: patientList
+	});
+}
+
+function formatDate (date) {
+	var unformattedApptTime = new Date(date);
+	var formattedHour = unformattedApptTime.getHours() > 12 ? unformattedApptTime.getHours() % 12 : unformattedApptTime.getHours();
+	var formattedMinutes = unformattedApptTime.getMinutes();
+	var ampm = unformattedApptTime.getHours() > 12 ? " PM" : " AM";
+	var formattedApptTime = formattedHour + ":" + formattedMinutes + ampm;
+
+	return formattedApptTime;
+}

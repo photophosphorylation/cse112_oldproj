@@ -1,136 +1,159 @@
 <section class="content">
-    {{#if message}}
-        <div class="alert alert-danger">{{message}}</div>
-    {{/if}}
+  {{#if message}}
+  <div class="alert alert-danger">{{message}}</div>
+  {{/if}}
 
-    <div id="add-employee-modal" class="modal">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close add-employee-hide" data-dismiss="modal" aria-label="Close">
-                  <span aria-hidden="true">×</span></button>
-                  <h4 class="modal-title">Add Employee</h4>
+  <div id="add-employee-modal" class="modal">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close add-employee-hide" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">×</span>
+          </button>
+          <h4 class="modal-title">Add Appointment</h4>
+        </div>
+        <div class="modal-body">
+          <div class="row">
+            <div class="col-md-12">
+              <div class="box box-primary">
+                <div class="box-header with-border">
+                  <h3 class="box-title">Add Appointment</h3>
                 </div>
-                <div class="modal-body">
-                    <div class="row">
-                        <div class="col-md-12">
-                            <div class="box box-primary">
-                                <div class="box-header with-border">
-                                    <h3 class="box-title">Add Employee</h3>
-                                </div>
-                                <div class="box-body">
-                                    <form method="post" action="addemployees" enctype="application/x-www-form-urlencoded">
-                                        <div class="form-group">
-                                            <label for="name">Name</label>
-                                            <input type="text" id="inputName" name="inputName" value="{{ name }}" class="form-control" required>
-                                            <label for="Email">Email</label>
-                                            <input type="email" id="inputEmail" name="inputEmail" value="{{ email }}" class="form-control" required>
-                                            <label for="Phone">Phone</label>
-                                            <input type="phone" id="inputPhone" name="inputPhone" value="{{ phone }}" class="form-control" required>
-                                        </div>
-                                        <input class="btn btn-block btn-primary btn-lg btn-flat" name="submit" type="submit" href="/addemployees" value="Add Employee">
-                                    </form>
-                                </div>
-                            </div>
-                        </div>
+                <div class="box-body">
+                  <form method="post" action="appointments" enctype="application/x-www-form-urlencoded">
+                    <div class="form-group">
+                      <label for="customerFirstName"> Customer's First Name </label>
+                      <input type="text" id="customerFirstName" name="customerFirstName" value="{{ customerFirstName }}" class="form-control" required>
+                      <label for="customerLastName"> Customer's Last Name </label>
+                      <input type="text" id="customerLastName" name="customerLastName" value="{{ customerLastName }}" class="form-control" required>
+                      <label for="customerAge"> Customer's Age </label>
+                      <input type="text" id="customerAge" name="customerAge" value="{{ customerAge }}" class="form-control" required>
+                      <label for="aptTime"> Appointment Time </label>
+                      <input type="date" id="aptTime" name="aptTime" value="{{ aptTime }}" class="form-control" required>
+                    </div>
+                    <input class="btn btn-block btn-primary btn-lg btn-flat" name="submit" type="submit" href="/appointments" value="Add Appointment">
+                  </form>
                 </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-default pull-left add-employee-hide" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">Save changes</button>
               </div>
             </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default pull-left add-employee-hide" data-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-primary">Save changes</button>
+          </div>
         </div>
+      </div>
     </div>
-</div>
+  </div>
 
-    <!-- <div class="row">
-        <div class="col-md-6">
-            <div class="box box-primary">
-                <div class="box-header with-border">
-                    <h3 class="box-title">Add Employee</h3>
-                </div>
-                <div class="box-body">
-                    <form method="post" action="addemployees" enctype="application/x-www-form-urlencoded">
-                        <div class="form-group">
-                            <label for="name">Name</label>
-                            <input type="text" id="inputName" name="inputName" value="{{ name }}" class="form-control" required>
-                            <label for="Email">Email</label>
-                            <input type="email" id="inputEmail" name="inputEmail" value="{{ email }}" class="form-control" required>
-                            <label for="Phone">Phone</label>
-                            <input type="phone" id="inputPhone" name="inputPhone" value="{{ phone }}" class="form-control" required>
-                        </div>
-                        <input class="btn btn-block btn-primary btn-lg btn-flat" name="submit" type="submit" href="/addemployees" value="Add Employee">
-                    </form>
-                </div>
-            </div>
-        </div> -->
+  <div class="col-md-12">
+    <div class="box box-success">
+      <div class="box-header with-border">
+        <h3 class="box-title">Today's Appointments</h3>
+      </div>
+      <div class="box-body">
+        <table class="table table-striped" id="registeredEmployees">
+          <tbody>
+            <tr>
+              <th>Customer</th>
+              <th>Appointment Time</th>
+              <th>Phone</th>
+              <th>Email</th>
+              <th>Checked In?</th>
+            </tr>
+            {{#each todayApts}}
+            <tr>
+              <td>{{customerFirstName}} {{customerLastName}}</td>
+              <td>{{aptTime}}</td>
+              <td>{{phone}}</td>
+              <td>{{email}}</td>
+              {{#if checkedIn}}
+              <td>Yes </td>
+              {{else}}
+              <td> No</td>
+              {{/if}}
+            </tr>
+            {{/each}}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
 
-        <!-- <div class="col-md-6 center-block">
-            <button type="button" class="btn btn-block btn-flat btn-warning">Upload CSV File</button>
-        </div> -->
+  <div class="col-md-12">
+    <div class="box box-success">
+      <div class="box-header with-border">
+        <h3 class="box-title">Appointments</h3>
+      </div>
+      <div class="box-body">
+        <table class="table table-striped" id="registeredEmployees">
+          <tbody>
+            <tr>
+              <th>Customer</th>
+              <th>Appointment Time</th>
+              <th>Phone</th>
+              <th>Email</th>
+              <th>Checked In?</th>
+            </tr>
+            {{#each appointments}}
+            <tr>
+              <td>{{customerFirstName}} {{customerLastName}}</td>
+              <td>{{aptTime}}</td>
+              <td>{{phone}}</td>
+              <td>{{email}}</td>
+              {{#if checkedIn}}
+              <td>Yes </td>
+              {{else}}
+              <td> No</td>
+              {{/if}}
+            </tr>
+            {{/each}}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
 
-        <div class="col-md-6">
-            <div class="box box-success">
-                <div class="box-header with-border">
-                    <h3 class="box-title">Employees - registered</h3>
-                </div>
-                <div class="box-body">
-                    <table class="table table-striped" id="registeredEmployees">
-                        <tbody>
-                            <tr>
-                                <th>Name</th>
-                                <th>Email</th>
-                                <th>Phone</th>
-                            </tr>
-                            {{#each signed}}
-                            <tr>
-                                <td>{{fname}} {{lname}}</td>
-                                <td>{{email}}</td>
-                                <td>{{phone}}</td>
-                            </tr>
-                            {{/each}}
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-        </div>
+  <div class="col-md-12">
+    <div class="box box-success">
+      <div class="box-header with-border">
+        <h3 class="box-title">Missed Appointments</h3>
+      </div>
+      <div class="box-body">
+        <table class="table table-striped" id="registeredEmployees">
+          <tbody>
+            <tr>
+              <th>Customer</th>
+              <th>Appointment Time</th>
+              <th>Phone</th>
+              <th>Email</th>
+            </tr>
+            {{#each missedApts}}
+            <tr>
+              <td>{{customerFirstName}} {{customerLastName}}</td>
+              <td>{{aptTime}}</td>
+              <td>{{phone}}</td>
+              <td>{{email}}</td>
+            </tr>
+            {{/each}}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
 
-        <div class="col-md-6">
-            <div class="box box-danger">
-                <div class="box-header with-border">
-                    <h3 class="box-title">Employees - not registered</h3>
-                </div>
-                <div class="box-body">
-                    <table class="table table-striped" id="notRegisteredEmployees">
-                        <tbody>
-                            <tr>
-                                <th>Name</th>
-                                <th>Email</th>
-                                <th>Phone</th>
-                            </tr>
-                            {{#each notsigned}}
-                            <tr>
-                                <td>{{fname}} {{lname}}</td>
-                                <td>{{email}}</td>
-                                <td>{{phone}}</td>
-                            </tr>
-                            {{/each}}
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-        </div>
-        <button id="add-employee-show">+</button>
-        <script>
-            document.getElementById('add-employee-show').addEventListener('click', function() {
-                document.getElementById('add-employee-modal').style.display = 'block';
-            });
+  <button id="add-employee-show">+</button>
+  <script>
+  document.getElementById('add-employee-show').addEventListener('click', function() {
+    document.getElementById('add-employee-modal').style.display = 'block';
+  });
 
-            var closers = document.getElementsByClassName('add-employee-hide');
-            for (var i=0, len=closers.length; i<len; i++) {
-                closers[i].addEventListener('click', function() {
-                    document.getElementById('add-employee-modal').style.display = 'none';
-                });
-            }
-        </script>
+  var closers = document.getElementsByClassName('add-employee-hide');
+  for (var i=0, len=closers.length; i<len; i++) {
+    closers[i].addEventListener('click', function() {
+      document.getElementById('add-employee-modal').style.display = 'none';
+    });
+  }
+
+  </script>
 </section>

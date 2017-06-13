@@ -21,21 +21,6 @@ var request = require('request');
 exports.get = function (req, res, next) {
 
     var business = req.session.business;
-    //
-    //var slackOptions = {
-    //    uri: 'https://hooks.slack.com/services/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',
-    //    method: 'POST',
-    //    json: {
-    //        "channel": "#bobsburgers",
-    //        "text": "A new client just checked in!"
-    //    }
-    //};
-    //
-    //request(slackOptions, function (error, response, body) {
-    //    if(!error && response.statusCode == 200) {
-    //        console.log(body.id);
-    //    }
-    //});
 
     res.render('checkin/checkin', {
         companyName: business.companyName,
@@ -55,8 +40,6 @@ exports.post = function (req, res, next) {
 
     console.log("");
 
-
-
     var appointments = db.get('appointments');
     var businesses = db.get('businesses');
     var employees = db.get('employees');
@@ -68,9 +51,9 @@ exports.post = function (req, res, next) {
     var inputPhone = req.body.inputPhone.replace(/[\(\)-\s]/g, '');
 
     appointments.find({
-        business: ObjectID(req.params.id), 
-        fname: inputFirst, 
-        lname: inputLast, 
+        business: ObjectID(req.params.id),
+        fname: inputFirst,
+        lname: inputLast,
         phone: inputPhone
     }, function(err, result) {
 
@@ -84,7 +67,7 @@ exports.post = function (req, res, next) {
                "text": inputFirst + " " + inputLast + " just checked in."
            }
         };
-        
+
         request(slackOptions, function (error, response, body) {
            if(!error && response.statusCode == 200) {
                console.log(body.id);
@@ -124,7 +107,7 @@ exports.post = function (req, res, next) {
                     apptTime: formatDate(appt.date),
                     currentTime: formatDate(currentTime),
                     status: 'Lobby'
-                }
+                };
 
                 employees.find({
                     business: appt.business,
