@@ -13,6 +13,8 @@ First Run
 
         $ npm install
         $ npm install --global gulp
+	$ npm install twilio
 
 6. Use ``gulp`` to run the application
 7. Navigate your browser to [http://localhost:4000](http://localhost:4000/)
+8. To have your number added to twilio so it can receive texts, use the twilio information in slack.

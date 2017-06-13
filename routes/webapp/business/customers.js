@@ -1,6 +1,6 @@
 //var expressValidator = require('express-validator');
-var Customer = require('../../../model/customers.js')
-var Business = require('../../../model/businesses.js')
+var Customer = require('../../../model/customers.js');
+var Business = require('../../../model/businesses.js');
 
 var async = require('async');
 var ObjectId = require('mongodb').ObjectID;
@@ -18,7 +18,7 @@ exports.get = function(req,res){
 				business: ObjectId(businessID)
 			}, function (err,results){
 				if( err ) { return next(err); }
-				if( !results ) { return next(new Error('Error finding employee')); }
+				if( !results ) { return next(new Error('Error finding customer')); }
 				customer = results;
 				cb();
 			});
@@ -38,13 +38,6 @@ exports.get = function(req,res){
 			});
 	  }
   );
-/*
-  res.render('business/customers', {
-    title: 'Customers',
-    layout: 'main',
-    dashboard: "active"
-  });
-  */
 };
 
 /*
@@ -73,8 +66,8 @@ exports.post = function(req, res, next){
       if (err) {
           console.log(err);
       }
-    })
+    });
     res.redirect('/customers');
   });
 
-}
+};

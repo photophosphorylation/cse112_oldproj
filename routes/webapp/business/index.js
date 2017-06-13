@@ -1,3 +1,4 @@
+/* jshint node: true */
 'use strict';
 
 var express = require('express');
@@ -17,6 +18,7 @@ var businesssetting = require('./businesssetting');
 var formbuilder = require('./forms');
 var dbTest = require('./dbTest');
 var pullData = require('./pullData');
+var test = require('./test');
 
 /*
  * TODO: Explain where this export is pointing to.
@@ -45,6 +47,8 @@ module.exports = function (passport) {
     router.get('/customers', isLoggedIn, customers.get);
     router.post('/customers', isLoggedIn, customers.post);
     router.get('/appointments', isLoggedIn, appointments.get);
+    router.post('/appointments', isLoggedIn, appointments.post);
+
     router.get('/register', register.get);
     router.get('/forms', isLoggedInBusiness, formbuilder.get);
     router.post('/register', passport.authenticate('local-signup', {
@@ -53,8 +57,6 @@ module.exports = function (passport) {
     }));
 
     router.get('/dashboard', isLoggedIn, dashboard.get);
-    //router.get('/dbTest',isLoggedIn)
-    router.get('/dbTest',isLoggedIn,dbTest.test,dashboard.get);
     router.get('/addemployees', isLoggedInBusiness, addEmployees.get);
     router.post('/addemployees', isLoggedInBusiness, addEmployees.post);
 
