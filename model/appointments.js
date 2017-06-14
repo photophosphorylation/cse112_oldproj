@@ -1,4 +1,5 @@
 var mongoose = require('mongoose');
+mongoose.Promise = Promise;
 
 mongoose.connect('mongodb://test:test@ds141401.mlab.com:41401/shinypigeons_test');
 var db = mongoose.connection;
@@ -10,7 +11,7 @@ db.once('open',function(){
 });
 
 var appointmentSchema = mongoose.Schema({
-    customer: {type: mongoose.Schema.Types.ObjectId, ref: 'customer'},
+    customer: {type: mongoose.Schema.Types.ObjectId, ref: 'customers'},
     aptTime: { type: Date, default: Date.now },
     missed: { type: Boolean, default: false },
     createdOn: { type: Date, default: Date.now },

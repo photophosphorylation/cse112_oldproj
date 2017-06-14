@@ -1,46 +1,70 @@
 var auth = require('../../../lib/auth');
 var async = require('async');
 var appointments = require('../../../model/appointments.js');
-var businesses = require('../../../model/businesses.js');
-var customers = require('../../../model/customers.js');
-
 
 exports.get = function(req, res) {
   var db = req.db;
-  appointments.find().populate('customer').lean().exec(function (err, appointments) {
+  appointments.find(function (err, appointments) {
     if (err) {
         // Note that this error doesn't mean nothing was found,
         // it means the database had an error while searching, hence the 500 status
         res.status(500).send(err)
     } else {
-        var appointmentsData = appointments;
-        console.log(appointmentsData);
         // send the list of all people
-        //res.send(appointments);
-    }
-  });
-  businesses.find().lean().exec(function (err, businesses) {
-    if (err) {
-        // Note that this error doesn't mean nothing was found,
-        // it means the database had an error while searching, hence the 500 status
-        res.status(500).send(err)
-    } else {
-        var businessesData = businesses;
-        console.log(businessesData);
-        // send the list of all business
-        //res.send(businesses);
-    }
-  });
-  customers.find().populate('business').lean().exec(function (err, customers) {
-    if (err) {
-        // Note that this error doesn't mean nothing was found,
-        // it means the database had an error while searching, hence the 500 status
-        res.status(500).send(err)
-    } else {
-        var customersData = customers;
-        console.log(customersData);
-        // send the list of all customers
-        //res.send(customers);
+        res.send(appointments);
     }
   });
 }
+
+
+
+//   getAppointments = appointments.find({"Missed": false}).exec().then(function(appointments){
+//     result.appointments = appointments;
+//   });
+//
+//   getBusinesses = businesses.find({"walkins": false}).exec().then(function (businesses) {
+//     result.businesses = businesses;
+//   });
+//
+//   getCustomers = customers.find({"__v": 0}).exec().then(function (customers) {
+//     result.customers = customers;
+//   });
+//
+//   Q.all([
+//     getAppointments,
+//     getBusinesses,
+//     getCustomers
+//   ])
+//   .then(function() {
+//     res.send(result);
+//   })
+//   .catch(function(err) {
+//     res.status(500).send(err);
+//   })
+//   .done()
+// }
+
+//   promise.then(function (appointments) {
+//     var appointmentsData = appointments;
+//     console.log(appointmentsData);
+//     result[0].push(appointmentsData);
+//     return result; // returns a promise
+//   })
+//   .then(function(result) {
+//     var businessesData = businesses;
+//     console.log(businessesData);
+//     result[1].push(businessData);
+//     return result;
+//   })
+//   .then(function(result) {
+//     var customersData = customers;
+//     console.log(customersData);
+//     result[2].push(customersData);
+//     return result;
+//   })
+//   .catch(function(err){
+//     console.log('error:', err);
+//     res.status(500).send(err)
+//   });
+//   console.log(result);
+//   res.send(result);
