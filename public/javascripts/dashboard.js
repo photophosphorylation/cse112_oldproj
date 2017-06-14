@@ -84,7 +84,17 @@ function getAppDate( date ){
 
 $(document).ready(function() {
   getDate();
-  $(startTime);
+	// addTasks();
+	// function addTasks() {
+	// 	appointments.forEach(function callback(currentValue, index, array) {
+	// 		task ="<div class='task-container'><div class='task-header col-md-3'>" +
+	// 				  currentValue.apptTime +
+  //          	"</div><div class='task col-md-9'>"
+	// 				  currentValue.visitor + " " + currentValue.checkedIn;
+  //          	"</div></div>"
+	// 		$("#tasks").append(task);
+	// 	});
+	// }
 
 	Chart.defaults.global.legend.position = "bottom";
 	addMissedVsOnTime();

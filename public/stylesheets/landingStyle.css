@@ -760,24 +760,54 @@ h3.signin-text {
 }
 
 button.signin-button {
-    width: 100%;
+    font-size: 0.9em;
+    padding-right: 30px;
+    letter-spacing: 1.3px;
+    padding-left: 30px;
     color: white;
-    font-weight: bold;
+    font-weight: 300;
     padding-top: 8px;
     padding-bottom: 8px;
-    background-color: #071c49;
+    background-color: #ffae00;
     border: none;
-    border-radius: 3px;
-    margin-bottom: 8px;
+    border-radius: 35px;
+    margin-bottom: 32px;
     margin-top: 10px;
 }
 
+button.signin-button:hover {
+    -webkit-box-shadow: -1px 3px 42px -12px rgba(0,0,0,0.75);
+    -moz-box-shadow: -1px 3px 42px -12px rgba(0,0,0,0.75);
+    box-shadow: -1px 3px 42px -12px rgba(0,0,0,0.75);
+}
+
 .createaccount-text {
-    color: black;
+    color: white;
+    font-weight: 300;
+    text-transform: none;
+    margin-top: 15px;
+
 }
 
 .createaccount {
     padding-bottom: 20px;
+}
+
+.createone {
+    color: #ffae00 !important;
+    border: 1px solid #ffae00;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 20px;
+    padding-right: 20px;
+    border-radius: 35px;
+    margin-left: 20px;
+    letter-spacing: 1.3px;
+    font-size: .8em;
+}
+
+.createone:hover {
+    text-decoration: none;
 }
 
 .header-content.pages{
@@ -808,16 +838,26 @@ button.signin-button {
 }
 
 input.signup-button {
-    width: 100%;
+    padding-left: 20px;
+    padding-right: 20px;
     color: white;
     font-weight: bold;
     padding-top: 8px;
     padding-bottom: 8px;
-    background-color: #071c49;
+    background-color: #ffae00;
     border: none;
-    border-radius: 3px;
+    border-radius: 35px;
     margin-bottom: 25px;
     margin-top: 10px;
+    letter-spacing: 1.3px;
+    font-weight: 300;
+    font-size: 0.8em;
+}
+
+input.signup-button:hover {
+    -webkit-box-shadow: 0px 1px 5px 0px rgba(0,0,0,0.75);
+    -moz-box-shadow: 0px 1px 5px 0px rgba(0,0,0,0.75);
+    box-shadow: 0px 1px 5px 0px rgba(0,0,0,0.75);
 }
 
 .signin-account {
@@ -857,7 +897,7 @@ header .header-content .header-content-inner {
     background-image: url('../images/bgFilter1.jpg');
     text-align: center;
     color: white;
-    padding-top: 100px;
+    padding-top: 120px;
     padding-bottom: 100px;
     padding-left: 20px;
     padding-right: 20px;
@@ -874,7 +914,7 @@ header .header-content .header-content-inner {
     background-image: url('../images/bgFilter1.jpg');
     text-align: center;
     color: white;
-    padding-top: 150px;
+    padding-top: 200px;
     padding-bottom: 100px;
     padding-left: 20px;
     padding-right: 20px;
