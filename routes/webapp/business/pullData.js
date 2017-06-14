@@ -4,7 +4,7 @@ var appointments = require('../../../model/appointments.js');
 
 exports.get = function(req, res) {
   var db = req.db;
-  appointments.find().populate('customer business').lean().exec(function (err, appointments) {
+  appointments.find(function (err, appointments) {
     if (err) {
         // Note that this error doesn't mean nothing was found,
         // it means the database had an error while searching, hence the 500 status
