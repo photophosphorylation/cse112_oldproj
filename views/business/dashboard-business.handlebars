@@ -11,14 +11,14 @@
     background: white;
   }
   .task {
-    background: whitesmoke;
+    background: #EBEBEB;
     border-top-right-radius: 10px;
     border-bottom-right-radius: 10px;
     padding: 10px;
     margin: 3px 0px 3px 0px;
   }
   .task-header {
-    background: lightblue;
+    background: #59ABE3;
     color: white;
     font-weight: bold;
     border-top-left-radius: 10px;
@@ -32,17 +32,34 @@
   canvas {
     background: white;
   }
-  #tasks, #monthlysummary, #yearlysummary, #calendar, #companysummary {
+  #tasks, #monthlysummary, #yearlysummary, #calendarContainer, #companysummary, #companystatistics {
     height: 38vh;
     overflow: scroll;
   }
   #calendar {
     font-size: 8pt;
     font-family: 'Source Sans Pro','Helvetica Neue',Helvetica,Arial,sans-serif;
+    height: 100%;
+    width: 100%;
   }
   #calendar h2 {
       font-size: 12pt;
       font-family: 'Source Sans Pro','Helvetica Neue',Helvetica,Arial,sans-serif;
+  }
+  #companysummary > div > div:first-child {
+    border-right-style: solid;
+    border-right: thin solid #EBEBEB;
+    padding-top: 10%;
+    padding-bottom: 20%;
+  }
+
+  #companysummary > div, #companysummary > div > div {
+    height: 100%;
+  }
+
+  #profilePic {
+    font-size: 20px;
+    text-align: center;
   }
 
 </style>
@@ -53,9 +70,6 @@
       <h1 class="pull-right" id="currentDate"></h1>
   </section>
   <section class="content">
-      {{#if message}}
-          <div class="alert alert-danger">{{message}}</div>
-      {{/if}}
       <div class="column">
         <div class="row">
           <div id="tasks" class="card col-md-4">
@@ -124,17 +138,37 @@
           </div>
         </div>
         <div class="row">
-          <div id="calendar" class="card col-md-4">
-            <span class="title">Calendar</span>
+          <div id="calendarContainer" class="card col-md-4">
             <div id='calendar'></div>
           </div>
           <div id="companysummary" class="card col-md-4">
             <span class="title">Profile Summary</span>
-            <div>
-              Last Logged In: asndaksl
+            <div class="row">
+              <div class="col-md-6">
+                <div id="profilePic">
+                  {{#if logo}}
+                    <div id="logo">
+                      <img src="{{logo}}" alt="Logo" style="width:60%;height:60%;">
+                    </div>
+                  {{/if}}
+                  {{#else}}
+                    <div id="logo">
+                      <i class="fa fa-user-circle fa-5x" aria-hidden="true"></i><br>
+                    </div>
+                  {{/else}}
+                  <span style="font-size: 14px;">{{employeeName}}</span> <br>
+                  <span style="font-size: 14px;">Role</span> <br>
+                  <span style="font-size: 14px;">{{companyName}}</span> <br>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <span style="font-size: 12px;">Last Login: June 14, 2016</span> <br>
+                <span style="font-size: 12px;">Email: {{email}}</span> <br>
+                <span style="font-size: 12px;">Phone: {{phone}}</span> <br>
+              </div>
             </div>
           </div>
-          <div id="companysummary" class="card col-md-3">
+          <div id="companystatistics" class="card col-md-3">
             <span class="title">Company Statistics</span>
               <div class="pie-widget">
                 <canvas id="chart3" width="200" height="162"></canvas>

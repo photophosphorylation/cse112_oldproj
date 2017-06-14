@@ -2,11 +2,18 @@ var auth = require('../../../lib/auth');
 var async = require('async');
 
 exports.get = function (req, res) {
+	var db = req.db;
+	var businesses = db.get('businesses');
 
 	var isPeter = req.user[0].peter;
 	var isOwner = req.user[0].admin;
 	var employeeId = req.user[0]._id;
+	var email = req.user[0].email;
+	var phone = req.user[0].phone;
 	var employeename = req.user[0].fname + ' ' + req.user[0].lname;
+	var bid = req.user[0].business;
+	var missed = 0;
+	var ontime = 0;
 
 	if( isPeter ) { //isPeter
 		res.render('business/dashboard-admin', {
@@ -18,15 +25,50 @@ exports.get = function (req, res) {
 			dashboard: "active"
 		});
 	} else if( isOwner ) {
-		res.render('business/dashboard-business', {
-			title: 'Express',
-			eid: employeeId,
-			employeeName: employeename,
-			message: req.flash("permission"),
-			isOwner: isOwner,
-			businessId: req.user[0].business,
-			dashboard: "active"
-		});
+		businesses.findOne(bid, function (err, result) {
+			var dbBusiness = result;
+			var appointments = db.get('appointments');
+
+			appointments.find({
+				business: bid
+			}, function (errAppt, resultAppts) {
+				var filteredAppts = resultAppts.filter( function (elem, i, arr) {
+					return elem.state !== "scheduled";
+				});
+				var formattedAppts = [];
+				filteredAppts.forEach( function (elem, i, arr) {
+					if(elem.missed) {
+						missed++;
+					} else {
+						ontime++;
+					}
+					var apptInfo = {};
+					apptInfo.visitor = elem.fname + ' ' + elem.lname;
+					apptInfo.apptTime = formatDate(elem.date);
+
+					if(elem.checkedIn) {
+						apptInfo.checkedIn = " has checked in."
+					} else {
+						apptInfo.checkedIn = " has not checked in."
+					}
+					formattedAppts.push(apptInfo);
+				});
+				res.render('business/dashboard-business', {
+					title: 'Express',
+					companyName: dbBusiness.companyName,
+					eid: employeeId,
+					employeeName: employeename,
+					email: email,
+					logo: dbBusiness.logo,
+					phone: phone,
+					message: req.flash("permission"),
+					isOwner: isOwner,
+					businessId: bid,
+					dashboard: "active",
+					appointments: formattedAppts
+				});
+		 });
+	  });
 	} else {
 
 		var db = req.db;
@@ -71,8 +113,6 @@ exports.get = function (req, res) {
 				renderDashboard();
 			}
 		});
-
-
 	}
 };
 
