@@ -57,13 +57,13 @@ exports.post = function (req, res) {
     var textNotify   = req.body.sendText;
     var emailNotify  = req.body.sendEmail;
 
-    if (inputPass != null)
+    if (inputPass !== null)
     {
         hashedInputPass = auth.hashPassword(inputPass);
         if (inputPass != inputPass2) {
             render(req, res, {
                 alert: 'Passwords do not match'
-            })
+            });
             return;
         } else {
 
@@ -72,7 +72,7 @@ exports.post = function (req, res) {
                 if (!auth.validPassword(emp.password, inputOldPass)) {
                     render(req, res, {
                         alert: 'Incorrect password'
-                    })
+                    });
                     return;
                 } else {
 
@@ -87,18 +87,18 @@ exports.post = function (req, res) {
                         return;
                     });
                 }
-            })
+            });
         }
     }
 
-    if (inputPhone != null || inputEmail != null || inputName != null)
+    if (inputPhone !== null || inputEmail !== null || inputName !== null)
     {
 
 
 
         var setContactInfo = {};
 
-        if (inputPhone != null) {
+        if (inputPhone !== null) {
             inputPhone = inputPhone.replace(/-/g, '');
             if (inputPhone.length === 10) {
                 inputPhone = '1' + inputPhone;
@@ -111,11 +111,11 @@ exports.post = function (req, res) {
             setContactInfo.phone = inputPhone;
         }
 
-        if (inputEmail != null) {
+        if (inputEmail !== null) {
             setContactInfo.email = inputEmail;
         }
 
-        if (inputName != null) {
+        if (inputName !== null) {
             var splitName = inputName.split(' ');
             if (splitName.length === 2) {
                 setContactInfo.fname = splitName[0];
@@ -140,15 +140,16 @@ exports.post = function (req, res) {
         });
     }
 
-    if (textNotify != null)
+    if (textNotify !== null)
     {
+				var smsSet;
         if (textNotify === '0')
         {
-            var smsSet = false;
+            smsSet = false;
         }
         else
         {
-            var smsSet = true;
+            smsSet = true;
         }
 
         employees.findAndModify({_id: eid}, { $set: {smsNotify: smsSet}}, function(err, data)
@@ -161,15 +162,16 @@ exports.post = function (req, res) {
         });
     }
 
-    if (emailNotify != null)
+    if (emailNotify !== null)
     {
+				var emailSet;
         if (emailNotify === '0')
         {
-            var emailSet = false;
+            emailSet = false;
         }
         else
         {
-            var emailSet = true;
+            emailSet = true;
         }
 	    //find the appropriate employee to set the email and notification settings
         employees.findAndModify({_id: eid}, { $set: {emailNotify: emailSet}}, function(err, data)
@@ -195,12 +197,12 @@ exports.setCompanyInfo = function (req, res) {
     var phone = req.body.phone;
 
 
-    if (companyName != null || phone != null)
+    if (companyName !== null || phone !== null)
     {
 
         var setCompanyInfo = {};
 
-        if (phone != null) {
+        if (phone !== null) {
             phone = phone.replace(/-/g, '');
             if (phone.length === 10) {
                 phone = '1' + phone;
@@ -213,7 +215,7 @@ exports.setCompanyInfo = function (req, res) {
             setCompanyInfo.phone = phone;
         }
 
-        if (companyName != null) {
+        if (companyName !== null) {
             setCompanyInfo.companyName = companyName;
         }
 

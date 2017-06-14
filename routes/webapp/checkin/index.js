@@ -3,26 +3,19 @@ var router = express.Router();
 
 //Define the controllers for checkin process
 var checkin = require('./checkin');
-var nocode = require('./nocode');
-var apptinfo = require('./apptinfo');
-var customform = require('./customform');
-var sign = require('./sign');
 var done = require('./done');
+var main = require('./main');
+var appointments = require('./appointments');
 
 //Setup the routes
 router.get('/:id/checkin', updateBusiness, checkin.get);
 router.post('/:id/checkin', updateBusiness, checkin.post);
 
-// router.get('/:id/nocode', updateBusiness, nocode.get);
-// router.post('/:id/nocode', updateBusiness, nocode.post);
+router.get('/:id/main', updateBusiness, main.get);
+router.get('/:id', updateBusiness, main.get);
 
-router.get('/:id/apptinfo', updateBusiness, apptinfo.get);
-
-router.get('/:id/customform', updateBusiness, customform.get);
-router.post('/:id/customform', updateBusiness, customform.post);
-
-router.get('/:id/sign', updateBusiness, sign.get);
-router.post('/:id/sign', updateBusiness, sign.post);
+router.get('/:id/appointments', updateBusiness, appointments.get);
+router.post('/:id/appointments', updateBusiness, appointments.post);
 
 router.get('/:id/done', updateBusiness, done.get);
 
