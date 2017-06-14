@@ -2,6 +2,7 @@ var Appointment = require('../../../model/appointments.js');
 var Customer = require('../../../model/customers.js');
 var Business = require('../../../model/businesses.js');
 
+var PythonShell = require('python-shell');
 var async = require('async');
 var ObjectId = require('mongodb').ObjectID;
 
@@ -119,24 +120,56 @@ exports.post = function(req, res, next){
       res.redirect('/appointments');
     }
     else{
-      var appointment = new Appointment({
-        business: businessID,
-        customer: customer,
-        customerFirstName: custFirstName,
-        customerLastName: custLastName,
-        phone: customer.phone,
-        email: customer.email,
-        customerAge: custAge,
-        aptTime: req.body.aptTime,
-        createdOn: Date.now()
-      });
-      appointment.save(function(err) {
-        console.log("Saving");
-        if (err) {
-          console.log(err);
+      var currDate = new Date();
+      var aptTime = new Date(req.body.aptTime);
+      var timeDiff = Math.abs(aptTime - currDate);
+      var diffDays = Math.ceil(timeDiff / (1000 * 3600 * 24));
+      console.log(customer.age);
+      console.log(aptTime.getDay());
+      console.log(diffDays);
+      var options = {
+        scriptPath: __dirname,
+        args: [customer.age,
+               1,
+               aptTime.getDay(),
+               0,
+               diffDays]
+      }
+      PythonShell.run('predict.py', options, function (err, results) {
+        console.log(results);
+        prob = parseFloat(results);
+        console.log(prob);
+        var sms =false;
+        if (prob < 0.5) {
+          sms = true;
         }
+
+        var appointment = new Appointment({
+          business: businessID,
+          customer: customer,
+          customerFirstName: custFirstName,
+          customerLastName: custLastName,
+          phone: customer.phone,
+          email: customer.email,
+          customerAge: custAge,
+          aptTime: req.body.aptTime,
+          createdOn: Date.now(),
+          reminder: sms
+        });
+        appointment.save(function(err) {
+          console.log("Saving");
+          if (err) {
+            console.log(err);
+          }
+        });
+        res.redirect('/appointments');
       });
-      res.redirect('/appointments');
+      /*var child = spawn('python',["../../../ml/predict.py",
+                                    '' + customer.age,
+                                    'M',
+                                    '' + aptTime.getDay(),
+                                    '0',
+                                    '' + diffDays]);*/
     }
   });
 };

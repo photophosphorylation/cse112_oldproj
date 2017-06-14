@@ -20,7 +20,7 @@ def predict(args):
       exm.append(0)
 
    dayRes = [0 for i in range(len(days))]
-   dayRes[days.index(args[2])] = 1
+   dayRes[int(args[2])] = 1
    exm.extend(dayRes)
 
    exm.append(int(args[3]))
