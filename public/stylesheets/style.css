@@ -531,6 +531,262 @@ h3.signin-text {
 }
 
 
+/******** Features Section ********/
+h1.section-headers {
+    font-weight: 300;
+    letter-spacing: 1.3px;
+    padding-top: 40px;
+    padding-bottom: 60px;
+}
+
+h4.feature-title {
+    padding-top: 10px;
+    font-weight: 300;
+    letter-spacing: 1.3px;
+    font-size: 1.1em;
+}
+
+.icon-left {
+    float: left;
+}
+
+.feature-box {
+    padding-left: 130px;
+}
+
+.feature-descr {
+    font-weight: 300;
+    letter-spacing: 0.5px;
+}
+
+.col-md-6 {
+    padding-bottom: 30px;
+    color: gray;
+}
+
+/******* CONTACT US *********/
+section#contact_us {
+    background: #F9F9FA;
+}
+
+.contact-box {
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+#contact_form {
+    margin: 0 auto;
+    align-items: center;
+}
+
+.input-group {
+    width: 100%;;
+    margin-left: 0px;
+    margin-bottom: 0px;
+    padding-bottom: 20px;
+    text-align: center;
+}
+
+.form-control {
+    width: 100%;
+    box-shadow: none;
+    border: 1px solid black;
+}
+
+.form-color {
+    border: 1px solid black !important;
+    background: transparent;
+}
+
+.send-btn {
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    color: white;
+    font-size: 0.8em;
+}
+
+.custom-button:visited, .custom-button:link, .btn:visited, .btn:link {
+    color: white;
+}
+
+.btn {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.send-btn:hover {
+    background: #ffae00;
+    -webkit-box-shadow: 0px 1px 5px 0px rgba(0,0,0,0.75);
+    -moz-box-shadow: 0px 1px 5px 0px rgba(0,0,0,0.75);
+    box-shadow: 0px 1px 5px 0px rgba(0,0,0,0.75);
+}
+
+
+/******* Pricing ********/
+
+.row-box {
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.pricing-box {
+    border: 1px solid lightgray;
+    text-align: center;
+    border-radius: 4px;
+    border-top: 5px solid #071C49;
+}
+
+.pricing-box:hover {
+    -webkit-box-shadow: 2px 13px 108px -23px rgba(0,0,0,0.75);
+-moz-box-shadow: 2px 13px 108px -23px rgba(0,0,0,0.75);
+box-shadow: 2px 13px 108px -23px rgba(0,0,0,0.75);
+
+}
+
+.pricing-title {
+    font-weight: 300;
+    letter-spacing: 1.3px;
+    font-size: 1.5em;
+    color: black;
+    padding-top: 20px;
+    padding-bottom: 15px;
+}
+
+.pricing-info {
+    font-weight: 300;
+    letter-spacing: 1.3px;
+    font-size: 0.9em;
+    color: #8C96A9;
+}
+
+.pricing-item {
+    width: 15em;
+    font-weight: 300;
+    letter-spacing: 0.6px;
+    text-align: left;
+    margin: 0 auto 1em auto;
+}
+
+.pricing-descr {
+    font-weight: 300;
+    font-style: italic;
+    width: 200px;
+    text-align: center;
+    margin: 0 auto;
+    padding-bottom: 15px;
+}
+
+.pricing-month {
+    font-weight: 300;
+    color: #8C96A9;
+    font-size: .5em;
+}
+
+a.btn.btn-warning {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    font-size: .8em !important;
+}
+
+a.btn.btn-warning:hover {
+    background-color: #E59C00;
+}
+
+.form-color:focus {
+    border-color: #ffae00 !important;
+}
+
+/******** testimonials **********/
+p.testimony {
+    color: white;
+    font-style: italic;
+    font-size: 2em;
+    letter-spacing: 0.8px;
+    font-weight: 300;
+    line-height: 50px;
+    padding-bottom: 20px;
+}
+
+.carousel-inner {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center
+}
+
+.photo-img {
+    display: inline-block;
+}
+
+h5.photo-name-descr {
+    display: inline-block;
+    text-align: left;
+    padding-left: 20px;
+    text-transform: uppercase;
+    font-weight: 300;
+    color: white;
+    letter-spacing: 0.8px;
+    line-height: 25px;
+}
+
+.carousel {
+    background: transparent;
+}
+
+.carousel-indicators {
+    bottom: -55px;
+}
+
+#testimonial_blk {
+    padding-bottom: 110px;
+}
+
+/****** Footer *******/
+
+h3#format_Footer_h3 {
+    font-weight: 300;
+    letter-spacing: 1.3px;
+    font-size: 0.8em;
+    text-align: left;
+    margin-bottom: 20px;
+}
+
+p.contact-info {
+    font-weight: 300;
+    letter-spacing: .8px;
+    font-size: 0.9em;
+    text-align: left;
+    line-height: 20px;
+}
+
+p.copyright {
+    margin-bottom: 30px;
+    font-weight: 300;
+    letter-spacing: .8px;
+    font-size: 0.9em;
+    text-align: left;
+    line-height: 20px;
+}
+
+p.about-shiny-pigeon {
+    font-weight: 300;
+    letter-spacing: .8px;
+    font-size: 0.9em;
+    text-align: left;
+    line-height: 20px;
+}
+
+.footer-icons {
+    font-size: 1.4em;
+}
+
+ul.list-inline {
+    text-align: left;
+}
+
 /***********************************************/
 
 /********************* Registration Page **************************/
