@@ -61,6 +61,7 @@ exports.get = function(req,res){
 			res.render('business/addemployees', {
 				title: 'Express',
 				notsigned: notemployee,
+				employeeName: req.user[0].fname + ' ' + req.user[0].lname,
 				signed: employeee,
 				isOwner: req.user[0].admin,
 				businessId: req.user[0].business,

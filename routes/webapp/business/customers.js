@@ -35,6 +35,7 @@ exports.get = function(req,res){
 				customers: customer,
 				isOwner: req.user[0].admin,
 				businessId: req.user[0].business,
+        employeeName: req.user[0].fname + ' ' + req.user[0].lname,
 			});
 	  }
   );

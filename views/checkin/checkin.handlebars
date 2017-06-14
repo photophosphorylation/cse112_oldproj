@@ -10,13 +10,14 @@
 
     <style>
 
-    footer {
-        position: fixed;
-        bottom: 0;
-        width: 100%;
-        height: 50px;
-        background-color: #071C33;
-    }
+  footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    height: 75px;
+    background-color: #071C33;
+    text-align:center;
+  }
     footer h4 {
         color: #eeeeee;
         text-align: center;
@@ -26,57 +27,91 @@
         font-weight: bold;
         text-shadow: 0px 0px 8px #ffae00;
     }
+    .container {
+      position: relative;
+      background: white;
+      margin-top: 8%;
+      width: 50%;
+    }
+    .customBG {
+      background-color: #EBEBEB;
+    }
+    .thin-text {
+      font-family: 'Roboto', sans-serif;
+      font-weight: 300 !important;
+    }
+    .form-group > label {
+      letter-spacing: 1.3px;
+      font-size: 0.8em;
+      font-weight: 400;
+      font-family: 'Roboto', sans-serif;
+    }
+    .form-group > input {
+      box-shadow: inset 0 0 3px grey;
+      border-radius: 1px;
+      height: 34px;
+      padding: 6px 12px;
+      font-size: 14px;
+      line-height: 1.42857143;
+      color: #555;
+      background-color: #fff;
+    }
+    .btn-main {
+      color: whitesmoke;
+      font-weight: 400 !important;
+      font-size: 0.9em;
+      font-family: 'Roboto', sans-serif;
+      letter-spacing: 1.3px;
+      background-color: #f39c12;
+      margin-top: .6em;
+      width: 100%;
+    }
     </style>
 
 
 </head>
 
 <body class = "customBG">
-
-<h1 class ="header text-center"><strong>Welcome to {{companyName}}!</strong></h1>
-
-<!--<img class="checkinphoto center-block" src="{{logo}}" alt="...">-->
-
-<div class="row">
-    <div class="col-xs-10 col-sm-6 col-md-6 col-lg-4 center-block" style="float:none; padding: 20px">
-        <div class="box box-primary checkin-box">
-            <div class="box-header with-border">
-                <h3 class="box-title">Check In</h3>
-            </div>
-            {{#if error}}
-                <div class="alert alert-danger">{{error}}</div>
-            {{/if}}
-            <div class="box-body">
-                <form method="POST">
-                    <div class="form-group">
-                        <label class="control-label inputFirst">First Name</label>
-                        <input type="firstName" id="inputFirst" name="inputFirst" value="{{ inputFirst }}" class="form-control" required autofocus>
-                    </div>
-                    <div class="form-group">
-                        <label class="control-label inputLast">Last Name</label>
-                        <input type="lastName" id="inputLast" name="inputLast" value="{{ inputLast }}" class="form-control" required autofocus>
-                    </div>
-                    <div class="form-group">
-                        <label class="control-label inputDOB">Phone Number</label>
-                        <input type="phone" id="inputPhone" name="inputPhone" value="{{ inputPhone }}" class="form-control" placeholder='(xxx) xxx-xxxx' required autofocus>
-                    </div>
-                    <div class="checkbox">
-                        <label>
-                        <input type="checkbox" id="new-patient" name="new-patient" value="{{ newPatient }}">
-                        New Patient?
-                        </label>
-                    </div>
-                    <div class="box-footer">
-                        <input type="submit" id="checkin" class="btn btn-lg btn-primary center-block" value="Check In" >
-                    </div>
-                </form>
-            </div>
-        </div>
-    </div>
+<div class="container">
+  <div class="box-header" style="text-align: center; padding-bottom: 0px;">
+      <h3 class="box-title">Please enter your information here</h3>
+      <hr style="border-color: #071C33; border-width: 1px; max-width: 300px; margin-top: 10px;">
+  </div>
+  {{#if error}}
+      <div class="alert alert-danger">{{error}}</div>
+  {{/if}}
+  <div class="box-body" style="padding-top: 0px;">
+      <form method="POST">
+          <div class="form-group">
+              <label class="control-label inputFirst">First name</label>
+              <input type="firstName" id="inputFirst" name="inputFirst" value="{{ inputFirst }}" class="form-control" required autofocus>
+          </div>
+          <div class="form-group">
+              <label class="control-label inputLast">Last Name</label>
+              <input type="lastName" id="inputLast" name="inputLast" value="{{ inputLast }}" class="form-control" required autofocus>
+          </div>
+          <div class="form-group">
+              <label class="control-label inputDOB">Phone Number</label>
+              <input type="phone" id="inputPhone" name="inputPhone" value="{{ inputPhone }}" class="form-control" placeholder='(xxx) xxx-xxxx' required autofocus>
+          </div>
+          <div class="checkbox">
+              <label>
+              <input type="checkbox" id="new-patient" name="new-patient" value="{{ newPatient }}">
+              New Customer?
+              </label>
+          </div>
+          <div>
+              <input type="submit" id="checkin" class="btn btn-main" value="CHECK IN" >
+          </div>
+      </form>
+  </div>
 </div>
 
 <footer>
-    <h4>Powered by ENQUÉ</h4>
+    <span style="color:white;">Powered by</span>
+    <a href="http://cse112oldproj.herokuapp.com">
+      <img src="http://cse112oldproj.herokuapp.com/images/enque-logo.png" width="90px" height="40px" style="display:block; margin:auto;">
+    </a>
 </footer>
 
 </body>

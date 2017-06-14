@@ -1,4 +1,5 @@
 var mongoose = require('mongoose');
+mongoose.Promise = Promise;
 
 mongoose.connect('mongodb://test:test@ds141401.mlab.com:41401/shinypigeons_test');
 var db = mongoose.connection;
