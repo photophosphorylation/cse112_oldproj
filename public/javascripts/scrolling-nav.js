@@ -7,6 +7,8 @@ $(window).scroll(function() {
         $("a.joinNow ").css("background", "#ffae00");
         $("a.joinNow ").css("color", "white !important");
         $("a.joinNow ").css("border", "none");
+        $(".createaccount-text").css("color", "rgb(138, 149, 158)");
+
 
         // $("#navbar-back").css("background", "rgba(34, 53, 71, 1)");
     } else {
@@ -18,5 +20,7 @@ $(window).scroll(function() {
         $("a.joinNow ").css("background", "transparent");
         $("a.joinNow ").css("color", "#ffae00 !important");
         $("a.joinNow ").css("border", "1px solid #ffae00");
+        $(".createaccount-text").css("color", "white");
+
     }
 });
