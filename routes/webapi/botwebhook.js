@@ -45,9 +45,9 @@ exports.post = function(req, res, next) {
 
         if(event.postback) {
           receivedPostBack(event);
-        } else if (event.message && state_tracker.hasKey(senderID)) {
+        } else if (event.message && state_tracker.statesMapHasKey(senderID)) {
           continueConversation(event);
-        } else if(event.message && !state_tracker.hasKey(senderID)) {
+        } else if(event.message) {
           receivedMessage(event);
         } else {
           console.log("Webhook received unknown event: ", event);
@@ -64,13 +64,238 @@ exports.post = function(req, res, next) {
   }
 };
 
+function continueAddNew(senderID, messageText) {
+  var currentState = state_tracker.getCurrentState(senderID);
+  var responseText = "";
+  var customerName = "";
+  var businessName = "";
+  var date = "";
+  var time = "";
+
+  if(messageText === 'cancel') {
+    clearData(senderID);
+    responseText = `Ok we can start over or start something else. What
+    would you like to do?`;
+  } else {
+
+    switch (currentState) {
+      case 'S1':
+
+        businessName = messageText;
+
+        if(checkForBusiness(businessName)) {
+
+          state_tracker.addInfo(senderID, businessName);
+          state_tracker.changeState(senderID, 'S2');
+          responseText =
+          `Ok. Let's set up a new appointment with ${businessName}.
+What is your first and last name?`;
+
+        } else {
+
+          responseText = `Sorry. I couldn't find a record for ${bname}. Are you
+sure you entered the name correctly? Try again or reply with 'cancel' to
+start a new process.`
+
+        }
+        break;
+
+      case 'S2':
+
+        customerName = messageText;
+        businessName = state_tracker.getInfo(senderID, 1);
+        state_tracker.addInfo(senderID, customerName);
+        state_tracker.changeState(senderID, 'S3');
+
+        if(existingCustomer(businessName, customerName)) {
+
+          responseText =
+`Alright, ${customerName}. Looks like you've been to
+${businessName} before. That makes my life easier.
+What date would you like your appointment?`;
+
+        } else {
+
+          responseText =
+          `Looks like your a new ${businessName}
+customer, ${customerName}. I'm gonna need a few more pieces of information to
+set you up. First, what's your phone number?`;
+
+          state_tracker.changeAction(senderID, 'ADD_NEW_CUSTOMER'); // Branch to the new customer convo
+          state_tracker.changeState(senderID, 'N1'); // Customer is in the first state of that action
+        }
+        break
+      case 'S3':
+        date = messageText;
+        var availableTimes = getAvailableTimes(businessName, date);
+        customerName = state_tracker.getInfo(senderID, 2);
+        business_name = state_tracker.getInfo(senderID, 1);
+
+        if(availableTimes.length != 0) {
+          state_tracker.changeState(senderID, 'S4');
+          state_tracker.setAvailableTimes(senderID, availableTimes);
+          state_tracker.addInfo(senderID, date);
+          responseText = displayAvailableTimes(availableTimes);
+        } else {
+          responseText = `Sorry, ${customerName}, ${businessName} has no
+appointments available on that day. Try a different day.`;
+        }
+        break;
+      case 'S4':
+        var times_available =  state_tracker.getAvailableTimes(senderID);
+        // Check if user message is a number
+        if(!isNaN(messageText)) {
+          var choice = Number(messageText);
+
+          if(choice > times_available.length - 1 || choice < 0) {
+            responseText = `Sorry that was not a valid choice. Please respond
+with a valid choice`;
+          } else {
+            time = times_available[choice];
+            state_tracker.addInfo(senderID, time);
+            state_tracker.changeState(senderID, 'S5');
+            responseText = getConfirmationText(senderID);
+          }
+        } else {
+          if(messageText === 'another day') {
+            responseText = `Ok, what day would you like to see times for?`;
+            state_tracker.changeState(senderID, 'S3');
+          } else {
+            responseText = `That wasn't a valid response. Please respond with a
+valid choice.`;
+        }
+        break;
+    case 'S5':
+      var confirmationResponse = messageText;
+      customerName = state_tracker.getInfo(senderID, 2);
+
+      if(confirmationResponse === 'yes' || confirmationResponse === 'YES' || confirmationResponse === 'Yes') {
+        responseText = createNewAppointment(senderID);
+        clearData(senderID);
+      } else {
+        responseText = `REALLY, ${customerName}?!
+All that fucking work for nothing?`
+      }
+    } // END SWITCH
+  } // END ELSE
+  sendTextMessage(senderID, responseText);
+}
+
+/**
+ * Checks the business DB for existence of record with name: $business_name$
+ */
+function checkForBusiness(businessName) {
+  console.log("CHECKING IF %S IS AN ACTUAL BUSINESS IN THE DB", businessName);
+  //Add logic to find business in db
+  return true;
+}
+
+/**
+ * Checks the customer DB for the existence of a customer w
+ */
+function existingCustomer(businessName, customerName) {
+  // Add logic to determine if the customer is in the db for this business;
+  console.log("CHECKING IF %s is an existing customer of %s", customerName, businessName);
+  return true;
+}
+
+/**
+ * Gets the available appointment times for a business on a specified date.
+ * Returns an array of times or an empty array if no times are available.
+ */
+ function getAvailableTimes(businessName, date) {
+   console.log("GETTING AVAILABLE TIMES FOR %s on %s", businessName, date);
+   return ["10:00AM", "3:30PM", "4:30PM"];
+ }
+
+ /**
+  * Creates a structured numbered list response the available times.
+  * Customer is asked to reply with the number corresponding to the time they
+  * desire.
+  */
+  function displayAvailableTimes(availableTimes) {
+    var responseString = "Here are the available times for that day\n";
+    var counter = 0;
+
+    availableTimes.forEach(function(time) {
+      counter += 1;
+      responseString += `${String(counter)}. ${time}\n`;
+    })
+
+    responseString += `Respond with the number corresponding to the time you want
+to select for your appointment. Or with 'another day' if none of those times work for you.`;
+
+    return responseString;
+  }
+
+  /**
+   * Creates a response with all the appointment information and asks the
+   * Customer to respond yes or no to confirm the info is correct and to proceed
+   * to creating and saving the appointment to the DB.
+   */
+   function getConfirmationText(senderID) {
+     console.log("GETTING CONFIRMATION TEXT");
+     var confText = [];
+     var businessName = state_tracker.getInfo(senderID, 1);
+     var customerName = state_tracker.getInfo(senderID, 2);
+     var date = state_tracker.getInfo(senderID, 3);
+     var time = state_tracker.getInfo(senderID, 4);
+     confText.push(`So let's make sure we have all the right information.\n`);
+     confText.push(`You want an appointment with ${businessName}\n`);
+     confText.push(`On ${date} at ${time}`);
+     confText.push(`Is this correct, ${customerName}`);
+     console.log("************");
+     console.log(confText.join(""));
+     return confText.join("");
+   }
+
+   /**
+    * Creates and saves the customer's appointment in the DB.
+    * returns responseText for the customer
+    */
+    function createNewAppointment(senderID) {
+        var customerName = state_tracker.getInfor(senderID, 1);
+        return `THAT SHIT WAS CREATED, ${customerName}! Hooray!!!`;
+    }
+
+    /**
+     * Called when the customer is done with an action or when they want to cancel
+     * an action in progress.
+     */
+    function clearData(senderID) {
+      state_tracker.clerData(senderID);
+    }
+
+
+    /**
+     * The Check Appointment Time Conversation Branch
+     */
+    function continueCheckTime(senderID, messageText) {
+        sendTextMessage(senderID, "I WOULD CHECK BUT I'M TOO LAZY");
+    }
+
+/**
+ * Called when the bot is in the middle of an action conversation. Checks the
+ * value of action and delegates to the appropriate method accordingly.
+ */
 function continueConversation(event) {
   var senderID = event.sender.id;
-  var statesArray = state_tracker.getArray(senderID);
   var action = state_tracker.getAction(senderID);
-  console.log("Continuing Conversation. Current state is ${action}");
-  var messageText = `This is a response to continue the convo for ${action}.`;
-  sendTextMessage(senderID, messageText);
+  var message = event.message;
+  console.log("Continuing Conversation. Current state is %s", action);
+//  var messageText = `This is a response to continue the convo for ${action}.`;
+
+  switch (action) {
+    case 'SET_UP_NEW_APPOINTMENT':
+      continueAddNew(senderID, message.text);
+      break;
+    case 'CHECK_APPOINTMENT_TIME':
+      continueCheckTime(message.text);
+      break;
+    default:
+      console.log("DIDNT RECOGNIZE SHIIIIT");
+  }
+
 }
 
 /**
@@ -120,7 +345,7 @@ function receivedPostBack(event) {
 
   console.log(payload);
 
-  if(state_tracker.hasKey(senderID)) {
+  if(state_tracker.statesMapHasKey(senderID)) {
     messageText = handleConflict(payload, senderID);
   } else {
 
@@ -142,7 +367,7 @@ function receivedPostBack(event) {
           messageText = "I'll get started on your appointment cancellation. What is the name of the buisness?";
           break;
         case 'GET_STARTED_PAYLOAD':
-          messageText = "Hi there! Welcome to Enque! I can help you with your appointments. To get started pick an option from the menu in the textbox or reply with 'more help'(case sensitive)";
+          messageText = "Hi there! Welcome to Enque! I can help you with your appointment bullshit. To get started pick an option from the menu in the textbox or reply with 'more options'";
           gettingStarted = true;
           break;
         default:
@@ -154,7 +379,7 @@ function receivedPostBack(event) {
     // Do not add to state_tracker if GETTING_STARTED_PAYLOAD was recieved
     if(!gettingStarted) {
       // set the action for this user in state_tracker
-      state_tracker.initStateTracker(senderID, payload);
+      state_tracker.initMapValues(senderID, payload);
     }
   }
 
