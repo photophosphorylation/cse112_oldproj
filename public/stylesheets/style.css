@@ -540,10 +540,11 @@ h1.section-headers {
 }
 
 h4.feature-title {
-    padding-top: 10px;
+    padding-top: 3px;
     font-weight: 300;
     letter-spacing: 1.3px;
     font-size: 1.1em;
+    color: black;
 }
 
 .icon-left {
