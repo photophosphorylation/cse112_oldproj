@@ -81,6 +81,7 @@ exports.get = function(req, res){
           appointments: appointment,
           todayApts: todayApts,
           missedApts: missedApts,
+		      employeeName: req.user[0].fname + ' ' + req.user[0].lname,
           isOwner: req.user[0].admin,
           businessId: req.user[0].business
         });
@@ -89,6 +90,7 @@ exports.get = function(req, res){
         res.render('business/appointments', {
           title: 'Appointments',
           appointments: appointment,
+		      employeeName: req.user[0].fname + ' ' + req.user[0].lname,
           todayApts: todayApts,
           missedApts: missedApts,
           isOwner: req.user[0].admin,
