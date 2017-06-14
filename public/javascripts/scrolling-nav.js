@@ -2,6 +2,7 @@
 $(window).scroll(function() {
     if ($(".navbar").offset().top > 50) {
         $(".container-fluid ").css("background", "white");
+        $(".container-fluid ").css("border-bottom", "1px solid lightgray");
         $(".navbar-default .navbar-nav > li > a").css("color", "#8a959e");
         $("a.joinNow ").css("background", "#ffae00");
         $("a.joinNow ").css("color", "white !important");
@@ -11,6 +12,7 @@ $(window).scroll(function() {
     } else {
         $(".container-fluid ").css("transition", "background 0.5s ease");
         $(".container-fluid ").css("background", "transparent");
+        $(".container-fluid ").css("border-bottom", "none");
         $(".navbar-default .navbar-nav > li > a").css("color", "white");
         $("a.joinNow").css("color", "#ffae00 !improtant");
         $("a.joinNow ").css("background", "transparent");
