@@ -109,7 +109,7 @@ exports.post = function(req, res, next){
   Customer.findOne({
     business: businessID,
     firstName: custFirstName,
-    lastName: custLastName, 
+    lastName: custLastName,
     age: custAge})
   .exec(function(err, customer) {
     if (customer === null){
@@ -119,7 +119,7 @@ exports.post = function(req, res, next){
     else{
       var appointment = new Appointment({
         business: businessID,
-        customer: customer._id,
+        customer: customer,
         customerFirstName: custFirstName,
         customerLastName: custLastName,
         phone: customer.phone,

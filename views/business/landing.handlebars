@@ -4,13 +4,15 @@
         <title>{{ title }}</title>
         <!-- Google Fonts-->
         <link href='http://fonts.googleapis.com/css?family=Lato:100,300,400,700,900,100italic,300italic,400italic,700italic,900italic' rel='stylesheet' type='text/css'>
-        <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
-        <!-- Local BootStrap -->
+        <link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,500,500i,700,700i" rel="stylesheet">        <!-- Local BootStrap -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
         <!--Local Unviersal Stylesheet-->
         <link rel='stylesheet' href='/stylesheets/landingStyle.css'/>
         <!--Font Awesome-->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+
+        <link rel='stylesheet' href='/stylesheets/style.css'/>
+
 
         <!--Icon -->
         <link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon">
@@ -22,6 +24,9 @@
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
         <!--Analytics-->
         <script src='/javascripts/analytics.js'></script>
+
+        <script src='/javascripts/scrolling-nav.js'></script>
+
 
     </head>
     <body id="top-page">
@@ -38,13 +43,13 @@
                        <span class = "icon-bar"></span>
                    </button>
                    <!--No Implementation of navbar-brand & page-scroll-->
-                   <a class = "navbar-brand page-scroll" href="#top-page">Enqué</a>
+                   <a class = "navbar-brand page-scroll" href="#top-page"><img src="images/enque-logo.png" width="90px" height="40px"></a>
                </div>
                <!-- No Implementation of page-scroll-->
                <div class = "collapse navbar-collapse" id="navbar-collapse-1">
-                   <ul class="nav navbar-nav navbar-right navbar-landing-padding">
+                   <ul class="nav navbar-nav navbar-left navbar-landing-padding">
                        <li>
-                           <a class="page-scroll" href="#overview">Overview</a>
+                           <a class="page-scroll" href="#overview">Features</a>
                        </li>
 
                        <li>
@@ -56,12 +61,18 @@
                        </li>
 
                        <li>
-                           <a class="page-scroll" href="#contact_us">Contact Us</a>
+                           <a class="page-scroll" href="#contact_us" style="float: right">Contact Us</a>
                        </li>
-
+                   </ul>
+                   <ul class="nav navbar-nav navbar-right navbar-landing-padding">
                        <li>
                            <!--<button type = "button" class = "btn btn-default navbar-btn">Navbar Button</button>-->
-                           <a href="/login" class="page-scroll" style="color: #ffae00;">Log In</a>
+                           <a href="/login" class="page-scroll">Login</a>
+                           <!--<a href="/login" class="btn custom-button page-scroll navbar-btn" id="login-btn-navbar">Log In</a>-->
+                       </li>
+                       <li>
+                           <!--<button type = "button" class = "btn btn-default navbar-btn">Navbar Button</button>-->
+                           <a class="joinNow" href="/register" class="page-scroll">Sign Up</a>
                            <!--<a href="/login" class="btn custom-button page-scroll navbar-btn" id="login-btn-navbar">Log In</a>-->
                        </li>
                    </ul>
@@ -72,14 +83,15 @@
         <header>
             <div class="header-content">
                 <div class="header-content-inner">
-                    <h1>Revolutionize your patient waiting experience</h1>
+                    <h1 class="header-title">Revolutionize Patient Scheduling</h1>
                     <br>
                     <p>Effortless check-in, form management, arrival notification,
                        and appointment integration for your office.</p>
                     <br>
-                    <a href="/register" class="btn btn-primary btn-xl page-scroll tryBtn" onclick="tryClick()">Try It Today</a>
+                    <a href="/register" class="btn btn-primary btn-xl page-scroll tryBtn" onclick="tryClick()">Get Started</a>
                 </div>
             </div>
+        </div>
         </header>
 
         <!-- Overview -->
