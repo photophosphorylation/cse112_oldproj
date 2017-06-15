@@ -15,7 +15,7 @@ exports.get = function (req, res) {
 	var missed = 0;
 	var ontime = 0;
 
-	if( true ) { //isPeter
+	if( isPeter ) { //isPeter
 		res.render('business/dashboard-admin', {
 			title: 'Express',
 			eid: employeeId,
