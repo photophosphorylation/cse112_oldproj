@@ -10,58 +10,115 @@ function dateToString( date ) {
     dateOfString += date.getFullYear();
     return dateOfString;
 }
+
 function getData(callback) {
     var http = new XMLHttpRequest();
     url = '/pullData';
-  http.onload = function() {
-      if (http.readyState == 4){
-                if (typeof callback == "function"){
-									var missed = 0;
-									var onTime = 0
-                    resp = callback.apply(http);
-										for (var i = 0; i <resp.length; i++) {
-												if(resp[i].missed == false) {
-													onTime +=1;
-												}
-												else {
-													missed +=1;
-												}
-										}
-										missedData.push(onTime);
-										missedData.push(missed);
-										data = {
-        datasets: [{
+		http.onload = function() {
+    	if (http.readyState == 4){
+      	if (typeof callback == "function"){
+					var missedData = [];
+					var missed = 0;
+					var onTime = 0
+
+          resp = callback.apply(http);
+					for (var i = 0; i <resp.length; i++) {
+						if(resp[i].missed == false) {
+							onTime += 1;
+						}
+						else {
+							missed += 1;
+						}
+					}
+					missedData.push(onTime);
+					missedData.push(missed);
+
+					// appts missed
+					data = {
+        		datasets: [{
             data: missedData,
             backgroundColor: ['rgb(54, 162, 235)', 'rgb(255, 99, 132)' ]
-        }],
+        	}],
             labels: [ 'On Time', 'Missed']
-        };
-        var chart1 = new Chart(document.getElementById("chart1"), {
+        	};
+        	var chart1 = new Chart(document.getElementById("chart1"), {
             type: 'doughnut',
             data: data,
             options: {
-              title: {
+              	title: {
                   display: true,
                   text: 'Appointments Missed/On Time'
-              }
-            }
-        });
+              	}
+            	}
+        	});
 
-                    return resp;
-                }
-            }
-            else {
-                console.log(http.statusText);
-            }
-  };
-    http.open("GET", url, true);
+					var twenty = 0;
+					var forty = 0;
+					var sixty = 0;
+					var eighty = 0;
+					var oneHundred = 0;
+					var ages = [];
+
+					for (var i = 0; i <resp.length; i++) {
+						var age = parseInt(resp[i].customerAge);
+						if(age < 21) {
+							twenty += 1;
+						}
+						else if (age < 41){
+							forty += 1;
+						}
+						else if (age < 61){
+							sixty += 1;
+						}
+						else if(age < 81){
+							eighty += 1;
+						}
+						else {
+							oneHundred += 1;
+						}
+					}
+
+					ages.push(twenty);
+					ages.push(forty);
+					ages.push(sixty);
+					ages.push(eighty);
+					ages.push(oneHundred);
+
+					// age range
+					data = {
+						datasets: [{
+								data: ages,
+								backgroundColor: [
+									'rgb(255, 206, 86)',
+									'rgb(75, 192, 192)',
+									'rgb(153, 102, 255)',
+									'rgb(255, 159, 64)'],
+						}],
+						labels: [ '0-20', '21-40', '41-60', '61-80', '81-100']
+						};
+						var chart1 = new Chart(document.getElementById("chart3"), {
+								type: 'pie',
+								data: data,
+								options: {
+									title: {
+											display: true,
+											text: 'Age of Customers'
+									}
+								}
+						});
+          return resp;
+        }
+      }
+      else {
+      	console.log(http.statusText);
+      }
+  }; // end of onload()
+  http.open("GET", url, true);
   http.send();
-}
+} // end of function
 
 function cb() {
     resp = JSON.parse(this.responseText);
-    console.log(resp);
-
     return resp;
 }
 function getDate(){
@@ -145,8 +202,8 @@ $(document).ready(function() {
     function addNumUsers() {
       data = {
         datasets: [{
-            label: "Users online",
-            data: [400, 500, 400, 600, 1000, 700, 800, 650, 600, 660, 770],
+            label: "Appointments",
+            data: [30, 50, 40, 60, 63, 70, 60, 65, 80, 66, 77],
             backgroundColor: 'rgba(54, 162, 235, 0.2)',
             borderColor: 'rgba(255,99,132,1)',
             borderWidth: 3
@@ -159,97 +216,73 @@ $(document).ready(function() {
         options: {
             title: {
                 display: true,
-                text: 'Number of Users Online Per Month'
+                text: 'Number of Appointments Per Month'
             }
         }
       });
     }
-    addTypeOfMessagingUsed();
-    function addTypeOfMessagingUsed() {
-      data = {
-        datasets: [{
-            data: [20, 10, 40, 20],
-            backgroundColor: [
-              'rgb(255, 206, 86)',
-              'rgb(75, 192, 192)',
-              'rgb(153, 102, 255)',
-              'rgb(255, 159, 64)'],
-        }],
-        labels: [ 'SMS', 'Email', 'Phone', 'Messenger']
-        };
-        var chart1 = new Chart(document.getElementById("chart3"), {
-            type: 'pie',
-            data: data,
-            options: {
-              title: {
-                  display: true,
-                  text: 'Method of Communication'
-              }
-            }
-        });
-    }
-    addTypeOfAppointment();
-    function addTypeOfAppointment() {
-      data = {
-        datasets: [{
-            data: [54, 22, 11, 5],
-            backgroundColor: [
-              'rgba(255, 99, 132, 0.2)',
-              'rgba(54, 162, 235, 0.2)',
-              'rgba(255, 206, 86, 0.2)',
-              'rgba(75, 192, 192, 0.2)',
-              'rgba(255, 159, 64, 0.2)'],
-            borderColor: [
-              'rgba(255, 99, 132, 0.2)',
-              'rgba(54, 162, 235, 0.2)',
-              'rgba(255, 206, 86, 0.2)',
-              'rgba(75, 192, 192, 0.2)',
-              'rgba(255, 159, 64, 1)'
-            ]
-        }],
-        labels: ['Recruiting', 'Press', 'Logistics', 'Personal']
-        };
-        var chart1 = new Chart(document.getElementById("chart4"), {
-            type: 'pie',
-            data: data,
-            options: {
-              title: {
-                  display: true,
-                  text: 'Reason for Appointment'
-              }
-            }
-        });
-    }
-    addRating();
-    function addRating() {
-      data = {
-        datasets: [{
-            data: [10, 30, 42, 50, 40],
-            backgroundColor: [
-              'rgba(255, 99, 132, 0.2)',
-              'rgba(54, 162, 235, 0.2)',
-              'rgba(255, 206, 86, 0.2)',
-              'rgba(75, 192, 192, 0.2)',
-              'rgba(255, 159, 64, 0.2)'],
-            borderColor: [
-              'rgba(255, 99, 132, 0.2)',
-              'rgba(54, 162, 235, 0.2)',
-              'rgba(255, 206, 86, 0.2)',
-              'rgba(75, 192, 192, 0.2)',
-              'rgba(255, 159, 64, 1)'
-            ]
-        }],
-        labels: [ '1', '2', '3', '4', '5']
-        };
-        var chart1 = new Chart(document.getElementById("chart5"), {
-            type: 'pie',
-            data: data,
-            options: {
-              title: {
-                  display: true,
-                  text: 'Ratings received in feedback'
-              }
-            }
-        });
-    }
+    // addTypeOfAppointment();
+    // function addTypeOfAppointment() {
+    //   data = {
+    //     datasets: [{
+    //         data: [54, 22, 11, 5],
+    //         backgroundColor: [
+    //           'rgba(255, 99, 132, 0.2)',
+    //           'rgba(54, 162, 235, 0.2)',
+    //           'rgba(255, 206, 86, 0.2)',
+    //           'rgba(75, 192, 192, 0.2)',
+    //           'rgba(255, 159, 64, 0.2)'],
+    //         borderColor: [
+    //           'rgba(255, 99, 132, 0.2)',
+    //           'rgba(54, 162, 235, 0.2)',
+    //           'rgba(255, 206, 86, 0.2)',
+    //           'rgba(75, 192, 192, 0.2)',
+    //           'rgba(255, 159, 64, 1)'
+    //         ]
+    //     }],
+    //     labels: ['Recruiting', 'Press', 'Logistics', 'Personal']
+    //     };
+    //     var chart1 = new Chart(document.getElementById("chart4"), {
+    //         type: 'pie',
+    //         data: data,
+    //         options: {
+    //           title: {
+    //               display: true,
+    //               text: 'Reason for Appointment'
+    //           }
+    //         }
+    //     });
+    // }
+    // addRating();
+    // function addRating() {
+    //   data = {
+    //     datasets: [{
+    //         data: [10, 30, 42, 50, 40],
+    //         backgroundColor: [
+    //           'rgba(255, 99, 132, 0.2)',
+    //           'rgba(54, 162, 235, 0.2)',
+    //           'rgba(255, 206, 86, 0.2)',
+    //           'rgba(75, 192, 192, 0.2)',
+    //           'rgba(255, 159, 64, 0.2)'],
+    //         borderColor: [
+    //           'rgba(255, 99, 132, 0.2)',
+    //           'rgba(54, 162, 235, 0.2)',
+    //           'rgba(255, 206, 86, 0.2)',
+    //           'rgba(75, 192, 192, 0.2)',
+    //           'rgba(255, 159, 64, 1)'
+    //         ]
+    //     }],
+    //     labels: [ '1', '2', '3', '4', '5']
+    //     };
+    //     var chart1 = new Chart(document.getElementById("chart5"), {
+    //         type: 'pie',
+    //         data: data,
+    //         options: {
+    //           title: {
+    //               display: true,
+    //               text: 'Ratings received in feedback'
+    //           }
+    //         }
+    //     });
+    // }
 });
