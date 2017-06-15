@@ -4,12 +4,8 @@ var appointments = require('../../../model/appointments.js');
 
 exports.get = function(req, res) {
   var db = req.db;
-<<<<<<< Updated upstream
-  appointments.find().populate('customer business').exec(function (err, appointments) {
-=======
   console.log(req.user[0].business);
   appointments.find({'business': req.user[0].business}).populate('customer business').exec(function (err, appointments) {
->>>>>>> Stashed changes
     if (err) {
         // Note that this error doesn't mean nothing was found,
         // it means the database had an error while searching, hence the 500 status
