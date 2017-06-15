@@ -9,6 +9,7 @@ function dateToString( date ) {
 
     return dateOfString;
 }
+<<<<<<< Updated upstream
 
 function getData() {
 	console.log("IN GETDATA()");
@@ -19,6 +20,51 @@ function getData() {
       if(http.readyState == 4 && http.status == 200) {
         document.getElementById('appointments').innerHTML = http.response;
       }
+=======
+function getData(callback) {
+    var http = new XMLHttpRequest();
+    url = '/pullData';
+  http.onload = function() {
+      if (http.readyState == 4){
+                if (typeof callback == "function"){
+									missedData = [0,0]
+									var missed = 0;
+									var onTime = 0
+                    resp = callback.apply(http);
+										for (var i = 0; i <resp.length; i++) {
+												if(resp[i].missed == false) {
+													onTime +=1;
+												}
+												else {
+													missed +=1;
+												}
+										}
+										missedData = [onTime, missed];
+										data = {
+        datasets: [{
+            data: missedData,
+            backgroundColor: ['rgb(54, 162, 235)', 'rgb(255, 99, 132)' ]
+        }],
+            labels: [ 'On Time', 'Missed']
+        };
+        var chart1 = new Chart(document.getElementById("chart1"), {
+            type: 'doughnut',
+            data: data,
+            options: {
+              title: {
+                  display: true,
+                  text: 'Appointments Missed/On Time'
+              }
+            }
+        });
+
+                    return resp;
+                }
+            }
+            else {
+                console.log(http.statusText);
+            }
+>>>>>>> Stashed changes
   };
   http.send();
 }
