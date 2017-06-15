@@ -12,32 +12,14 @@
     <script type="text/javascript">  window.setTimeout("location=('checkin');",5000); </script>
 
     <style>
-        body, h1, h2, h3, h4, h5, h6 {
-            /*color: {{containerText}} !important;*/
-        }
-
-        .customBG {
-            /*background-image: url(/images/bg/full/{{bg}});*/
-            /*background-image: url({{bg}});*/
-            background: linear-gradient(to bottom, rgba(242,97,0, 1), rgba(255,151,0, 0.2));
-        }
-
-        .btn {
-            /*background-color: {{buttonBg}};
-            border-color: {{buttonBg}};
-            color: {{buttonText}}*/
-        }
-
-        .container-checkin {
-            /*background-color: {{containerBg}};*/
-        }
-        footer {
-            position: fixed;
-            bottom: 0;
-            width: 100%;
-            height: 50px;
-            background-color: #071C33;
-        }
+      footer {
+        position: fixed;
+        bottom: 0;
+        width: 100%;
+        height: 75px;
+        background-color: #071C33;
+        text-align:center;
+      }
         footer h4 {
             color: #eeeeee;
             text-align: center;
@@ -46,6 +28,25 @@
             line-height: 50px;
             font-weight: bold;
             text-shadow: 0px 0px 8px #ffae00;
+        }
+        .container {
+          position: relative;
+          background: white;
+          margin-top: 8%;
+          width: 50%;
+          border: 1px solid lightgray;
+          border-radius: 4px;
+          border-top: 5px solid #071C49;
+        }
+        .customBG {
+          background-color: #EBEBEB;
+        }
+        .thin-text {
+          font-family: 'Roboto', sans-serif;
+          font-weight: 300 !important;
+        }
+        .top-text {
+          font-size: 2.5em;
         }
     </style>
 </head>
@@ -62,14 +63,20 @@
 
 <!-- Took out all unnecessary divs to make consistent with checkin page design -->
 <div class="container">
-    <h1 class="header text-center"> <strong>Thank you! <br />We will be with you shortly</strong></h1>
-    <!-- <h1 class="header">Someone will be with you shortly.</h1> -->
-    <img class="checkinphoto center-block" src="{{logo}}" alt="Logo">
+  <div class="box-header" style="text-align: center; padding-bottom: 0px;">
+    <h1 class="top-text">Thank you!<br>We will be with you shortly.</h1>
+    <hr style="border-color: #071C33; border-width: 1px; max-width: 300px; margin-top: 10px;">
+    <img class="checkinphoto center-block" src="{{logo}}" alt="Logo" width="150" height="150" style="display:block; margin:auto; margin-top: 5px; margin-bottom: 15px; ">
+  </div>
 </div>
 <!-- <meta http-equiv="refresh" content="5;nocode" /> -->
 </body>
 
 <footer>
-    <h4>Powered by ENQUÉ</h4>
+    <span style="color:white;">Powered by</span>
+    <a href="http://cse112oldproj.herokuapp.com">
+      <img src="http://cse112oldproj.herokuapp.com/images/enque-logo.png" width="90px" height="40px" style="display:block; margin:auto;">
+    </a>
 </footer>
+
 </html>

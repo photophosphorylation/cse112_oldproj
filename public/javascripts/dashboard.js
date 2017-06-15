@@ -46,7 +46,7 @@ function getData(callback) {
               }
             }
         });
-										
+
                     return resp;
                 }
             }
@@ -61,14 +61,14 @@ function getData(callback) {
 function cb() {
     resp = JSON.parse(this.responseText);
     console.log(resp);
-		
+
     return resp;
 }
 function getDate(){
     var currentdate = new Date();
     var datetime= '';
     datetime += dateToString(currentdate );
-    var header = $('<h5/>');
+    var header = $('<span/>');
     header.append(datetime);
     $('#currentDate').replaceWith(header);
 }
