@@ -53,6 +53,42 @@
   } .main-header .btn-info:hover {
     color: #fdad2a;
   }
+
+  .main-header {
+      height: 70px !important;
+  }
+
+  .main-header .btn-info {
+      padding-top: 18px;
+      font-size: 0.8em;
+  }
+
+  .btn-logout {
+      border: 1px solid rgb(255, 174, 0) !important;
+      border-radius: 35px !important;
+      padding-left: 20px;
+      padding-right: 20px;
+      padding-top: 10px !important;
+      padding-bottom: 10px !important;
+      margin-top: 18px !important;
+  }
+
+  .btn-logout:hover{
+      background-color: #ffae00 !important;
+      color: white !important;
+  }
+
+  .sidebar-toggle {
+      font-size: 25px;
+  }
+
+  .new-logo {
+      margin: 15px 0 10px 20px;
+  }
+
+  .main-sidebar, .left-side {
+      padding-top: 68px;
+  }
 </style>
 
 <header class="main-header">
@@ -70,7 +106,7 @@
     <!-- Header Navbar: style can be found in header.less -->
     <nav class="navbar navbar-static-top" role="navigation">
       <!-- Navbar Right Menu -->
-      <a href="/login" class="roboto btn-logout navbar-btn btn btn-sm btn-info btn-flat pull-right"><i class="fa fa-sign-out" aria-hidden="true"></i> LOG OUT</a>
+      <a href="/login" class="roboto btn-logout navbar-btn btn btn-sm btn-info btn-flat pull-right"> LOG OUT</a>
       <a href="/accountSettings" id="settings-business" class="roboto navbar-btn btn btn-sm btn-info btn-flat pull-right"><i class="fa fa-wrench" aria-hidden="true"></i> SETTINGS</a>
       <a id="settings-admin" data-toggle="modal" data-target="#myModal"  class="roboto navbar-btn btn btn-sm btn-info btn-flat pull-right"><i class="fa fa-wrench" aria-hidden="true"></i> SETTINGS</a>
     </nav>
