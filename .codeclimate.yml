@@ -36,3 +36,4 @@ exclude_paths:
 - public/plugins
 - public/stylesheets
 - public/javascripts
+- routes/api
