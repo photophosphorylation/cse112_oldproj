@@ -20,25 +20,21 @@ def predict(args):
       exm.append(0)
 
    dayRes = [0 for i in range(len(days))]
-   dayRes[days.index(args[2])] = 1
+   dayRes[int(args[2])] = 1
    exm.extend(dayRes)
 
-   exm.append(0)
    exm.append(int(args[3]))
-
-   exm1 = list(exm)
-   exm1[-2] = 1
+   exm.append(int(args[4]))
 
    reg = pkl.load(open('model.pkl'))
-   prob0 = reg.predict_proba([exm])
-   prob1 = reg.predict_proba([exm1])
+   prob = reg.predict_proba([exm])
 
-   print(prob0[0][1])
-   print(prob1[0][1])
+   print(prob[0][1])
 
 if __name__ == '__main__':
    args = sys.argv[1:]
    args[0] = int(args[0])
+   args[-2] = int(args[-2])
    args[-1] = int(args[-1])
 
    predict(args)

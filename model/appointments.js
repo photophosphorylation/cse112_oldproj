@@ -21,6 +21,7 @@ var appointmentSchema = mongoose.Schema({
     aptTime: { type: Date, default: Date.now },
     missed: { type: Boolean, default: false },
     checkedIn: { type: Boolean, default: false },
+    reminder: { type: Boolean, default: false },
     createdOn: { type: Date, default: Date.now }
 });
 

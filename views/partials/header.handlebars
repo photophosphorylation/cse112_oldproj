@@ -1,23 +1,113 @@
-<header class="main-header">
+<style>
+  .logo {
+    text-align: left !important;
+  }
+  .sidebar-toggle {
+    color: white !important;
+  }
+  .skin-blue .sidebar-menu>li:hover>a, .skin-blue .sidebar-menu>li.active>a {
+    border-left-color: transparent;
+  }
 
-    <!-- Logo -->
-    <a href="index2.html" class="logo">
-        <!-- mini logo for sidebar mini 50x50 pixels -->
-        <span class="logo-mini"><b>A</b>LT</span>
-        <!-- logo for regular state and mobile devices -->
-        <!-- <span class="logo-lg"><img style="width: 100%; transform: translate(-10px, -18px);" src="images/logo.png"/></span> -->
-        ENQUÉ
+  .navbar-icon {
+    min-height: 50px;
+    width: 50px;
+    margin: auto;
+    background: red;
+    color: white !important;
+    text-align: center;
+  }
+  .navbar-btn {
+    margin: 9px 14px 9px 0;
+    color: white;
+    padding: 5px;
+  }
+  .nav-bar, .logo, .main-header {
+    background-color: #092543 !important;
+    padding-right: 10px;
+  }
+  .sidebar-toggle {
+  }
+  .new-logo {
+    width:90px !important;
+    height: 40px;
+    float: left;
+    margin: 10px 0 10px 20px;
+  }
+  .main-header {
+    height: 50px !important;
+  }
+  .thick-text {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 500 !important;
+  }
+  .roboto {
+    font-family: 'Roboto', sans-serif !important;
+  }
+  .main-header .btn-info {
+    background-color: #092543 !important;
+    border-color: #092543;
+    font-weight: 800 !important;
+    color: whitesmoke;
+    font-size: .85em;
+  } .main-header .btn-info:hover {
+    color: #fdad2a;
+  }
+
+  .main-header {
+      height: 70px !important;
+  }
+
+  .main-header .btn-info {
+      padding-top: 18px;
+      font-size: 0.8em;
+  }
+
+  .btn-logout {
+      border: 1px solid rgb(255, 174, 0) !important;
+      border-radius: 35px !important;
+      padding-left: 20px;
+      padding-right: 20px;
+      padding-top: 10px !important;
+      padding-bottom: 10px !important;
+      margin-top: 18px !important;
+  }
+
+  .btn-logout:hover{
+      background-color: #ffae00 !important;
+      color: white !important;
+  }
+
+  .sidebar-toggle {
+      font-size: 25px;
+  }
+
+  .new-logo {
+      margin: 15px 0 10px 20px;
+  }
+
+  .main-sidebar, .left-side {
+      padding-top: 68px;
+  }
+</style>
+
+<header class="main-header">
+  <!-- Sidebar toggle button-->
+    <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button">
+        <span class="sr-only">Toggle navigation</span>
     </a>
+    <!-- Logo -->
+    <!-- mini logo for sidebar mini 50x50 pixels -->
+    <!--<span class="logo-mini"><b>A</b>LT</span>-->
+    <!-- logo for regular state and mobile devices -->
+    <!-- <span class="logo-lg"><img style="width: 100%; transform: translate(-10px, -18px);" src="images/logo.png"/></span> -->
+    <img src="http://cse112oldproj.herokuapp.com/images/enque-logo.png" class="new-logo">
 
     <!-- Header Navbar: style can be found in header.less -->
     <nav class="navbar navbar-static-top" role="navigation">
-        <!-- Sidebar toggle button-->
-        <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button">
-            <span class="sr-only">Toggle navigation</span>
-        </a>
-        <!-- Navbar Right Menu -->
-
-        <a href="/login" style="margin: 9px 14px 9px 0; font-family: Helvetica" class="btn btn-sm btn-info btn-flat pull-right">Logout</a>
-
+      <!-- Navbar Right Menu -->
+      <a href="/login" class="roboto btn-logout navbar-btn btn btn-sm btn-info btn-flat pull-right"> LOG OUT</a>
+      <a href="/accountSettings" id="settings-business" class="roboto navbar-btn btn btn-sm btn-info btn-flat pull-right"><i class="fa fa-wrench" aria-hidden="true"></i> SETTINGS</a>
+      <a id="settings-admin" data-toggle="modal" data-target="#myModal"  class="roboto navbar-btn btn btn-sm btn-info btn-flat pull-right"><i class="fa fa-wrench" aria-hidden="true"></i> SETTINGS</a>
     </nav>
 </header>

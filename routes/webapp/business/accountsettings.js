@@ -26,6 +26,7 @@ exports.get = function (req,res) {
 
             render(req, res, {
                 message: req.flash("permission"),
+								employeeName: req.user[0].fname + ' ' + req.user[0].lname,
             });
 
         }

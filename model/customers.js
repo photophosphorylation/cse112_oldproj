@@ -15,6 +15,7 @@ var customerSchema = mongoose.Schema({
     firstName: String,
     lastName: String,
     age: String,
+    sex: String,
     address: String,
     phone: String,
     email: String,

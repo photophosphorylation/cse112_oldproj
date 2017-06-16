@@ -121,6 +121,7 @@ function cb() {
     resp = JSON.parse(this.responseText);
     return resp;
 }
+
 function getDate(){
     var currentdate = new Date();
     var datetime= '';
@@ -129,6 +130,7 @@ function getDate(){
     header.append(datetime);
     $('#currentDate').replaceWith(header);
 }
+
 function startTime() {
   var today = new Date();
   var h     = today.getHours();
@@ -216,7 +218,7 @@ $(document).ready(function() {
         options: {
             title: {
                 display: true,
-                text: 'Number of Appointments Per Month'
+                text: 'Number of Users Online Per Month'
             }
         }
       });
@@ -285,4 +287,28 @@ $(document).ready(function() {
     //         }
     //     });
     // }
-});
+    addTypeOfMessagingUsed();
+    function addTypeOfMessagingUsed() {
+      data = {
+        datasets: [{
+            data: [20, 10, 40, 20],
+            backgroundColor: [
+              'rgb(255, 206, 86)',
+              'rgb(75, 192, 192)',
+              'rgb(153, 102, 255)',
+              'rgb(255, 159, 64)'],
+        }],
+        labels: [ 'SMS', 'Email', 'Phone', 'Messenger']
+        };
+        var chart1 = new Chart(document.getElementById("chart3"), {
+            type: 'pie',
+            data: data,
+            options: {
+              title: {
+                  display: true,
+                  text: 'Method of Communication'
+              }
+            }
+        });
+    }
+	});

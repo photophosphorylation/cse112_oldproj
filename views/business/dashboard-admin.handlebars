@@ -1,28 +1,109 @@
 <style>
-  #calendar {
-      font-size: 8pt;
-      font-family: 'Source Sans Pro','Helvetica Neue',Helvetica,Arial,sans-serif;
-  }
-  #calendar h2 {
-      font-size: 12pt;
-      font-family: 'Source Sans Pro','Helvetica Neue',Helvetica,Arial,sans-serif;
-  }
-  .top-buffer { margin-bottom:40px; }
+.title {
+  font-weight: bold;
+}
+.card {
+  background: #e4e4e4;
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+.donut-widget {
+  padding: 4px 4px 4px 4px;
+  background: white;
+  border: 1px solid lightgray;
+  border-radius: 4px;
+  border-top: 5px solid #071C49;
+}
+.task {
+  background: #e4e4e4;
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+  padding: 10px;
+  margin: 3px 0px 3px 0px;
+}
+.task-header {
+  background: #59ABE3;
+  color: white;
+  font-weight: bold;
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+  padding: 10px;
+  margin: 3px 0px 3px 0px;
+}
+.task-container {
+  border: 10px red;
+}
+.row {
+  margin: auto;
+}
+div.toggle-group > label.toggle-on {
+  font-size: 14px !important;
+  background-color: #3c8dbc !important;
+  position: absolute !important;
+  top: 0 !important;
+  bottom: 0 !important;
+  left: 0 !important;
+  right: 50% !important;
+  margin: 0 !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+} div.toggle-group > span.toggle-handle {
+  background-color: lightgray !important;
+  font-size: 14px !important;
+} div.toggle-group > label.toggle-off {
+  background-color: #e6e6e6 !important;
+  font-size: 14px !important;
+}
+#tasks, #monthlysummary, #yearlysummary, #calendarContainer, #companysummary, #companystatistics {
+  height: 38vh;
+  overflow: scroll;
+}
+#calendar {
+  font-size: 8pt;
+  font-family: 'Roboto', sans-serif;
+  height: 100%;
+  width: 100%;
+}
+#calendar h2 {
+  font-size: 12pt;
+  font-family: 'Roboto', sans-serif;
+}
+.top-text > span {
+  font-family: 'Roboto', sans-serif;
+  font-size: 1.5em;
+  font-weight: 100;
+} .top-text{
+  text-align: center;
+}
+#companysummary > div > div:first-child {
+  border-right-style: solid;
+  border-right: thin solid #EBEBEB;
+  padding-top: 10%;
+  padding-bottom: 20%;
+}
+
+#companysummary > div, #companysummary > div > div {
+  height: 100%;
+}
+
+#profilePic {
+  font-size: 20px;
+  text-align: center;
+}
+
+#settings-business{
+  visibility: hidden !important;
+  height:0px !important;
+  width:0px !important;
+}
 </style>
 
 <section class="content-header">
-  <div class="dash-header">
-    <h2 style="display:inline-block;">Dashboard </h2>
-    <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal" style="display:inline-block; position:absolute; right: 10px;"><i class="fa fa-cogs" aria-hidden="true"></i></button>
-  </div>
-</section>
-
-<section>
-  <div id="test">
-    <h4> Test - Display Appointments from DB </h4>
-    <button onclick="getData()">Click me</button>
-    <p id="appointments"></p>
-  </div>
+    <div class="top-text">
+      <span style="font-weight: 300; margin:0 0.2em 0 0.4em; color: rgb(32, 128, 193);">Dashboard</span>
+      <span style="font-weight: 100; margin-right:0.2em; color: darkgray;">|</span>
+      <span id="currentDate"></span>
+    <div>
 </section>
 
 <div id="myModal" class="modal fade" role="dialog">
@@ -122,57 +203,65 @@
 </div>
 
 <section class="content">
-  <div class="dash-wrapper">
-    <div class="row top-buffer">
+  <div class="column">
+    <div class="row">
       <div class="col-md-3 card">
-        <div class="pie-widget">
+        <div class="donut-widget">
           <canvas id="chart1"></canvas>
         </div>
       </div>
       <div class="col-md-3 card">
-        <div class="pie-widget">
+        <div class="donut-widget">
           <canvas id="chart4"></canvas>
         </div>
       </div>
       <div class="col-md-3 card">
-        <div class="pie-widget">
+        <div class="donut-widget">
           <canvas id="chart3"></canvas>
         </div>
       </div>
       <div class="col-md-3 card">
-        <div class="pie-widget">
+        <div class="donut-widget">
           <canvas id="chart5"></canvas>
         </div>
       </div>
-
     </div>
     <div class="row top-buffer">
-      <div class="col-md-12">
-        <div class="card text-center user-chart">
+      <div class="col-md-12 card">
+        <div class="donut-widget text-center user-chart">
           <canvas id="chart2"></canvas>
         </div>
       </div>
 
     </div>
     <div class="row top-buffer">
-      <div class="card-wrapper">
-        <div class="col-md-2">
-          <div class="stat-widget">
-          <div class="card text-center text-card">
-            <h3 class="card-header">Users Online</h3>
+      <div class="col-md-3 card">
+        <div class="donut-widget">
+          <div  style="background-color:white;" class="card text-center text-card">
+            <h3 class="card-header" style="background-color:white;">Users Online</h3>
             <i class="fa fa-users fa-2x" aria-hidden="true"></i>
-            <div class="card-block">
+            <div class="card-block" style="background-color:white;">
               <h1 class="card-title">5</h1>
             </div>
           </div>
         </div>
+      </div>
+      <div class="col-md-4 card">
+        <div class="donut-widget">
+          <div class="card text-center" style="background-color:white;">
+            <h4 style="text-align: center;">Upcoming Appointments</h4>
+            <div style="width: 100%">
+              <div id='calendar'></div>
+            </div>
+          </div>
         </div>
-        <div class="col-md-6">
-          <div class="stat-widget">
-          <div class="card text-center">
-            <h3 class="card-header">Most Viewed Pages</h3>
+      </div>
+      <div class="col-md-5">
+        <div class="donut-widget">
+          <div class="card text-center" style="background-color:white;">
+            <h3 class="card-header" style="background-color:white;">Most Viewed Pages</h3>
             <i class="fa fa-eye fa-2x" aria-hidden="true"></i>
-            <div class="card-block">
+            <div class="card-block" style="background-color:white;">
               <div style="padding-left: 50px; padding-right:50px; padding-bottom: 40px; font-size: 22px;">
                 <span style="float: left;">/dashboard</span>
                 <b style="float: right;">25 views</b> <br>
@@ -182,24 +271,12 @@
                 <b style="float: right;">25 views</b><br>
               </div>
               <div style="padding-bottom: 10px;">
-                <button type="button" class="btn btn-danger">Daily</button>
-                <button type="button" class="btn btn-default">Weekly</button>
-                <button type="button" class="btn btn-default">Monthly</button>
+                <button type="button" style="background-color: #092543" class="btn btn-danger">Daily</button>
+                <button type="button" style="background-color: white" class="btn btn-default">Weekly</button>
+                <button type="button" style="background-color: white" class="btn btn-default">Monthly</button>
               </div>
             </div>
           </div>
-          </div>
-        </div>
-        <div class="col-md-4 card">
-          <div class="stat-widget">
-
-          <div class="card text-center">
-            <h4 style="text-align: center;">Upcoming Appointments</h4>
-            <div style="width: 100%">
-              <div id='calendar'></div>
-            </div>
-          </div>
-        </div>
         </div>
       </div>
     </div>
