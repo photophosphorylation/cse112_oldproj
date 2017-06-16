@@ -1,3 +1,5 @@
+/* jshint node: true */
+
 /**
 * Using Rails-like standard naming convention for endpoints.
 * GET     /users              ->  index

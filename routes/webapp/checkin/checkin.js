@@ -3,8 +3,8 @@ var style = require('./../../../lib/style.js');
 
 var request = require('request');
 
-var Appointments = require('../../../model/appointments.js')
-var Customers = require('../../../model/customers.js')
+var Appointments = require('../../../model/appointments.js');
+var Customers = require('../../../model/customers.js');
 
 exports.get = function (req, res) {
 
@@ -43,7 +43,7 @@ exports.post = function (req, res, next) {
     lastName: inputLast,
     phone: inputPhone
   }).exec(function(err, customer) {
-    if (customer == null) {
+    if (customer === null) {
       res.render('checkin/checkin', {
         error: 'No customer found!',
         inputFirst: inputFirst,
@@ -59,13 +59,13 @@ exports.post = function (req, res, next) {
         containerBg: style.rgbObjectToCSS(business.style.containerBg)
       });
     } else {
-      console.log("found!")
+      console.log("found!");
       Appointments.find({
         customer: customer,
         checkedIn: false
       }).sort({aptTime: -1})
       .exec(function(err, result) {
-        if (result.length == 0) {
+        if (result.length === 0) {
           res.render('checkin/checkin', {
             error: 'No appointments found!',
             inputFirst: inputFirst,
@@ -86,7 +86,7 @@ exports.post = function (req, res, next) {
             console.log("Saving");
             if (err) {
               console.log(err);
-            };
+            }
           });
           res.redirect('./done');
         }

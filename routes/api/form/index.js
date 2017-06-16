@@ -1,3 +1,5 @@
+/* jshint node: true */
+
 'use strict';
 
 var express = require('express');
@@ -8,7 +10,7 @@ var auth = require('../../../lib/auth');
 
 /**
 * @apiDescription Getting a custom form from the database. Authentication is required.
-* 
+*
 * in the database schema.
 * @api {get} /m/form/:id Get a form
 * @apiName controller.show

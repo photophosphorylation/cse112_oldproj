@@ -47,9 +47,9 @@ exports.get = function (req, res) {
 					apptInfo.apptTime = formatDate(elem.date);
 
 					if(elem.checkedIn) {
-						apptInfo.checkedIn = " has checked in."
+						apptInfo.checkedIn = " has checked in.";
 					} else {
-						apptInfo.checkedIn = " has not checked in."
+						apptInfo.checkedIn = " has not checked in.";
 					}
 					formattedAppts.push(apptInfo);
 				});

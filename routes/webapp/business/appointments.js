@@ -134,7 +134,7 @@ exports.post = function(req, res, next){
                aptTime.getDay(),
                0,
                diffDays]
-      }
+      };
       PythonShell.run('predict.py', options, function (err, results) {
         console.log(results);
         prob = parseFloat(results);
