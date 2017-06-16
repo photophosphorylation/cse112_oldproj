@@ -34,3 +34,5 @@ exclude_paths:
 - test/
 - client/
 - public/plugins
+- public/stylesheets
+- public/javascripts
